@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Animation Configure File                                                              //
+    //  Plugin - landInAO.js                                                                  //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,11 +32,46 @@
 
 
 $(function () {
+    (function($$){
 
-    $$(".land").landInAO();
-    //$$(".land").ao( {
-        //"x": "-100px",
-        //"scale": "1.1",
-    //});
+        /**
+         * landInAO
+         * @param {float} ratio Ratio de desplazamiento 1 = 100% 0.5 = 50%
+         * @return {sal}
+         */
 
+        $$.fn.landInAO = function() {
+
+            // Pasamos por todos los elementos
+            $(this.el).each(function() {
+
+                // Obtenemos los datos del tag data-*
+                var ratio = $$(this).getData(this).ratio;
+                var duration = $$(this).getData(this).duration;
+
+                // Ponemos valores por defecto en caso que no existan en el data-*
+                ratio = typeof ratio !== 'undefined' ? ratio: 1.1;
+                duration = typeof duration !== 'undefined' ? duration: "50%";
+
+                // Animamos
+                //$$(this).fadeIn(duration).scale(ratio, duration);
+                $$(this).ao(
+
+                {
+                    "x":"-250px",
+                    "scale":"2",
+                    "y":"-200px"
+                },
+
+                $(this).closest(".trigger")[0],
+                "onEnter"
+                );
+
+                console.log(this.closest(".trigger"));
+            })
+
+            return this;
+        };
+
+    }(sal));
 });

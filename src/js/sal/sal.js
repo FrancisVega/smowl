@@ -35,8 +35,9 @@ var sal, $$;
 
 (function () {
 
+
     /**
-     * Constructs Sal
+     * Constructor sal
      * @param {string} el Elemento (query) que vamos a animar
      * @param {string} triggerel Elemento que vamos a usar como trigger
      * @return {sal}
@@ -44,11 +45,10 @@ var sal, $$;
      */
 
     sal = $$ = function(el, triggerel) {
-
         triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
         return new SAL(el, triggerel);
-
     };
+
 
     /**
      * Main function
@@ -62,7 +62,7 @@ var sal, $$;
         // About object
         this.about = {
             "name": "Secuoyas Animation Library",
-            "autor": "Francis Vega",
+            "autor": "Secuoyas",
             "version": "0.1"
         };
 
@@ -71,40 +71,35 @@ var sal, $$;
         this.BROWSER_HEIGHT = $(window).height();
         this.BROWSER_WIDTH = $(window).width();
 
-        // Añadimos a this el selector y el trigger como objetos jQuery.
+        // Propiedades
         this.el = el;
         this.triggerel = triggerel;
 
-        // Funcs
-        Object.size = function(obj) {
-            var size = 0, key;
-            for (key in obj) {
-                if (obj.hasOwnProperty(key)) size++;
-            }
-            return size;
-        };
+        /**
+         * getData
+         * @param {string} el Elemento (query) del que vamos a obtener los data-*
+         * @return {string|int|float}
+         */
 
-        // Get data-* tags
         this.getData = function(el) {
             return $(el).data();
         }
 
+        // Devolvemos SAL
         return this;
 
     };
 
     /**
-     * SAL API Prototype
+     * API Basada en Prototype
      */
 
     sal.fn = SAL.prototype = {
 
-
         /**
          * Move Y
          * @param {float} fromValue Valor desde el que hacemos la escala
-         * @param {integer-string} duration Valor de scroll en % o en px de la
-         *                                  duración de la animación
+         * @param {integer-string} duration Duración de la animación en %/px
          * @param {integer} offset Valor en px para el "retardo" de la animación
          */
 
@@ -135,10 +130,10 @@ var sal, $$;
 
 
         /**
-         * MultiAnimation
+         * Object animation
          */
 
-        template : function(animationObject) {
+        ao : function(animationObject, triggerElement, triggerHook) {
 
             // TweenLite
             var TWEEN = TweenLite.from(
@@ -147,9 +142,9 @@ var sal, $$;
 
             // Scene
             var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
+                triggerElement: triggerElement,
                 duration: "100%",
-                triggerHook: "onEnter"
+                triggerHook: triggerHook
             })
 
             // Attachments
