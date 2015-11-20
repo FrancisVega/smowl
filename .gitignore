@@ -1,0 +1,21 @@
+# Node and Bower modules
+node_modules/
+bower_components/
+# Todos los ocultos
+.*
+# Excepto .gitignore
+!/.gitignore
+# Archivos css
+src/css/
+# Dist
+dist/
+# Sass temporal folder
+.sass-cache/
+# Archivo de sistemas operativos
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
