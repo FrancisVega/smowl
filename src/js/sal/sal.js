@@ -72,9 +72,6 @@ var sal, $$;
         this.BROWSER_WIDTH = $(window).width();
 
         // Añadimos a this el selector y el trigger como objetos jQuery.
-        //this.el = $(el);
-        //this.triggerel = $(triggerel)[0];
-
         this.el = el;
         this.triggerel = triggerel;
 
@@ -131,6 +128,60 @@ var sal, $$;
 
             // Attachments
             .setTween(TWEEN).addIndicators(true).addTo(this.CONTROLLER);
+
+            return this;
+
+        },
+
+
+        /**
+         * MultiAnimation
+         */
+
+        template : function(animationObject) {
+
+            // TweenLite
+            var TWEEN = TweenLite.from(
+                this.el, 1, animationObject
+            );
+
+            // Scene
+            var SCENE = new ScrollMagic.Scene({
+                triggerElement: this.triggerel,
+                duration: "100%",
+                triggerHook: "onEnter"
+            })
+
+            // Attachments
+            .setTween(TWEEN).addTo(this.CONTROLLER);
+
+            return this;
+
+        },
+
+
+        /**
+         * TEMPLATE
+         */
+
+        template : function(value) {
+
+            value = typeof value !== 'undefined' ? value: "100%";
+
+            // TweenLite
+            var TWEEN = TweenLite.from(
+                this.el, 1, { x: value }
+            );
+
+            // Scene
+            var SCENE = new ScrollMagic.Scene({
+                triggerElement: this.triggerel,
+                duration: "100%",
+                triggerHook: "onEnter"
+            })
+
+            // Attachments
+            .setTween(TWEEN).addTo(this.CONTROLLER);
 
             return this;
 
