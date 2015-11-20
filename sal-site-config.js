@@ -33,6 +33,14 @@
 
 $(function () {
 
-    // Code here
+    // Todos los elementos con la clase ".klander-left" aparecerán por la izquierda con
+    // desplazamiento y fadein con las opciones por defecto
+    $$(".klander-left").sideIn('left');
+
+    // Lo mismo que arriba pero por la derecha para la clase ".jandler-right"
+    $$(".jandler-right").sideIn('right');
+
+    // Todos los elementos con la clase ".mod-parallax" harán parallax con un ratio de 1.5
+    $$(".mod-parallax").modParallax("1.5");
 
 });
