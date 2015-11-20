@@ -41,16 +41,23 @@ $(function () {
          * @param {integer} offset Valor en pixel para el "retardo" de la animación.
          */
 
-        $$.fn.sideIn = function() {
+        $$.fn.sideIn = function(side) {
 
             // Pasamos por todos los elementos
             $(this.el).each(function() {
 
+                // Seleccionamos un multiplicador según el lado
+                var sides = { "left":1, "right":-1 }
+
                 // Obtenemos los datos del tag data-*
+                var amount = $$(this).getData(this).amount;
                 var duration = $$(this).getData(this).duration;
 
+                // Valor por defecto
+                amount = typeof amount !== 'undefined' ? amount: "100";
+
                 // Animamos
-                $$(this).moveX("100px", duration);
+                $$(this).moveX(amount*sides[side]+"px", duration);
 
             })
 
