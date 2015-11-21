@@ -2,6 +2,9 @@
 
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
+    //   _ _ |  . _                                                                           //
+    //  _\(_||. |_\                                                                           //
+    //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
     //  Core - sal.js                                                                         //
     //                                                                                        //
@@ -90,39 +93,81 @@ var sal, $$;
 
     };
 
-    /**
-     * API Basada en Prototype
-     */
+
+    //   /\  _ .
+    //  /~~\|_)|
+    //      |
 
     sal.fn = SAL.prototype = {
 
         /**
-         * Move Y
+         * Move
+         * Mueve un elemento en la coordenada y con los valores proporcionados
+         * @param {string} coord Coordenada: x,y,z
          * @param {float} fromValue Valor desde el que hacemos la escala
          * @param {integer-string} duration Duración de la animación en %/px
          * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        moveY : function(fromValue, duration, offset, triggerHook) {
+        move : function(coord, value, duration, offset, triggerHook) {
 
             duration = typeof duration !== 'undefined' ? duration: "100%";
             offset = typeof offset !== 'undefined' ? offset: 0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
 
-            // Timeline
-            var TWEEN = new TimelineLite();
-            TWEEN.from( this.el, 1, { y: fromValue });
+            console.log(this.triggerel);
 
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
-                duration: duration,
-                triggerHook: triggerHook,
-                offset: offset
-            })
+            // TODO:
+            // Por favor encontrar una solución a esta chapu-za
+            var animationObjects = {
+                "x":{"x": value},
+                "y":{"y": value},
+                "z":{"z": value}
+            }
 
-            // Attachments
-            .setTween(TWEEN).addIndicators(true).addTo(this.CONTROLLER);
+            var _this = this;
+            $(this.el).each(function() {
+
+                // Timeline
+                var TWEEN = new TimelineLite();
+                TWEEN.from( this, 1, animationObjects[coord]);
+
+                // Scene
+                var SCENE = new ScrollMagic.Scene({
+                    triggerElement: this.closest(_this.triggerel),
+                    duration: duration,
+                    triggerHook: triggerHook,
+                    offset: offset
+                })
+
+                // Attachments
+                .setTween(TWEEN).addIndicators(true).addTo(_this.CONTROLLER);
+
+            });
+
+            return this;
+        },
+
+
+        /**
+         * Move Y
+         * Mueve un elemento en la coordenada Y, este método es básicamente para probar el
+         * como funciona el uso de otros métodos más "core", en concreto move()
+         * @param {float} value Valor desde el que hacemos la escala
+         * @param {integer-string} duration Duración de la animación en %/px
+         * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         */
+
+        moveY : function(value, duration, offset, triggerHook) {
+
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            // Uso del método privado move()
+            this.move("y", value, duration, offset, triggerHook);
 
             return this;
 
@@ -131,24 +176,36 @@ var sal, $$;
 
         /**
          * Object animation
+         * Mueve un elemento utilizando un objeto Greensock
+         * @param {object} animationObject Objeto tipo Greensock para animar el elemento
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        ao : function(animationObject, triggerElement, triggerHook) {
+        oa : function(animationObject, duration, offset, triggerHook) {
 
-            // TweenLite
-            var TWEEN = TweenLite.from(
-                this.el, 1, animationObject
-            );
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
 
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: triggerElement,
-                duration: "100%",
-                triggerHook: triggerHook
-            })
+            var _this = this;
+            $(this.el).each(function() {
 
-            // Attachments
-            .setTween(TWEEN).addTo(this.CONTROLLER);
+                // TweenLite
+                var TWEEN = TweenLite.from(
+                    this, 1, animationObject
+                );
+
+                // Scene
+                var SCENE = new ScrollMagic.Scene({
+                    triggerElement: this.closest(_this.triggerel),
+                    duration: duration,
+                    triggerHook: triggerHook
+                })
+
+                // Attachments
+                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
+
+            });
 
             return this;
 
@@ -290,68 +347,33 @@ var sal, $$;
         },
 
 
-        /**
-         * Parallax
-         * @param {string} ratio El ratio de "parallax" de la imagen
-         * @return {sal} Devuelve un objeto SAL.
-         */
-
-        parallax: function(direction, triggerHook) {
-
-            direction = typeof direction !== 'undefined' ? direction: -1;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onLeave";
-
-            // Timeline
-            var TWEEN = TweenLite.from(
-                    this.el, 1,
-                    {
-                        css: { "transform": "translate3d(0,0%,0.001px)" },
-                        ease: Power0.easeNone
-                    });
-
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: $(this.triggerel)[0],
-                duration: this.BROWSER_HEIGHT + ($(this.el).innerHeight()),
-                triggerHook: triggerHook
-            })
-
-            // Attachments
-            .setTween(TWEEN).addTo(this.CONTROLLER);
-
-            return this;
-
-        },
-
-
-        /**
-         * Parallax de uso genérico
-         * @param {string} ratio El ratio de "parallax" de la imagen
-         * @return {sal} Devuelve un objeto SAL.
-         */
-
-        modParallax_temp: function(ratio) {
+        foo: function(ratio) {
 
             var _this = this;
-
             $(this.el).each(function() {
 
-                // Create Extra Div
-                $(this).prepend('<div class="mod-parallax--back"></div>');
+                // Creamos el contenedor extra
+                $(this).prepend('<div class="hero-parallax--back"></div>');
 
-                // Get image from main container
-                var image = $(this).css("background-image");
+                // Obtenemos la imagen del contenedor parallax
+                image = $(this).css("background-image");
 
-                // Get extra div of current container (this)
-                var extra = $(this).children(".mod-parallax--back");
+                // Obtenemos el objeto del contenedor extra
+                extra = $(this).children(".hero-parallax--back");
 
-                // Add the image to extra Div
-                $(extra).css({ "background-image": image});
-
-                // Remove image from main container
+                // Aplicamos los estilos necesarios al contenedor parallax
                 $(this).css({ "background-image": "none"});
+                $(this).css({ "position": "relative"});
+                $(this).css({ "overflow": "hidden"});
 
-                // Set some styles..
+                // Aplicamos los estilos necesarios al nuevo contenedor
+                $(extra).css({ "background-image": image });
+                $(extra).css({ "position": "absolute" });
+                $(extra).css({ "left": "0" });
+                $(extra).css({ "right": "0" });
+                $(extra).css({ "top": "0" });
+                $(extra).css({ "bottom": "0" });
+                $(extra).css({ "border": "2px solid purple" });
                 $(extra).css({ "height": (100 * ratio) + "%" });
                 $(extra).css( {
                     "transform":
@@ -360,26 +382,25 @@ var sal, $$;
 
                 // Timeline
                 var TWEEN = TweenLite.to(
-                        extra, 1,
+                        $(extra), 1,
                         {
-                            css: { "transform": "translate3d(0,0,0.001px)" },
+                            css: { "transform": "translate3d(0, 0%, 0.001px)" },
+                            scale: 1.2,
                             ease: Power0.easeNone
                         });
 
                 // Scene
                 var SCENE = new ScrollMagic.Scene({
-                    triggerElement: this,
+                    triggerElement: this.closest(_this.triggerel),
                     duration: _this.BROWSER_HEIGHT + ($(this).innerHeight()),
                     triggerHook: "onEnter"
                 })
 
                 // Attachments
-                .setTween(TWEEN).addTo(_this.CONTROLLER);
-
-            });
-
-            return this;
+                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
+           });
 
         }
+
     }
 })();

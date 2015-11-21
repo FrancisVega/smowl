@@ -36,6 +36,8 @@ $(function () {
 
         /**
          * landInAO
+         * El elemento entra en la escena "desde abajo" con un efecto de "aterrizaje" animando la 
+         * escala, opacidad y la coordenada y
          * @param {float} ratio Ratio de desplazamiento 1 = 100% 0.5 = 50%
          * @return {sal}
          */

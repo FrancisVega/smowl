@@ -33,10 +33,6 @@
 
 $(function () {
 
-    $$(".land").landInAO();
-    //$$(".land").ao( {
-        //"x": "-100px",
-        //"scale": "1.1",
-    //});
-
+    //$$(".land", ".trigger").oa( { "scale": 1.5, "x": "-100px" }, "50%", 0, "onEnter" );
+    $$(".mod-parallax", ".trigger").foo(4.5);
 });
