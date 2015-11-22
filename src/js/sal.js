@@ -66,7 +66,7 @@ var sal, $$;
         this.about = {
             "name": "Secuoyas Animation Library",
             "autor": "Secuoyas",
-            "version": "0.1"
+            "version": "0.21"
         };
 
         // Globals
@@ -324,7 +324,6 @@ var sal, $$;
                 $(extra).css({ "right": "0" });
                 $(extra).css({ "top": "0" });
                 $(extra).css({ "bottom": "0" });
-                $(extra).css({ "border": "2px solid purple" });
                 $(extra).css({ "height": (100 * ratio) + "%" });
                 $(extra).css( {
                     "transform":
@@ -363,6 +362,68 @@ var sal, $$;
 
         // TODO: Terminar de implementar heroparllax como mod-parallax
 
+        heroParallax: function(ratio, duration) {
+
+            duration = typeof duration !== 'undefined' ? duration:
+                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+
+            var _this = this;
+            var Trigger;
+
+            // Selectores $jQuery
+            $(this.el).each(function() {
+
+                Trigger = this.closest(_this.triggerel)
+
+                // Creamos el contenedor extra
+                $(this).prepend('<div class="hero-parallax--back"></div>');
+
+                // Obtenemos la imagen del contenedor parallax
+                image = $(this).css("background-image");
+
+                // Obtenemos el objeto del contenedor extra
+                extra = $(this).children(".hero-parallax--back");
+
+                // Aplicamos los estilos necesarios al contenedor parallax
+                $(this).css({ "background-image": "none"});
+                $(this).css({ "position": "relative"});
+                $(this).css({ "overflow": "hidden"});
+
+                // Aplicamos los estilos necesarios al nuevo contenedor
+                $(extra).css({ "background-image": image });
+                $(extra).css({ "background-repeat": "no-repeat" });
+                $(extra).css({ "background-size": "cover" });
+                $(extra).css({ "backface-visibility": "hidden" });
+                $(extra).css({ "z-index": "-1" });
+                $(extra).css({ "position": "absolute" });
+                $(extra).css({ "left": "0" });
+                $(extra).css({ "right": "0" });
+                $(extra).css({ "top": "0" });
+                $(extra).css({ "bottom": "0" });
+                $(extra).css({ "height": "100%" });
+                $(extra).css({ "transform": "translate(0, "+ ratio +")" });
+
+                // Timeline
+                var TWEEN = TweenLite.to(
+                        $(extra), 1,
+                        {
+                            css: { "transform": "translate3d(0, 0%, 0.001px)" },
+                            scale: 1.2,
+                            ease: Power0.easeNone
+                        });
+
+                // Scene
+                var SCENE = new ScrollMagic.Scene({
+                    triggerElement: Trigger,
+                    duration: duration,
+                    triggerHook: "onEnter"
+                })
+
+                // Attachments
+                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
+           });
+
+        }
 /*
  *        heroParallax : function(ratio, duration) {
  *
