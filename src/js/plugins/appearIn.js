@@ -42,17 +42,17 @@ $(function () {
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        $$.fn.appearIn = function(value, duration, offset, triggerHook) {
+        $$.fn.appearIn = function(axy, value, duration, offset, triggerHook) {
 
             // Si no se indica nada en el método los valores deben estar en el data-*
             duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
             offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
+
             // Animamos
             $$(this.el, this.triggerel)
-                .moveY(value, duration, offset, triggerHook)
-                .scale(1.25);
+                .move(axy, value, duration, offset, triggerHook)
 
             return this;
         };

@@ -40,26 +40,22 @@ $(function () {
          * @return {sal}
          */
 
-        $$.fn.landIn = function() {
+        $$.fn.landIn = function(value, duration, offset, triggerHook) {
 
-            // Pasamos por todos los elementos
-            $(this.el).each(function() {
+            // Si no se indica nada en el método los valores deben estar en el data-*
+            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
-                // Obtenemos los datos del tag data-*
-                var ratio = $$(this).getData(this).ratio;
-                var duration = $$(this).getData(this).duration;
-
-                // Ponemos valores por defecto en caso que no existan en el data-*
-                ratio = typeof ratio !== 'undefined' ? ratio: 1.1;
-                duration = typeof duration !== 'undefined' ? duration: "50%";
-
-                // Animamos
-                //$$(this).fadeIn(duration).scale(ratio, duration);
-                $$(this).soa( {"scale":2} );
-            })
+            // Animamos
+            $$(this.el, this.triggerel)
+                .moveY(value, duration, offset, triggerHook)
+                .scale(1.25);
 
             return this;
+
         };
 
     }(sal));
+
 });

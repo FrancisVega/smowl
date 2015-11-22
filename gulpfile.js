@@ -122,8 +122,7 @@
     // Para hacer un build limpio primero borramos todo el contenido del directorio dst.
 
     gulp.task('clean', function () {
-      return del([ dirs.dst + '**/*'
-      ]);
+      return del([ dirs.dst + '**/*' ]);
     });
 
 
@@ -144,6 +143,7 @@
     //
 
     gulp.task('minimize', function() {
+    console.log("MINIMIZE");
         return gulp.src([
                 dirs.src + 'js/sal/sal.js',
                 dirs.src + 'js/sal/plugins/appearIn.js',
@@ -165,6 +165,7 @@
     //
 
     gulp.task('minimize-bundle', function() {
+    console.log("MINIMIZE-BUNDLE");
         return gulp.src([
                 dirs.src + 'js/vendor/TweenMax.js',
                 dirs.src + 'js/vendor/ScrollMagic.js',
@@ -180,14 +181,25 @@
             .pipe(gulp.dest(dirs.src + '/min'))
             .pipe(rename('sal-0.1-bundle.min.js'))
             .pipe(uglify())
-            .pipe(gulp.dest('js'))
             .pipe(gulp.dest(dirs.src + '/min'))
     });
 
+    //
+    // Delete concats sal javascript files
+    //
+    gulp.task('cleanSalJs', function () {
+    console.log("DELETE");
+      return del([ dirs.src + 'min/sal-0.1-bundle.js', dirs.src + "min/sal-0.1.js" ]);
+    });
 
     //
     // TAREAS GULP
     //
 
     gulp.task('default', ['sass', 'watch']);
-    gulp.task('min', ['minimize', 'minimize-bundle']);
+    gulp.task('min', function(callback) {
+        runSequence(
+            ['minimize', 'minimize-bundle' ],
+            'cleanSalJs',
+        callback);
+    });

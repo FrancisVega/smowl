@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - sideIn.js                                                                    //
+    //  Plugin - pluginName.js                                                                //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,42 +35,19 @@ $(function () {
     (function($$){
 
         /**
-         * appearIn
-         * @param {float} value Valor desde el que hacemos la entrada en Y.
-         * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
-         * @param {integer} offset Valor en pixel para el "retardo" de la animación.
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         * pluginName.js
+         * @param {type} name Description
+         * @return {sal}
          */
 
-        $$.fn.sideIn = function(side, value, duration, offset, triggerHook) {
+        $$.fn.pluginName = function() {
 
-            // Si no se indica nada en el método los valores deben estar en el data-*
-            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
-            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
-
-            // Seleccionamos un multiplicador según el lado
-            var sides = { "left":1, "right":-1 }
-
-            // Animamos
             $$(this.el, this.triggerel)
-                .move("x", value*sides[side], duration, offset, triggerHook)
+                .move("x", value, duration, offset, triggerHook)
+                .scale(1.25);
 
             return this;
         };
 
     }(sal));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
