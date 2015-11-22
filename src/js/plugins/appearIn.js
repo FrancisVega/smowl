@@ -36,6 +36,7 @@ $(function () {
 
         /**
          * appearIn
+         * Muestra un elemento desde los ejes x, y con un fadeIn
          * @param {float} value Valor desde el que hacemos la entrada en Y.
          * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
          * @param {integer} offset Valor en pixel para el "retardo" de la animación.
@@ -52,7 +53,7 @@ $(function () {
 
             // Animamos
             $$(this.el, this.triggerel)
-                .move(axy, value, duration, offset, triggerHook)
+                .move(axy, value, duration, offset, triggerHook).fadeIn();
 
             return this;
         };
