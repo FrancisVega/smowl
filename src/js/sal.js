@@ -363,32 +363,34 @@ var sal, $$;
 
         // TODO: Terminar de implementar heroparllax como mod-parallax
 
-        heroParallax : function(ratio, duration) {
-
-            duration = typeof duration !== 'undefined' ? duration:
-                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
-
-            var extra, image;
-
-            // Selectores $jQuery
-            $(this.el).each(function() {
-
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-                image = $(this).css("background-image");
-                extra = $(this).children(".hero-parallax--back");
-                $(this).css({ "background-image": "none"});
-
-                // Set some styles..
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "z-index": "-1" });
-                $(extra).css( { "transform": "translate(0, "+ ratio +")" });
-
-                //$$(".hero-parallax--back").parallax();
-                $$(extra[0], this).parallax();
-
-            });
-
-            return this;
-        };
+/*
+ *        heroParallax : function(ratio, duration) {
+ *
+ *            duration = typeof duration !== 'undefined' ? duration:
+ *                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+ *
+ *            var extra, image;
+ *
+ *            // Selectores $jQuery
+ *            $(this.el).each(function() {
+ *
+ *                $(this).prepend('<div class="hero-parallax--back"></div>');
+ *                image = $(this).css("background-image");
+ *                extra = $(this).children(".hero-parallax--back");
+ *                $(this).css({ "background-image": "none"});
+ *
+ *                // Set some styles..
+ *                $(extra).css({ "background-image": image });
+ *                $(extra).css({ "z-index": "-1" });
+ *                $(extra).css( { "transform": "translate(0, "+ ratio +")" });
+ *
+ *                //$$(".hero-parallax--back").parallax();
+ *                $$(extra[0], this).parallax();
+ *
+ *            });
+ *
+ *            return this;
+ *        };
+ */
     }
 })();
