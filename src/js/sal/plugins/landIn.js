@@ -54,7 +54,8 @@ $(function () {
                 duration = typeof duration !== 'undefined' ? duration: "50%";
 
                 // Animamos
-                $$(this).fadeIn(duration).scale(ratio, duration);
+                //$$(this).fadeIn(duration).scale(ratio, duration);
+                $$(this).soa( {"scale":2}));
             })
 
             return this;

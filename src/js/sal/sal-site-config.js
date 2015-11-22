@@ -34,5 +34,6 @@
 $(function () {
 
     //$$(".land", ".trigger").oa( { "scale": 1.5, "x": "-100px" }, "50%", 0, "onEnter" );
+    $$(".land", ".trigger").landIn();
     $$(".mod-parallax", ".trigger").foo(4.5);
 });

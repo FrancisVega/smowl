@@ -173,6 +173,40 @@ var sal, $$;
 
         },
 
+        /**
+         * Single Object animation
+         * Mueve un elemento utilizando un objeto Greensock
+         * @param {object} animationObject Objeto tipo Greensock para animar el elemento
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         */
+
+        soa : function(animationObject, duration, offset, triggerHook) {
+
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            // TweenLite
+            var TWEEN = TweenLite.from(
+                    this.el, 1, animationObject
+                    );
+
+            console.log($(this.triggerel))
+            console.log($(this.el).closest(this.triggerel));
+
+            // Scene
+            var SCENE = new ScrollMagic.Scene({
+                triggerElement: $(this.el).closest(this.triggerel)[0],
+                duration: duration,
+                triggerHook: triggerHook
+            })
+
+            // Attachments
+            .setTween(TWEEN).addIndicators().addTo(this.CONTROLLER);
+
+            return this;
+
+        },
 
         /**
          * Object animation
@@ -369,6 +403,7 @@ var sal, $$;
                 // Aplicamos los estilos necesarios al nuevo contenedor
                 $(extra).css({ "background-image": image });
                 $(extra).css({ "position": "absolute" });
+                $(extra).css({ "z-index": "-1" });
                 $(extra).css({ "left": "0" });
                 $(extra).css({ "right": "0" });
                 $(extra).css({ "top": "0" });
