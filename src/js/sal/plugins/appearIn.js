@@ -36,23 +36,23 @@ $(function () {
 
         /**
          * appearIn
-         * @param {float} fromValue Valor desde el que hacemos la entrada en Y.
+         * @param {float} value Valor desde el que hacemos la entrada en Y.
          * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
          * @param {integer} offset Valor en pixel para el "retardo" de la animación.
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        $$.fn.appearIn = function() {
+        $$.fn.appearIn = function(value, duration, offset, triggerHook) {
 
-            // Pasamos por todos los elementos
-            $(this.el).each(function() {
+            // Si no se indica nada en el método los valores deben estar en el data-*
+            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
-                // Obtenemos los datos del tag data-*
-                var duration = $$(this).getData(this).duration;
-
-                // Animamos
-                $$(this).moveY("100px", duration);
-
-            })
+            // Animamos
+            $$(this.el, this.triggerel)
+                .moveY(value, duration, offset, triggerHook)
+                .scale(1.25);
 
             return this;
         };

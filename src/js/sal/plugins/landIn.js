@@ -55,7 +55,7 @@ $(function () {
 
                 // Animamos
                 //$$(this).fadeIn(duration).scale(ratio, duration);
-                $$(this).soa( {"scale":2}));
+                $$(this).soa( {"scale":2} );
             })
 
             return this;

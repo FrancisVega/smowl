@@ -35,34 +35,42 @@ $(function () {
     (function($$){
 
         /**
-         * sideIn
-         * @param {float} fromValue Valor desde el que hacemos la entrada en Y.
+         * appearIn
+         * @param {float} value Valor desde el que hacemos la entrada en Y.
          * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
          * @param {integer} offset Valor en pixel para el "retardo" de la animación.
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        $$.fn.sideIn = function(side) {
+        $$.fn.sideIn = function(side, value, duration, offset, triggerHook) {
 
-            // Pasamos por todos los elementos
-            $(this.el).each(function() {
+            // Si no se indica nada en el método los valores deben estar en el data-*
+            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
-                // Seleccionamos un multiplicador según el lado
-                var sides = { "left":1, "right":-1 }
+            // Seleccionamos un multiplicador según el lado
+            var sides = { "left":1, "right":-1 }
 
-                // Obtenemos los datos del tag data-*
-                var amount = $$(this).getData(this).amount;
-                var duration = $$(this).getData(this).duration;
-
-                // Valor por defecto
-                amount = typeof amount !== 'undefined' ? amount: "100";
-
-                // Animamos
-                $$(this).moveX(amount*sides[side]+"px", duration);
-
-            })
+            // Animamos
+            $$(this.el, this.triggerel)
+                .move("x", value*sides[side], duration, offset, triggerHook)
 
             return this;
         };
 
     }(sal));
 });
+
+
+
+
+
+
+
+
+
+
+
+
+

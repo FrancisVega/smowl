@@ -74,7 +74,7 @@ var sal, $$;
         this.BROWSER_HEIGHT = $(window).height();
         this.BROWSER_WIDTH = $(window).width();
 
-        // Propiedades
+        // Elemento y trigger, aun en formato String
         this.el = el;
         this.triggerel = triggerel;
 
@@ -101,112 +101,31 @@ var sal, $$;
     sal.fn = SAL.prototype = {
 
         /**
-         * Move
-         * Mueve un elemento en la coordenada y con los valores proporcionados
-         * @param {string} coord Coordenada: x,y,z
-         * @param {float} fromValue Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
-         */
-
-        move : function(coord, value, duration, offset, triggerHook) {
-
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            console.log(this.triggerel);
-
-            // TODO:
-            // Por favor encontrar una solución a esta chapu-za
-            var animationObjects = {
-                "x":{"x": value},
-                "y":{"y": value},
-                "z":{"z": value}
-            }
-
-            var _this = this;
-            $(this.el).each(function() {
-
-                // Timeline
-                var TWEEN = new TimelineLite();
-                TWEEN.from( this, 1, animationObjects[coord]);
-
-                // Scene
-                var SCENE = new ScrollMagic.Scene({
-                    triggerElement: this.closest(_this.triggerel),
-                    duration: duration,
-                    triggerHook: triggerHook,
-                    offset: offset
-                })
-
-                // Attachments
-                .setTween(TWEEN).addIndicators(true).addTo(_this.CONTROLLER);
-
-            });
-
-            return this;
-        },
-
-
-        /**
-         * Move Y
-         * Mueve un elemento en la coordenada Y, este método es básicamente para probar el
-         * como funciona el uso de otros métodos más "core", en concreto move()
-         * @param {float} value Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
-         */
-
-        moveY : function(value, duration, offset, triggerHook) {
-
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            // Uso del método privado move()
-            this.move("y", value, duration, offset, triggerHook);
-
-            return this;
-
-        },
-
-        /**
-         * Single Object animation
+         * SOA. Single Object animation.
          * Mueve un elemento utilizando un objeto Greensock
          * @param {object} animationObject Objeto tipo Greensock para animar el elemento
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        soa : function(animationObject, duration, offset, triggerHook) {
+        soa : function( gsobject, duration, offset, triggerHook ) {
 
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            // Greensock animation
+            var TWEEN = TweenLite.from( this.el, 1, gsobject );
 
-            // TweenLite
-            var TWEEN = TweenLite.from(
-                    this.el, 1, animationObject
-                    );
-
-            console.log($(this.triggerel))
-            console.log($(this.el).closest(this.triggerel));
-
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
+            // ScrollMagic Scene
+            var SCENE = new ScrollMagic.Scene( {
                 triggerElement: $(this.el).closest(this.triggerel)[0],
                 duration: duration,
                 triggerHook: triggerHook
             })
 
             // Attachments
-            .setTween(TWEEN).addIndicators().addTo(this.CONTROLLER);
+            .setTween(TWEEN).addTo(this.CONTROLLER);
 
             return this;
 
         },
+
 
         /**
          * Object animation
@@ -247,61 +166,71 @@ var sal, $$;
 
 
         /**
-         * TEMPLATE
-         */
-
-        template : function(value) {
-
-            value = typeof value !== 'undefined' ? value: "100%";
-
-            // TweenLite
-            var TWEEN = TweenLite.from(
-                this.el, 1, { x: value }
-            );
-
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
-                duration: "100%",
-                triggerHook: "onEnter"
-            })
-
-            // Attachments
-            .setTween(TWEEN).addTo(this.CONTROLLER);
-
-            return this;
-
-        },
-
-
-        /**
-         * Move x
-         * @param {float} fromValue Valor desde el que hacemos la escala
-         * @param {integer-string} duration Valor de scroll en % o en px de la
-         *                                  duración de la animación
+         * Move
+         * Mueve un elemento en la coordenada dada
+         * @param {float} value Valor desde el que hacemos la escala
+         * @param {integer-string} duration Duración de la animación en %/px
          * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        moveX : function(fromValue, duration, offset, triggerHook) {
+        move: function(coord, value, duration, offset, triggerHook) {
 
             duration = typeof duration !== 'undefined' ? duration: "100%";
             offset = typeof offset !== 'undefined' ? offset: 0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
 
-            // Timeline
-            var TWEEN = new TimelineLite();
-            TWEEN.from( this.el, 1, { x: fromValue });
+            // TODO:
+            // Por favor encontrar una solución a esta cha-pu-za
+            var gsobject = {
+                "x":{"x": value},
+                "y":{"y": value},
+                "z":{"z": value}
+            }
 
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
+            // Objeto GreenSock
+            var smobject = {
+                triggerElement: $(this.el).closest(this.triggerel)[0],
                 duration: duration,
-                triggerHook: triggerHook,
-                offset: offset
-            })
+                triggerHook: triggerHook
+            }
 
-            // Attachments
-            .setTween(TWEEN).addIndicators(true).addTo(this.CONTROLLER);
+            var _this = this;
+            var trigger;
+            $(this.el).each(function() {
+                // Obtenemos el trigger
+                trigger = $(this).closest(_this.triggerel)[0];
+                // Llamamos a soa
+                $$(this, trigger).soa(
+                        gsobject[coord],
+                        duration,
+                        offset,
+                        triggerHook
+                );
+            });
+
+            return this;
+        },
+
+
+        /**
+         * Move Y
+         * Mueve un elemento en la coordenada Y, este método es básicamente para probar el
+         * como funciona el uso de otros métodos más "core", en concreto move()
+         * @param {float} value Valor desde el que hacemos la escala
+         * @param {integer-string} duration Duración de la animación en %/px
+         * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         */
+
+        moveY : function(value, duration, offset, triggerHook) {
+
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            // Uso del método privado move()
+            this.move("y", value, duration, offset, triggerHook);
 
             return this;
 
@@ -316,29 +245,58 @@ var sal, $$;
          * @param {integer} offset Valor en px para el "retardo" de la animación
          */
 
-        scale : function(fromValue, duration, offset, triggerHook) {
+        scale : function(value, duration, offset, triggerHook) {
 
             duration = typeof duration !== 'undefined' ? duration: "100%";
             offset = typeof offset !== 'undefined' ? offset: 0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
 
-            // Setup
-            var animationCurve = Sine.easeIn;
+            var _this = this;
+            var trigger;
 
-            // Timeline
-            var TWEEN = new TimelineLite();
-            TWEEN.from( this.el, 1, { scale: fromValue, ease: animationCurve });
+            // Loop entre elementos jQuery
+            $(this.el).each(function() {
+                // Obtenemos el trigger
+                trigger = $(this).closest(_this.triggerel)[0];
+                // Llamamos a soa
+                $$(this, trigger).soa(
+                        {"scale":value},
+                        duration,
+                        offset,
+                        triggerHook
+                );
+            });
 
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
-                duration: duration,
-                triggerHook: triggerHook,
-                offset: offset
-            })
+            return this;
+        },
 
-            // Attachments
-            .setTween(TWEEN).addTo(this.CONTROLLER);
+
+        /**
+         * Fade In con SimpleObjectAnimation
+         * @param {float} fromValue El valor desde el que se va a animar
+         * @param {float} duration La duración en % de scroll o px
+         * @return {salObject} Devuelve un objeto SAL.
+         */
+
+        adeIn : function(duration, offset, triggerHook) {
+
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            // Loop por cada elementoSelectores $jQuery
+            var _this = this;
+            var trigger;
+
+            $(this.el).each(function() {
+                trigger = $(this).closest(_this.triggerel)[0];
+                $$(this, trigger).soa(
+                        {"opacity":"0"},
+                        duration,
+                        offset,
+                        triggerHook
+                );
+            });
 
             return this;
 
@@ -346,45 +304,24 @@ var sal, $$;
 
 
         /**
-         * Fade In
-         * @param {float} fromValue El valor desde el que se va a animar
+         * Parallax
+         * @param {float} ratio La velocidad de scroll
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
          */
 
-        fadeIn : function(duration, offset, triggerHook) {
+        parallax: function(ratio, duration) {
 
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            // Setup
-            var animationCurve = Sine.easeIn;
-
-            // Timeline
-            var TWEEN = new TimelineLite();
-            TWEEN.from( this.el, 1, { opacity: 0, ease: animationCurve });
-
-            // Scene
-            var SCENE = new ScrollMagic.Scene({
-                triggerElement: this.triggerel,
-                duration: duration,
-                triggerHook: triggerHook,
-                offset: offset
-            })
-
-            // Attachments
-            .setTween(TWEEN).addTo(this.CONTROLLER);
-
-            return this;
-
-        },
-
-
-        foo: function(ratio) {
+            duration = typeof duration !== 'undefined' ? duration:
+                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
 
             var _this = this;
+            var Trigger;
+
+            // Selectores $jQuery
             $(this.el).each(function() {
+
+                Trigger = this.closest(_this.triggerel)
 
                 // Creamos el contenedor extra
                 $(this).prepend('<div class="hero-parallax--back"></div>');
@@ -426,8 +363,8 @@ var sal, $$;
 
                 // Scene
                 var SCENE = new ScrollMagic.Scene({
-                    triggerElement: this.closest(_this.triggerel),
-                    duration: _this.BROWSER_HEIGHT + ($(this).innerHeight()),
+                    triggerElement: Trigger,
+                    duration: duration,
                     triggerHook: "onEnter"
                 })
 
