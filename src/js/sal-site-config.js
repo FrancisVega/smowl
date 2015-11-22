@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - sideIn.js                                                                    //
+    //  Animation Configure File                                                              //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -32,37 +32,9 @@
 
 
 $(function () {
-    (function($$){
 
-        /**
-         * sideIn
-         * @param {float} fromValue Valor desde el que hacemos la entrada en Y.
-         * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
-         * @param {integer} offset Valor en pixel para el "retardo" de la animación.
-         */
-
-        $$.fn.sideIn = function(side) {
-
-            // Pasamos por todos los elementos
-            $(this.el).each(function() {
-
-                // Seleccionamos un multiplicador según el lado
-                var sides = { "left":1, "right":-1 }
-
-                // Obtenemos los datos del tag data-*
-                var amount = $$(this).getData(this).amount;
-                var duration = $$(this).getData(this).duration;
-
-                // Valor por defecto
-                amount = typeof amount !== 'undefined' ? amount: "100";
-
-                // Animamos
-                $$(this).moveX(amount*sides[side]+"px", duration);
-
-            })
-
-            return this;
-        };
-
-    }(sal));
+    //$$(".land", ".trigger").oa( { "scale": 1.5, "x": "-100px" }, "50%", 0, "onEnter" );
+    //$$(".land", ".trigger").landIn();
+    $$(".land", ".trigger").heroParallax("50%");
+    //$$(".land", ".trigger").appearIn("y", "200px", "20%").fadeIn("100%");
 });

@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - landInAO.js                                                                  //
+    //  Plugin - pluginName.js                                                                //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,40 +35,16 @@ $(function () {
     (function($$){
 
         /**
-         * landInAO
-         * @param {float} ratio Ratio de desplazamiento 1 = 100% 0.5 = 50%
+         * pluginName.js
+         * @param {type} name Description
          * @return {sal}
          */
 
-        $$.fn.landInAO = function() {
+        $$.fn.pluginName = function() {
 
-            // Pasamos por todos los elementos
-            $(this.el).each(function() {
-
-                // Obtenemos los datos del tag data-*
-                var ratio = $$(this).getData(this).ratio;
-                var duration = $$(this).getData(this).duration;
-
-                // Ponemos valores por defecto en caso que no existan en el data-*
-                ratio = typeof ratio !== 'undefined' ? ratio: 1.1;
-                duration = typeof duration !== 'undefined' ? duration: "50%";
-
-                // Animamos
-                //$$(this).fadeIn(duration).scale(ratio, duration);
-                $$(this).ao(
-
-                {
-                    "x":"-250px",
-                    "scale":"2",
-                    "y":"-200px"
-                },
-
-                $(this).closest(".trigger")[0],
-                "onEnter"
-                );
-
-                console.log(this.closest(".trigger"));
-            })
+            $$(this.el, this.triggerel)
+                .move("x", value, duration, offset, triggerHook)
+                .scale(1.25);
 
             return this;
         };
