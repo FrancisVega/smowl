@@ -140,30 +140,48 @@
 
 
     //
-    // CONCATENATE & MINIFY JS
+    // CONCATENATE sal, greensock & scrollmagic
     //
 
-    gulp.task('scripts', function() {
+    gulp.task('minimize', function() {
         return gulp.src([
-                dirs.src + 'js/vendor/jquery-2.1.4.min.js',
-                dirs.src + 'js/vendor/TweenMax.js',
-                dirs.src + 'js/vendor/ScrollMagic.js',
-                dirs.src + 'js/vendor/debug.addIndicators.js',
-                dirs.src + 'js/vendor/animation.gsp.js',
-                dirs.src + 'js/SAL/sal.js',
-                dirs.src + 'js/SAL/plugins/sideIn.js',
-                dirs.src + 'js/SAL/plugins/appearIn.js',
-                dirs.src + 'js/SAL/sal-site-config.js',
+                dirs.src + 'js/sal/sal.js',
+                dirs.src + 'js/sal/plugins/appearIn.js',
+                dirs.src + 'js/sal/plugins/landIn.js',
+                dirs.src + 'js/sal/plugins/side.js',
+                dirs.src + 'js/sal/plugins/heroParallax.js',
             ])
             .pipe(plumber())
-            .pipe(concat('all.js'))
-            .pipe(gulp.dest(dirs.dst + '/js'))
-            .pipe(rename('all.min.js'))
+            .pipe(concat('sal-0.1.js'))
+            .pipe(gulp.dest(dirs.src + '/min'))
+            .pipe(rename('sal-0.1.min.js'))
             .pipe(uglify())
-            .pipe(gulp.dest(dirs.dst + '/js'))
-            .pipe(browserSync.reload({
-                stream: true
-            }));
+            .pipe(gulp.dest(dirs.src + '/min'))
+    });
+
+
+    //
+    // CONCATENATE sal, greensock & scrollmagic
+    //
+
+    gulp.task('minimize-bundle', function() {
+        return gulp.src([
+                dirs.src + 'js/vendor/TweenMax.js',
+                dirs.src + 'js/vendor/ScrollMagic.js',
+                dirs.src + 'js/vendor/animation.gsp.js',
+                dirs.src + 'js/sal/sal.js',
+                dirs.src + 'js/sal/plugins/appearIn.js',
+                dirs.src + 'js/sal/plugins/landIn.js',
+                dirs.src + 'js/sal/plugins/side.js',
+                dirs.src + 'js/sal/plugins/heroParallax.js',
+            ])
+            .pipe(plumber())
+            .pipe(concat('sal-0.1-bundle.js'))
+            .pipe(gulp.dest(dirs.src + '/min'))
+            .pipe(rename('sal-0.1-bundle.min.js'))
+            .pipe(uglify())
+            .pipe(gulp.dest('js'))
+            .pipe(gulp.dest(dirs.src + '/min'))
     });
 
 
@@ -172,3 +190,4 @@
     //
 
     gulp.task('default', ['sass', 'watch']);
+    gulp.task('min', ['minimize', 'minimize-bundle']);
