@@ -10,17 +10,13 @@
     'use strict';
 
     //
-    // Secuoyas 2015
-    // Web site 2015
-    //
-
-    //
     // GULP PLUGINS
     //
 
     // Gulp itself
     var gulp         = require('gulp');
     // General
+    var doc          = require('gulp-documentation');
     var postcss      = require('gulp-postcss');
     var browserSync  = require('browser-sync');
     var plumber      = require('gulp-plumber');
@@ -142,28 +138,6 @@
     // CONCATENATE sal, greensock & scrollmagic
     //
 
-    gulp.task('minimize', function() {
-    console.log("MINIMIZE");
-        return gulp.src([
-                dirs.src + 'js/sal/sal.js',
-                dirs.src + 'js/sal/plugins/appearIn.js',
-                dirs.src + 'js/sal/plugins/landIn.js',
-                dirs.src + 'js/sal/plugins/side.js',
-                dirs.src + 'js/sal/plugins/heroParallax.js',
-            ])
-            .pipe(plumber())
-            .pipe(concat('sal-0.1.js'))
-            .pipe(gulp.dest(dirs.src + '/min'))
-            .pipe(rename('sal-0.1.min.js'))
-            .pipe(uglify())
-            .pipe(gulp.dest(dirs.src + '/min'))
-    });
-
-
-    //
-    // CONCATENATE sal, greensock & scrollmagic
-    //
-
     gulp.task('minimize-bundle', function() {
     console.log("MINIMIZE-BUNDLE");
         return gulp.src([
@@ -172,8 +146,7 @@
                 dirs.src + 'js/vendor/animation.gsp.js',
                 dirs.src + 'js/sal/sal.js',
                 dirs.src + 'js/sal/plugins/appearIn.js',
-                dirs.src + 'js/sal/plugins/landIn.js',
-                dirs.src + 'js/sal/plugins/heroParallax.js',
+                dirs.src + 'js/sal/plugins/landIn.js'
             ])
             .pipe(plumber())
             .pipe(concat('sal-0.1-bundle.js'))
@@ -182,6 +155,20 @@
             .pipe(uglify())
             .pipe(gulp.dest(dirs.src + '/min'))
     });
+
+
+
+    //
+    // Doc
+    //
+
+    gulp.task('doc', function() {
+        return gulp.src([ dirs.src + 'js/sal.js' ])
+            .pipe(doc({ format: 'html' }))
+            .pipe(gulp.dest('html-documentation'));
+    });
+
+
 
     //
     // Delete concats sal javascript files
@@ -195,7 +182,7 @@
     // TAREAS GULP
     //
 
-    gulp.task('default', ['sass', 'watch']);
+    gulp.task('default', ['sass', 'watch', 'doc']);
     gulp.task('min', function(callback) {
         runSequence(
             ['minimize', 'minimize-bundle' ],

@@ -116,4 +116,3 @@ Constructor sal
 -   `triggerel` **string** Elemento que vamos a usar como trigger
 
 Returns **sal** 
-
