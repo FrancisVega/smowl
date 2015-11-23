@@ -324,7 +324,6 @@ var sal, $$;
                 $(extra).css({ "right": "0" });
                 $(extra).css({ "top": "0" });
                 $(extra).css({ "bottom": "0" });
-                $(extra).css({ "border": "2px solid purple" });
                 $(extra).css({ "height": (100 * ratio) + "%" });
                 $(extra).css( {
                     "transform":

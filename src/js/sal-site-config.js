@@ -33,8 +33,6 @@
 
 $(function () {
 
-    //$$(".land", ".trigger").oa( { "scale": 1.5, "x": "-100px" }, "50%", 0, "onEnter" );
-    //$$(".land", ".trigger").landIn();
-    //$$(".land", ".trigger").heroParallax("50%");
-    //$$(".land", ".trigger").appearIn("y", "200px", "20%").fadeIn("100%");
+    $$(".parallax").parallax(3.5);
+
 });
