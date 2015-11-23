@@ -167,13 +167,12 @@
     gulp.task('minimize-bundle', function() {
     console.log("MINIMIZE-BUNDLE");
         return gulp.src([
-                dirs.src + 'js/vendor/TweenMax.js',
                 dirs.src + 'js/vendor/ScrollMagic.js',
+                dirs.src + 'js/vendor/TweenMax.js',
                 dirs.src + 'js/vendor/animation.gsp.js',
                 dirs.src + 'js/sal/sal.js',
                 dirs.src + 'js/sal/plugins/appearIn.js',
                 dirs.src + 'js/sal/plugins/landIn.js',
-                dirs.src + 'js/sal/plugins/side.js',
                 dirs.src + 'js/sal/plugins/heroParallax.js',
             ])
             .pipe(plumber())
