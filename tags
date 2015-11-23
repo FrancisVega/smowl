@@ -4,216 +4,217 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Animation	./src/js/vendor/TweenMax.js	/^			Animation.prototype.invalidate.call(this);$/;"	c
-Animation	./src/js/vendor/TweenMax.js	/^		var Animation = _class("core.Animation", function(duration, vars) {$/;"	v
-Animation._enabled	./src/js/vendor/TweenMax.js	/^			Animation.prototype._enabled.call(this, enabled, ignoreTimeline);$/;"	m
-Animation.invalidate	./src/js/vendor/TweenMax.js	/^			Animation.prototype.invalidate.call(this);$/;"	m
-CONTROLLER_OPTIONS.defaults	./src/js/vendor/ScrollMagic.js	/^		defaults: {$/;"	p
-EventDispatcher	./src/js/vendor/TweenMax.js	/^		var EventDispatcher = _class("events.EventDispatcher", function(target) {$/;"	v
-FONT_SIZE	./src/js/vendor/debug.addIndicators.js	/^	FONT_SIZE = "0.85em",$/;"	v
-Indicator	./src/js/vendor/debug.addIndicators.js	/^	var Indicator = function (Scene, options) {$/;"	c
-Indicator.Array	./src/js/vendor/debug.addIndicators.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");$/;"	c
-Indicator.Indicator.Array.splice	./src/js/vendor/debug.addIndicators.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");$/;"	m
-Indicator.add	./src/js/vendor/debug.addIndicators.js	/^		this.add = function () {$/;"	m
-Indicator.addBounds	./src/js/vendor/debug.addIndicators.js	/^		var addBounds = function () {$/;"	m
-Indicator.addTriggerGroup	./src/js/vendor/debug.addIndicators.js	/^		var addTriggerGroup = function () {$/;"	m
-Indicator.addTriggerGroup.newGroup.triggerHook	./src/js/vendor/debug.addIndicators.js	/^				triggerHook: Scene.triggerHook(),$/;"	p
-Indicator.handleBoundsParamsChange	./src/js/vendor/debug.addIndicators.js	/^		var handleBoundsParamsChange = function () {$/;"	m
-Indicator.handleTriggerParamsChange	./src/js/vendor/debug.addIndicators.js	/^		var handleTriggerParamsChange = function (e) {$/;"	m
-Indicator.log	./src/js/vendor/debug.addIndicators.js	/^		var log = function () {$/;"	f
-Indicator.remove	./src/js/vendor/debug.addIndicators.js	/^		this.remove = function () {$/;"	m
-Indicator.removeBounds	./src/js/vendor/debug.addIndicators.js	/^		var removeBounds = function () {$/;"	m
-Indicator.removeTriggerGroup	./src/js/vendor/debug.addIndicators.js	/^		var removeTriggerGroup = function () {$/;"	m
-Indicator.updateBounds	./src/js/vendor/debug.addIndicators.js	/^		var updateBounds = function () {$/;"	m
-Indicator.updateTriggerGroup	./src/js/vendor/debug.addIndicators.js	/^		var updateTriggerGroup = function () {$/;"	m
-NAMESPACE	./src/js/vendor/debug.addIndicators.js	/^	var NAMESPACE = "debug.addIndicators";$/;"	v
-PIN_SPACER_ATTRIBUTE	./src/js/vendor/ScrollMagic.js	/^	var PIN_SPACER_ATTRIBUTE = "data-scrollmagic-pin-spacer";$/;"	v
-SAL	./src/js/sal/sal.js	/^    var SAL = function(el, triggerel) {$/;"	c
-SAL.about.autor	./src/js/sal/sal.js	/^            "autor": "Secuoyas",$/;"	p
-SAL.about.name	./src/js/sal/sal.js	/^            "name": "Secuoyas Animation Library",$/;"	p
-SAL.about.version	./src/js/sal/sal.js	/^            "version": "0.1"$/;"	p
-SAL.getData	./src/js/sal/sal.js	/^        this.getData = function(el) {$/;"	m
-SCENE_OPTIONS.defaults	./src/js/vendor/ScrollMagic.js	/^		defaults: {$/;"	p
-ScrollMagic	./src/js/vendor/ScrollMagic.js	/^	var ScrollMagic = function () {$/;"	f
-ScrollMagic.Controller	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller = function (options) {$/;"	c
-ScrollMagic.Controller.Array	./src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	c
-ScrollMagic.Controller.ScrollMagic.Controller.Array.splice	./src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	m
-ScrollMagic.Controller.ScrollMagic.Controller.constructor	./src/js/vendor/ScrollMagic.js	/^		ScrollMagic.Controller.prototype.constructor = ScrollMagic.Controller; \/\/ restore constructor$/;"	m
-ScrollMagic.Controller.ScrollMagic.Controller.info.values.size	./src/js/vendor/ScrollMagic.js	/^				size: _viewPortSize,$/;"	p
-ScrollMagic.Controller.ScrollMagic.Controller.info.values.vertical	./src/js/vendor/ScrollMagic.js	/^				vertical: _options.vertical,$/;"	p
-ScrollMagic.Controller.addOption	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller.addOption = function (name, defaultValue) {$/;"	f
-ScrollMagic.Controller.addScene	./src/js/vendor/ScrollMagic.js	/^		this.addScene = function (newScene) {$/;"	m
-ScrollMagic.Controller.construct	./src/js/vendor/ScrollMagic.js	/^		var construct = function () {$/;"	f
-ScrollMagic.Controller.debounceUpdate	./src/js/vendor/ScrollMagic.js	/^		var debounceUpdate = function () {$/;"	f
-ScrollMagic.Controller.destroy	./src/js/vendor/ScrollMagic.js	/^		this.destroy = function (resetScenes) {$/;"	m
-ScrollMagic.Controller.enabled	./src/js/vendor/ScrollMagic.js	/^		this.enabled = function (newState) {$/;"	m
-ScrollMagic.Controller.extend	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller.extend = function (extension) {$/;"	f
-ScrollMagic.Controller.getScrollPos	./src/js/vendor/ScrollMagic.js	/^		var getScrollPos = function () {$/;"	f
-ScrollMagic.Controller.getViewportSize	./src/js/vendor/ScrollMagic.js	/^		var getViewportSize = function () {$/;"	f
-ScrollMagic.Controller.info	./src/js/vendor/ScrollMagic.js	/^		this.info = function (about) {$/;"	m
-ScrollMagic.Controller.loglevel	./src/js/vendor/ScrollMagic.js	/^		this.loglevel = function (newLoglevel) {$/;"	m
-ScrollMagic.Controller.onChange	./src/js/vendor/ScrollMagic.js	/^		var onChange = function (e) {$/;"	f
-ScrollMagic.Controller.refresh	./src/js/vendor/ScrollMagic.js	/^		var refresh = function () {$/;"	f
-ScrollMagic.Controller.removeScene	./src/js/vendor/ScrollMagic.js	/^		this.removeScene = function (Scene) {$/;"	m
-ScrollMagic.Controller.scheduleRefresh	./src/js/vendor/ScrollMagic.js	/^		var scheduleRefresh = function () {$/;"	f
-ScrollMagic.Controller.scrollPos	./src/js/vendor/ScrollMagic.js	/^		this.scrollPos = function (scrollPosMethod) {$/;"	m
-ScrollMagic.Controller.scrollTo	./src/js/vendor/ScrollMagic.js	/^		this.scrollTo = function (scrollTarget, additionalParameter) {$/;"	m
-ScrollMagic.Controller.sortScenes	./src/js/vendor/ScrollMagic.js	/^		var sortScenes = function (ScenesArray) {$/;"	m
-ScrollMagic.Controller.update	./src/js/vendor/ScrollMagic.js	/^		this.update = function (immediately) {$/;"	m
-ScrollMagic.Controller.updateScene	./src/js/vendor/ScrollMagic.js	/^		this.updateScene = function (Scene, immediately) {$/;"	m
-ScrollMagic.Controller.updateScenes	./src/js/vendor/ScrollMagic.js	/^		var updateScenes = function () {$/;"	f
-ScrollMagic.Event	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Event = function (type, namespace, target, vars) {$/;"	c
-ScrollMagic.Scene	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene = function (options) {$/;"	c
-ScrollMagic.Scene.Array	./src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	c
-ScrollMagic.Scene.Scene	./src/js/vendor/ScrollMagic.js	/^				Scene[optionName] = function (newVal) {$/;"	f
-ScrollMagic.Scene.ScrollMagic.Scene.Array.splice	./src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	m
-ScrollMagic.Scene.ScrollMagic.Scene.constructor	./src/js/vendor/ScrollMagic.js	/^		ScrollMagic.Scene.prototype.constructor = ScrollMagic.Scene; \/\/ restore constructor$/;"	m
-ScrollMagic.Scene.ScrollMagic.Scene.setPin.defaultSettings.pushFollowers	./src/js/vendor/ScrollMagic.js	/^				pushFollowers: true,$/;"	p
-ScrollMagic.Scene.ScrollMagic.Scene.setPin.defaultSettings.spacerClass	./src/js/vendor/ScrollMagic.js	/^				spacerClass: "scrollmagic-pin-spacer"$/;"	p
-ScrollMagic.Scene._scrollOffset.start	./src/js/vendor/ScrollMagic.js	/^				start: _triggerPos + _options.offset$/;"	p
-ScrollMagic.Scene.addIndicators	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.addIndicators = function () {$/;"	m
-ScrollMagic.Scene.addOption	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.addOption = function (name, defaultValue, validationCallback, shifts) {$/;"	f
-ScrollMagic.Scene.addSceneOption	./src/js/vendor/ScrollMagic.js	/^		var addSceneOption = function (optionName) {$/;"	m
-ScrollMagic.Scene.addTo	./src/js/vendor/ScrollMagic.js	/^		this.addTo = function (controller) {$/;"	m
-ScrollMagic.Scene.changeOption	./src/js/vendor/ScrollMagic.js	/^		var changeOption = function (varname, newval) {$/;"	m
-ScrollMagic.Scene.construct	./src/js/vendor/ScrollMagic.js	/^		var construct = function () {$/;"	f
-ScrollMagic.Scene.controller	./src/js/vendor/ScrollMagic.js	/^		this.controller = function () {$/;"	m
-ScrollMagic.Scene.destroy	./src/js/vendor/ScrollMagic.js	/^		this.destroy = function (reset) {$/;"	m
-ScrollMagic.Scene.enabled	./src/js/vendor/ScrollMagic.js	/^		this.enabled = function (newState) {$/;"	m
-ScrollMagic.Scene.extend	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.extend = function (extension) {$/;"	f
-ScrollMagic.Scene.off	./src/js/vendor/ScrollMagic.js	/^		this.off = function (names, callback) {$/;"	m
-ScrollMagic.Scene.on	./src/js/vendor/ScrollMagic.js	/^		this.on = function (names, callback) {$/;"	m
-ScrollMagic.Scene.onContainerResize	./src/js/vendor/ScrollMagic.js	/^		var onContainerResize = function (e) {$/;"	m
-ScrollMagic.Scene.onMousewheelOverPin	./src/js/vendor/ScrollMagic.js	/^		var onMousewheelOverPin = function (e) {$/;"	m
-ScrollMagic.Scene.progress	./src/js/vendor/ScrollMagic.js	/^		this.progress = function (progress) {$/;"	m
-ScrollMagic.Scene.refresh	./src/js/vendor/ScrollMagic.js	/^		this.refresh = function () {$/;"	m
-ScrollMagic.Scene.remove	./src/js/vendor/ScrollMagic.js	/^		this.remove = function () {$/;"	m
-ScrollMagic.Scene.removeIndicators	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeIndicators = function () {$/;"	m
-ScrollMagic.Scene.removeTween	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeTween = function () {$/;"	m
-ScrollMagic.Scene.removeVelocity	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeVelocity = function () {$/;"	m
-ScrollMagic.Scene.scrollOffset	./src/js/vendor/ScrollMagic.js	/^		this.scrollOffset = function () {$/;"	m
-ScrollMagic.Scene.setPin	./src/js/vendor/ScrollMagic.js	/^		this.setPin = function (element, settings) {$/;"	m
-ScrollMagic.Scene.setTween	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.setTween = function () {$/;"	m
-ScrollMagic.Scene.setVelocity	./src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.setVelocity = function () {$/;"	m
-ScrollMagic.Scene.state	./src/js/vendor/ScrollMagic.js	/^		this.state = function () {$/;"	m
-ScrollMagic.Scene.trigger	./src/js/vendor/ScrollMagic.js	/^		this.trigger = function (name, vars) {$/;"	m
-ScrollMagic.Scene.triggerPosition	./src/js/vendor/ScrollMagic.js	/^		this.triggerPosition = function () {$/;"	m
-ScrollMagic.Scene.update	./src/js/vendor/ScrollMagic.js	/^		this.update = function (immediately) {$/;"	m
-ScrollMagic.Scene.updateDuration	./src/js/vendor/ScrollMagic.js	/^		var updateDuration = function (suppressEvents) {$/;"	m
-ScrollMagic.Scene.updatePinDimensions	./src/js/vendor/ScrollMagic.js	/^		var updatePinDimensions = function () {$/;"	m
-ScrollMagic.Scene.updatePinInContainer	./src/js/vendor/ScrollMagic.js	/^		var updatePinInContainer = function () {$/;"	m
-ScrollMagic.Scene.updatePinState	./src/js/vendor/ScrollMagic.js	/^		var updatePinState = function (forceUnpin) {$/;"	m
-ScrollMagic.Scene.updateRelativePinSpacer	./src/js/vendor/ScrollMagic.js	/^		var updateRelativePinSpacer = function () {$/;"	m
-ScrollMagic.Scene.updateScrollOffset	./src/js/vendor/ScrollMagic.js	/^		var updateScrollOffset = function () {$/;"	m
-ScrollMagic.Scene.updateTriggerElementPosition	./src/js/vendor/ScrollMagic.js	/^		var updateTriggerElementPosition = function (suppressEvents) {$/;"	m
-ScrollMagic.Scene.validateOption	./src/js/vendor/ScrollMagic.js	/^		var validateOption = function (check) {$/;"	m
-SimpleTimeline	./src/js/vendor/TweenMax.js	/^		var SimpleTimeline = _class("core.SimpleTimeline", function(vars) {$/;"	v
-TPL.bounds	./src/js/vendor/debug.addIndicators.js	/^		bounds: function () {$/;"	m
-TPL.end	./src/js/vendor/debug.addIndicators.js	/^		end: function (color) {$/;"	m
-TPL.start	./src/js/vendor/debug.addIndicators.js	/^		start: function (color) {$/;"	m
-TPL.trigger	./src/js/vendor/debug.addIndicators.js	/^		trigger: function (color) {$/;"	m
-TWEEN	./src/js/sal/sal.js	/^            var TWEEN = TweenLite.from($/;"	v
-TweenLite._onPluginEvent	./src/js/vendor/TweenMax.js	/^		TweenLite._onPluginEvent = function(type, tween) {$/;"	f
-TweenLite.delayedCall	./src/js/vendor/TweenMax.js	/^		TweenLite.delayedCall = function(delay, callback, params, scope, useFrames) {$/;"	f
-TweenLite.from	./src/js/vendor/TweenMax.js	/^		TweenLite.from = function(target, duration, vars) {$/;"	f
-TweenLite.fromTo	./src/js/vendor/TweenMax.js	/^		TweenLite.fromTo = function(target, duration, fromVars, toVars) {$/;"	f
-TweenLite.getTweensOf	./src/js/vendor/TweenMax.js	/^		TweenLite.getTweensOf = function(target, onlyActive) {$/;"	f
-TweenLite.lagSmoothing	./src/js/vendor/TweenMax.js	/^		TweenLite.lagSmoothing = function(threshold, adjustedLag) {$/;"	f
-TweenLite.set	./src/js/vendor/TweenMax.js	/^		TweenLite.set = function(target, vars) {$/;"	f
-TweenLite.to	./src/js/vendor/TweenMax.js	/^		TweenLite.to = function(target, duration, vars) {$/;"	f
-TweenPlugin	./src/js/vendor/TweenMax.js	/^		var TweenPlugin = _class("plugins.TweenPlugin", function(props, priority) {$/;"	v
-TweenPlugin.activate	./src/js/vendor/TweenMax.js	/^		TweenPlugin.activate = function(plugins) {$/;"	f
-_checkTimeout	./src/js/vendor/TweenMax.js	/^		var _checkTimeout = function() {$/;"	f
-_cssClasses	./src/js/vendor/ScrollMagic.js	/^		_cssClasses, _cssClassElems = [];$/;"	v
-_globals	./src/js/vendor/TweenMax.js	/^		var _globals = window.GreenSockGlobals = window.GreenSockGlobals || window;$/;"	v
-_gsDefine.plugin	./src/js/vendor/TweenMax.js	/^		_gsDefine.plugin = function(config) {$/;"	f
-_namespace	./src/js/vendor/TweenMax.js	/^		var _namespace = function(ns) {$/;"	f
-_pinOptions.relSize	./src/js/vendor/ScrollMagic.js	/^				relSize: { \/\/ save if size is defined using % values. if so, handle spacer resize differently...$/;"	p
-_pinOptions.spacer	./src/js/vendor/ScrollMagic.js	/^				spacer: spacer,$/;"	p
-_register	./src/js/vendor/TweenMax.js	/^		var _register = function(target, tween, scrub) {$/;"	f
-_tweenLookup.target	./src/js/vendor/TweenMax.js	/^					_tweenLookup[id] = {target:target, tweens:[]};$/;"	p
-_tweenLookup.tweens	./src/js/vendor/TweenMax.js	/^					_tweenLookup[id] = {target:target, tweens:[]};$/;"	p
-_util	./src/js/vendor/debug.addIndicators.js	/^	_util = ScrollMagic._util,$/;"	v
-a._firstPT._next	./src/js/vendor/TweenMax.js	/^						a._firstPT = {_next: a._firstPT, t:a, p: a.length-1, s:num, c:((currentNum.charAt(1) === "=") ? parseInt(currentNum.charAt(0) + "1", 10) * parseFloat(currentNum.substr(2)) : (parseFloat(currentNum) - num)) || 0, f:0, r:(color && color < 4)};$/;"	p
-all	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-allOnStart	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-animationCurve	./src/js/sal/sal.js	/^            var animationCurve = Sine.easeIn;$/;"	v
-auto	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-autoprefixer	./gulpfile.js	/^    var autoprefixer = require('autoprefixer'); \/\/ <- postcss$/;"	v
-browserSync	./gulpfile.js	/^    var browserSync  = require('browser-sync');$/;"	v
-check	./src/js/vendor/TweenMax.js	/^				this.check = function(init) {$/;"	m
-concat	./gulpfile.js	/^    var concat       = require('gulp-concat');$/;"	v
-concurrent	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-csswring	./gulpfile.js	/^    var csswring     = require('csswring'); \/\/ <- postcss$/;"	v
-del	./gulpfile.js	/^    var del          = require('del');$/;"	v
-dirs.dst	./gulpfile.js	/^        dst: 'dist\/',$/;"	p
-dirs.src	./gulpfile.js	/^        src: 'src\/',$/;"	p
-false	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-gulp	./gulpfile.js	/^    var gulp         = require('gulp');$/;"	v
-jshint	./gulpfile.js	/^    var jshint       = require('gulp-jshint');$/;"	v
-none	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-onCenter	./src/js/vendor/ScrollMagic.js	/^					"onCenter": 0.5,$/;"	p
-p._add	./src/js/vendor/TweenMax.js	/^		p._add = function(target, p, s, c) {$/;"	c
-p._callback	./src/js/vendor/TweenMax.js	/^		p._callback = function(type) {$/;"	f
-p._enabled	./src/js/vendor/TweenMax.js	/^		p._enabled = function (enabled, ignoreTimeline) {$/;"	c
-p._enabled	./src/js/vendor/TweenMax.js	/^		p._enabled = function(enabled, ignoreTimeline) {$/;"	f
-p._init	./src/js/vendor/TweenMax.js	/^		p._init = function() {$/;"	c
-p._initProps	./src/js/vendor/TweenMax.js	/^		p._initProps = function(target, propLookup, siblings, overwrittenProps) {$/;"	f
-p._kill	./src/js/vendor/TweenMax.js	/^		p._kill = function(vars, target) {$/;"	f
-p._onInitAllProps	./src/js/vendor/TweenMax.js	/^		p._onInitAllProps = function() {$/;"	f
-p._remove	./src/js/vendor/TweenMax.js	/^		p._remove = function(tween, skipDisable) {$/;"	f
-p._roundProps	./src/js/vendor/TweenMax.js	/^		p._roundProps = function(lookup, value) {$/;"	f
-p._swapSelfInParams	./src/js/vendor/TweenMax.js	/^		p._swapSelfInParams = function(params) {$/;"	f
-p._uncache	./src/js/vendor/TweenMax.js	/^		p._uncache = function(includeSelf) {$/;"	f
-p.addEventListener	./src/js/vendor/TweenMax.js	/^		p.addEventListener = function(type, callback, scope, useParam, priority) {$/;"	f
-p.delay	./src/js/vendor/TweenMax.js	/^		p.delay = function(value) {$/;"	c
-p.dispatchEvent	./src/js/vendor/TweenMax.js	/^		p.dispatchEvent = function(type) {$/;"	f
-p.duration	./src/js/vendor/TweenMax.js	/^		p.duration = function(value) {$/;"	c
-p.endTime	./src/js/vendor/TweenMax.js	/^		p.endTime = function(includeRepeats) {$/;"	f
-p.eventCallback	./src/js/vendor/TweenMax.js	/^		p.eventCallback = function(type, callback, params, scope) {$/;"	f
-p.getRatio	./src/js/vendor/TweenMax.js	/^		p.getRatio = function(p) {$/;"	f
-p.invalidate	./src/js/vendor/TweenMax.js	/^		p.invalidate = function() {$/;"	c
-p.isActive	./src/js/vendor/TweenMax.js	/^		p.isActive = function() {$/;"	f
-p.kill	./src/js/vendor/TweenMax.js	/^		p.kill = function(vars, target) {$/;"	c
-p.pause	./src/js/vendor/TweenMax.js	/^		p.pause = function(atTime, suppressEvents) {$/;"	f
-p.paused	./src/js/vendor/TweenMax.js	/^		p.paused = function(value) {$/;"	f
-p.play	./src/js/vendor/TweenMax.js	/^		p.play = function(from, suppressEvents) {$/;"	f
-p.rawTime	./src/js/vendor/TweenMax.js	/^		p.rawTime = function() {$/;"	f
-p.removeEventListener	./src/js/vendor/TweenMax.js	/^		p.removeEventListener = function(type, callback) {$/;"	f
-p.render	./src/js/vendor/TweenMax.js	/^		p.render = function(time, suppressEvents, force) {$/;"	c
-p.render	./src/js/vendor/TweenMax.js	/^		p.render = function(time, suppressEvents, force) {$/;"	f
-p.restart	./src/js/vendor/TweenMax.js	/^		p.restart = function(includeDelay, suppressEvents) {$/;"	f
-p.resume	./src/js/vendor/TweenMax.js	/^		p.resume = function(from, suppressEvents) {$/;"	f
-p.reverse	./src/js/vendor/TweenMax.js	/^		p.reverse = function(from, suppressEvents) {$/;"	f
-p.reversed	./src/js/vendor/TweenMax.js	/^		p.reversed = function(value) {$/;"	f
-p.seek	./src/js/vendor/TweenMax.js	/^		p.seek = function(time, suppressEvents) {$/;"	f
-p.startTime	./src/js/vendor/TweenMax.js	/^		p.startTime = function(value) {$/;"	f
-p.time	./src/js/vendor/TweenMax.js	/^		p.time = function(value, suppressEvents) {$/;"	f
-p.timeScale	./src/js/vendor/TweenMax.js	/^		p.timeScale = function(value) {$/;"	c
-p.totalDuration	./src/js/vendor/TweenMax.js	/^		p.totalDuration = function(value) {$/;"	c
-p.totalTime	./src/js/vendor/TweenMax.js	/^		p.totalTime = function(time, suppressEvents, uncapped) {$/;"	f
-plumber	./gulpfile.js	/^    var plumber      = require('gulp-plumber');$/;"	v
-postcss	./gulpfile.js	/^    var postcss      = require('gulp-postcss');$/;"	v
-preexisting	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-pt.c	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.f	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.n	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.p	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.pg	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.s	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-pt.t	./src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
-removeClassToggle	./src/js/vendor/ScrollMagic.js	/^		this.removeClassToggle = function (reset) {$/;"	f
-removePin	./src/js/vendor/ScrollMagic.js	/^		this.removePin = function (reset) {$/;"	f
-rename	./gulpfile.js	/^    var rename       = require('gulp-rename');$/;"	v
-runSequence	./gulpfile.js	/^    var runSequence  = require('run-sequence');$/;"	v
-sal	./src/js/sal/sal.js	/^var sal, $$;$/;"	v
-sass	./gulpfile.js	/^    var sass         = require('gulp-sass');$/;"	v
-setClassToggle	./src/js/vendor/ScrollMagic.js	/^		this.setClassToggle = function (element, classes) {$/;"	f
-sourcemaps	./gulpfile.js	/^    var sourcemaps   = require('gulp-sourcemaps');$/;"	v
-true	./src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
-uglify	./gulpfile.js	/^    var uglify       = require('gulp-uglify');$/;"	v
-var.eventVars.progress	./src/js/vendor/ScrollMagic.js	/^						progress: _progress,$/;"	p
-var.eventVars.scrollDirection	./src/js/vendor/ScrollMagic.js	/^						scrollDirection: scrollDirection$/;"	p
-var.eventVars.state	./src/js/vendor/ScrollMagic.js	/^						state: _state,$/;"	p
-var.newCSS.position	./src/js/vendor/ScrollMagic.js	/^						position: _pinOptions.inFlow ? "relative" : "absolute",$/;"	p
-var.trigger	./src/js/vendor/ScrollMagic.js	/^					var trigger = function (eventName) { \/\/ tmp helper to simplify code$/;"	f
+Animation	src/js/vendor/TweenMax.js	/^			Animation.prototype.invalidate.call(this);$/;"	c
+Animation	src/js/vendor/TweenMax.js	/^		var Animation = _class("core.Animation", function(duration, vars) {$/;"	v
+Animation._enabled	src/js/vendor/TweenMax.js	/^			Animation.prototype._enabled.call(this, enabled, ignoreTimeline);$/;"	m
+Animation.invalidate	src/js/vendor/TweenMax.js	/^			Animation.prototype.invalidate.call(this);$/;"	m
+CONTROLLER_OPTIONS.defaults	src/js/vendor/ScrollMagic.js	/^		defaults: {$/;"	p
+EventDispatcher	src/js/vendor/TweenMax.js	/^		var EventDispatcher = _class("events.EventDispatcher", function(target) {$/;"	v
+FONT_SIZE	src/js/vendor/debug.addIndicators.js	/^	FONT_SIZE = "0.85em",$/;"	v
+Indicator	src/js/vendor/debug.addIndicators.js	/^	var Indicator = function (Scene, options) {$/;"	c
+Indicator.Array	src/js/vendor/debug.addIndicators.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");$/;"	c
+Indicator.Indicator.Array.splice	src/js/vendor/debug.addIndicators.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ")", "->");$/;"	m
+Indicator.add	src/js/vendor/debug.addIndicators.js	/^		this.add = function () {$/;"	m
+Indicator.addBounds	src/js/vendor/debug.addIndicators.js	/^		var addBounds = function () {$/;"	m
+Indicator.addTriggerGroup	src/js/vendor/debug.addIndicators.js	/^		var addTriggerGroup = function () {$/;"	m
+Indicator.addTriggerGroup.newGroup.triggerHook	src/js/vendor/debug.addIndicators.js	/^				triggerHook: Scene.triggerHook(),$/;"	p
+Indicator.handleBoundsParamsChange	src/js/vendor/debug.addIndicators.js	/^		var handleBoundsParamsChange = function () {$/;"	m
+Indicator.handleTriggerParamsChange	src/js/vendor/debug.addIndicators.js	/^		var handleTriggerParamsChange = function (e) {$/;"	m
+Indicator.log	src/js/vendor/debug.addIndicators.js	/^		var log = function () {$/;"	f
+Indicator.remove	src/js/vendor/debug.addIndicators.js	/^		this.remove = function () {$/;"	m
+Indicator.removeBounds	src/js/vendor/debug.addIndicators.js	/^		var removeBounds = function () {$/;"	m
+Indicator.removeTriggerGroup	src/js/vendor/debug.addIndicators.js	/^		var removeTriggerGroup = function () {$/;"	m
+Indicator.updateBounds	src/js/vendor/debug.addIndicators.js	/^		var updateBounds = function () {$/;"	m
+Indicator.updateTriggerGroup	src/js/vendor/debug.addIndicators.js	/^		var updateTriggerGroup = function () {$/;"	m
+NAMESPACE	src/js/vendor/debug.addIndicators.js	/^	var NAMESPACE = "debug.addIndicators";$/;"	v
+PIN_SPACER_ATTRIBUTE	src/js/vendor/ScrollMagic.js	/^	var PIN_SPACER_ATTRIBUTE = "data-scrollmagic-pin-spacer";$/;"	v
+SAL	src/js/sal/sal.js	/^    var SAL = function(el, triggerel) {$/;"	c
+SAL.about.autor	src/js/sal/sal.js	/^            "autor": "Secuoyas",$/;"	p
+SAL.about.name	src/js/sal/sal.js	/^            "name": "Secuoyas Animation Library",$/;"	p
+SAL.about.version	src/js/sal/sal.js	/^            "version": "0.1"$/;"	p
+SAL.getData	src/js/sal/sal.js	/^        this.getData = function(el) {$/;"	m
+SCENE_OPTIONS.defaults	src/js/vendor/ScrollMagic.js	/^		defaults: {$/;"	p
+ScrollMagic	src/js/vendor/ScrollMagic.js	/^	var ScrollMagic = function () {$/;"	f
+ScrollMagic.Controller	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller = function (options) {$/;"	c
+ScrollMagic.Controller.Array	src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	c
+ScrollMagic.Controller.ScrollMagic.Controller.Array.splice	src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	m
+ScrollMagic.Controller.ScrollMagic.Controller.constructor	src/js/vendor/ScrollMagic.js	/^		ScrollMagic.Controller.prototype.constructor = ScrollMagic.Controller; \/\/ restore constructor$/;"	m
+ScrollMagic.Controller.ScrollMagic.Controller.info.values.size	src/js/vendor/ScrollMagic.js	/^				size: _viewPortSize,$/;"	p
+ScrollMagic.Controller.ScrollMagic.Controller.info.values.vertical	src/js/vendor/ScrollMagic.js	/^				vertical: _options.vertical,$/;"	p
+ScrollMagic.Controller.addOption	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller.addOption = function (name, defaultValue) {$/;"	f
+ScrollMagic.Controller.addScene	src/js/vendor/ScrollMagic.js	/^		this.addScene = function (newScene) {$/;"	m
+ScrollMagic.Controller.construct	src/js/vendor/ScrollMagic.js	/^		var construct = function () {$/;"	f
+ScrollMagic.Controller.debounceUpdate	src/js/vendor/ScrollMagic.js	/^		var debounceUpdate = function () {$/;"	f
+ScrollMagic.Controller.destroy	src/js/vendor/ScrollMagic.js	/^		this.destroy = function (resetScenes) {$/;"	m
+ScrollMagic.Controller.enabled	src/js/vendor/ScrollMagic.js	/^		this.enabled = function (newState) {$/;"	m
+ScrollMagic.Controller.extend	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Controller.extend = function (extension) {$/;"	f
+ScrollMagic.Controller.getScrollPos	src/js/vendor/ScrollMagic.js	/^		var getScrollPos = function () {$/;"	f
+ScrollMagic.Controller.getViewportSize	src/js/vendor/ScrollMagic.js	/^		var getViewportSize = function () {$/;"	f
+ScrollMagic.Controller.info	src/js/vendor/ScrollMagic.js	/^		this.info = function (about) {$/;"	m
+ScrollMagic.Controller.loglevel	src/js/vendor/ScrollMagic.js	/^		this.loglevel = function (newLoglevel) {$/;"	m
+ScrollMagic.Controller.onChange	src/js/vendor/ScrollMagic.js	/^		var onChange = function (e) {$/;"	f
+ScrollMagic.Controller.refresh	src/js/vendor/ScrollMagic.js	/^		var refresh = function () {$/;"	f
+ScrollMagic.Controller.removeScene	src/js/vendor/ScrollMagic.js	/^		this.removeScene = function (Scene) {$/;"	m
+ScrollMagic.Controller.scheduleRefresh	src/js/vendor/ScrollMagic.js	/^		var scheduleRefresh = function () {$/;"	f
+ScrollMagic.Controller.scrollPos	src/js/vendor/ScrollMagic.js	/^		this.scrollPos = function (scrollPosMethod) {$/;"	m
+ScrollMagic.Controller.scrollTo	src/js/vendor/ScrollMagic.js	/^		this.scrollTo = function (scrollTarget, additionalParameter) {$/;"	m
+ScrollMagic.Controller.sortScenes	src/js/vendor/ScrollMagic.js	/^		var sortScenes = function (ScenesArray) {$/;"	m
+ScrollMagic.Controller.update	src/js/vendor/ScrollMagic.js	/^		this.update = function (immediately) {$/;"	m
+ScrollMagic.Controller.updateScene	src/js/vendor/ScrollMagic.js	/^		this.updateScene = function (Scene, immediately) {$/;"	m
+ScrollMagic.Controller.updateScenes	src/js/vendor/ScrollMagic.js	/^		var updateScenes = function () {$/;"	f
+ScrollMagic.Event	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Event = function (type, namespace, target, vars) {$/;"	c
+ScrollMagic.Scene	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene = function (options) {$/;"	c
+ScrollMagic.Scene.Array	src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	c
+ScrollMagic.Scene.Scene	src/js/vendor/ScrollMagic.js	/^				Scene[optionName] = function (newVal) {$/;"	f
+ScrollMagic.Scene.ScrollMagic.Scene.Array.splice	src/js/vendor/ScrollMagic.js	/^				Array.prototype.splice.call(arguments, 1, 0, "(" + NAMESPACE + ") ->");$/;"	m
+ScrollMagic.Scene.ScrollMagic.Scene.constructor	src/js/vendor/ScrollMagic.js	/^		ScrollMagic.Scene.prototype.constructor = ScrollMagic.Scene; \/\/ restore constructor$/;"	m
+ScrollMagic.Scene.ScrollMagic.Scene.setPin.defaultSettings.pushFollowers	src/js/vendor/ScrollMagic.js	/^				pushFollowers: true,$/;"	p
+ScrollMagic.Scene.ScrollMagic.Scene.setPin.defaultSettings.spacerClass	src/js/vendor/ScrollMagic.js	/^				spacerClass: "scrollmagic-pin-spacer"$/;"	p
+ScrollMagic.Scene._scrollOffset.start	src/js/vendor/ScrollMagic.js	/^				start: _triggerPos + _options.offset$/;"	p
+ScrollMagic.Scene.addIndicators	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.addIndicators = function () {$/;"	m
+ScrollMagic.Scene.addOption	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.addOption = function (name, defaultValue, validationCallback, shifts) {$/;"	f
+ScrollMagic.Scene.addSceneOption	src/js/vendor/ScrollMagic.js	/^		var addSceneOption = function (optionName) {$/;"	m
+ScrollMagic.Scene.addTo	src/js/vendor/ScrollMagic.js	/^		this.addTo = function (controller) {$/;"	m
+ScrollMagic.Scene.changeOption	src/js/vendor/ScrollMagic.js	/^		var changeOption = function (varname, newval) {$/;"	m
+ScrollMagic.Scene.construct	src/js/vendor/ScrollMagic.js	/^		var construct = function () {$/;"	f
+ScrollMagic.Scene.controller	src/js/vendor/ScrollMagic.js	/^		this.controller = function () {$/;"	m
+ScrollMagic.Scene.destroy	src/js/vendor/ScrollMagic.js	/^		this.destroy = function (reset) {$/;"	m
+ScrollMagic.Scene.enabled	src/js/vendor/ScrollMagic.js	/^		this.enabled = function (newState) {$/;"	m
+ScrollMagic.Scene.extend	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.extend = function (extension) {$/;"	f
+ScrollMagic.Scene.off	src/js/vendor/ScrollMagic.js	/^		this.off = function (names, callback) {$/;"	m
+ScrollMagic.Scene.on	src/js/vendor/ScrollMagic.js	/^		this.on = function (names, callback) {$/;"	m
+ScrollMagic.Scene.onContainerResize	src/js/vendor/ScrollMagic.js	/^		var onContainerResize = function (e) {$/;"	m
+ScrollMagic.Scene.onMousewheelOverPin	src/js/vendor/ScrollMagic.js	/^		var onMousewheelOverPin = function (e) {$/;"	m
+ScrollMagic.Scene.progress	src/js/vendor/ScrollMagic.js	/^		this.progress = function (progress) {$/;"	m
+ScrollMagic.Scene.refresh	src/js/vendor/ScrollMagic.js	/^		this.refresh = function () {$/;"	m
+ScrollMagic.Scene.remove	src/js/vendor/ScrollMagic.js	/^		this.remove = function () {$/;"	m
+ScrollMagic.Scene.removeIndicators	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeIndicators = function () {$/;"	m
+ScrollMagic.Scene.removeTween	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeTween = function () {$/;"	m
+ScrollMagic.Scene.removeVelocity	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.removeVelocity = function () {$/;"	m
+ScrollMagic.Scene.scrollOffset	src/js/vendor/ScrollMagic.js	/^		this.scrollOffset = function () {$/;"	m
+ScrollMagic.Scene.setPin	src/js/vendor/ScrollMagic.js	/^		this.setPin = function (element, settings) {$/;"	m
+ScrollMagic.Scene.setTween	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.setTween = function () {$/;"	m
+ScrollMagic.Scene.setVelocity	src/js/vendor/ScrollMagic.js	/^	ScrollMagic.Scene.prototype.setVelocity = function () {$/;"	m
+ScrollMagic.Scene.state	src/js/vendor/ScrollMagic.js	/^		this.state = function () {$/;"	m
+ScrollMagic.Scene.trigger	src/js/vendor/ScrollMagic.js	/^		this.trigger = function (name, vars) {$/;"	m
+ScrollMagic.Scene.triggerPosition	src/js/vendor/ScrollMagic.js	/^		this.triggerPosition = function () {$/;"	m
+ScrollMagic.Scene.update	src/js/vendor/ScrollMagic.js	/^		this.update = function (immediately) {$/;"	m
+ScrollMagic.Scene.updateDuration	src/js/vendor/ScrollMagic.js	/^		var updateDuration = function (suppressEvents) {$/;"	m
+ScrollMagic.Scene.updatePinDimensions	src/js/vendor/ScrollMagic.js	/^		var updatePinDimensions = function () {$/;"	m
+ScrollMagic.Scene.updatePinInContainer	src/js/vendor/ScrollMagic.js	/^		var updatePinInContainer = function () {$/;"	m
+ScrollMagic.Scene.updatePinState	src/js/vendor/ScrollMagic.js	/^		var updatePinState = function (forceUnpin) {$/;"	m
+ScrollMagic.Scene.updateRelativePinSpacer	src/js/vendor/ScrollMagic.js	/^		var updateRelativePinSpacer = function () {$/;"	m
+ScrollMagic.Scene.updateScrollOffset	src/js/vendor/ScrollMagic.js	/^		var updateScrollOffset = function () {$/;"	m
+ScrollMagic.Scene.updateTriggerElementPosition	src/js/vendor/ScrollMagic.js	/^		var updateTriggerElementPosition = function (suppressEvents) {$/;"	m
+ScrollMagic.Scene.validateOption	src/js/vendor/ScrollMagic.js	/^		var validateOption = function (check) {$/;"	m
+SimpleTimeline	src/js/vendor/TweenMax.js	/^		var SimpleTimeline = _class("core.SimpleTimeline", function(vars) {$/;"	v
+TPL.bounds	src/js/vendor/debug.addIndicators.js	/^		bounds: function () {$/;"	m
+TPL.end	src/js/vendor/debug.addIndicators.js	/^		end: function (color) {$/;"	m
+TPL.start	src/js/vendor/debug.addIndicators.js	/^		start: function (color) {$/;"	m
+TPL.trigger	src/js/vendor/debug.addIndicators.js	/^		trigger: function (color) {$/;"	m
+TWEEN	src/js/sal/sal.js	/^            var TWEEN = TweenLite.from($/;"	v
+TweenLite._onPluginEvent	src/js/vendor/TweenMax.js	/^		TweenLite._onPluginEvent = function(type, tween) {$/;"	f
+TweenLite.delayedCall	src/js/vendor/TweenMax.js	/^		TweenLite.delayedCall = function(delay, callback, params, scope, useFrames) {$/;"	f
+TweenLite.from	src/js/vendor/TweenMax.js	/^		TweenLite.from = function(target, duration, vars) {$/;"	f
+TweenLite.fromTo	src/js/vendor/TweenMax.js	/^		TweenLite.fromTo = function(target, duration, fromVars, toVars) {$/;"	f
+TweenLite.getTweensOf	src/js/vendor/TweenMax.js	/^		TweenLite.getTweensOf = function(target, onlyActive) {$/;"	f
+TweenLite.lagSmoothing	src/js/vendor/TweenMax.js	/^		TweenLite.lagSmoothing = function(threshold, adjustedLag) {$/;"	f
+TweenLite.set	src/js/vendor/TweenMax.js	/^		TweenLite.set = function(target, vars) {$/;"	f
+TweenLite.to	src/js/vendor/TweenMax.js	/^		TweenLite.to = function(target, duration, vars) {$/;"	f
+TweenPlugin	src/js/vendor/TweenMax.js	/^		var TweenPlugin = _class("plugins.TweenPlugin", function(props, priority) {$/;"	v
+TweenPlugin.activate	src/js/vendor/TweenMax.js	/^		TweenPlugin.activate = function(plugins) {$/;"	f
+_checkTimeout	src/js/vendor/TweenMax.js	/^		var _checkTimeout = function() {$/;"	f
+_cssClasses	src/js/vendor/ScrollMagic.js	/^		_cssClasses, _cssClassElems = [];$/;"	v
+_globals	src/js/vendor/TweenMax.js	/^		var _globals = window.GreenSockGlobals = window.GreenSockGlobals || window;$/;"	v
+_gsDefine.plugin	src/js/vendor/TweenMax.js	/^		_gsDefine.plugin = function(config) {$/;"	f
+_namespace	src/js/vendor/TweenMax.js	/^		var _namespace = function(ns) {$/;"	f
+_pinOptions.relSize	src/js/vendor/ScrollMagic.js	/^				relSize: { \/\/ save if size is defined using % values. if so, handle spacer resize differently...$/;"	p
+_pinOptions.spacer	src/js/vendor/ScrollMagic.js	/^				spacer: spacer,$/;"	p
+_register	src/js/vendor/TweenMax.js	/^		var _register = function(target, tween, scrub) {$/;"	f
+_tweenLookup.target	src/js/vendor/TweenMax.js	/^					_tweenLookup[id] = {target:target, tweens:[]};$/;"	p
+_tweenLookup.tweens	src/js/vendor/TweenMax.js	/^					_tweenLookup[id] = {target:target, tweens:[]};$/;"	p
+_util	src/js/vendor/debug.addIndicators.js	/^	_util = ScrollMagic._util,$/;"	v
+a._firstPT._next	src/js/vendor/TweenMax.js	/^						a._firstPT = {_next: a._firstPT, t:a, p: a.length-1, s:num, c:((currentNum.charAt(1) === "=") ? parseInt(currentNum.charAt(0) + "1", 10) * parseFloat(currentNum.substr(2)) : (parseFloat(currentNum) - num)) || 0, f:0, r:(color && color < 4)};$/;"	p
+all	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+allOnStart	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+animationCurve	src/js/sal/sal.js	/^            var animationCurve = Sine.easeIn;$/;"	v
+auto	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+autoprefixer	gulpfile.js	/^    var autoprefixer = require('autoprefixer'); \/\/ <- postcss$/;"	v
+browserSync	gulpfile.js	/^    var browserSync  = require('browser-sync');$/;"	v
+check	src/js/vendor/TweenMax.js	/^				this.check = function(init) {$/;"	m
+concat	gulpfile.js	/^    var concat       = require('gulp-concat');$/;"	v
+concurrent	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+csswring	gulpfile.js	/^    var csswring     = require('csswring'); \/\/ <- postcss$/;"	v
+del	gulpfile.js	/^    var del          = require('del');$/;"	v
+dirs.dst	gulpfile.js	/^        dst: 'dist\/',$/;"	p
+dirs.src	gulpfile.js	/^        src: 'src\/',$/;"	p
+false	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+gulp	gulpfile.js	/^    var gulp         = require('gulp');$/;"	v
+jshint	gulpfile.js	/^    var jshint       = require('gulp-jshint');$/;"	v
+none	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+onCenter	src/js/vendor/ScrollMagic.js	/^					"onCenter": 0.5,$/;"	p
+p._add	src/js/vendor/TweenMax.js	/^		p._add = function(target, p, s, c) {$/;"	c
+p._callback	src/js/vendor/TweenMax.js	/^		p._callback = function(type) {$/;"	f
+p._enabled	src/js/vendor/TweenMax.js	/^		p._enabled = function (enabled, ignoreTimeline) {$/;"	c
+p._enabled	src/js/vendor/TweenMax.js	/^		p._enabled = function(enabled, ignoreTimeline) {$/;"	f
+p._init	src/js/vendor/TweenMax.js	/^		p._init = function() {$/;"	c
+p._initProps	src/js/vendor/TweenMax.js	/^		p._initProps = function(target, propLookup, siblings, overwrittenProps) {$/;"	f
+p._kill	src/js/vendor/TweenMax.js	/^		p._kill = function(vars, target) {$/;"	f
+p._onInitAllProps	src/js/vendor/TweenMax.js	/^		p._onInitAllProps = function() {$/;"	f
+p._remove	src/js/vendor/TweenMax.js	/^		p._remove = function(tween, skipDisable) {$/;"	f
+p._roundProps	src/js/vendor/TweenMax.js	/^		p._roundProps = function(lookup, value) {$/;"	f
+p._swapSelfInParams	src/js/vendor/TweenMax.js	/^		p._swapSelfInParams = function(params) {$/;"	f
+p._uncache	src/js/vendor/TweenMax.js	/^		p._uncache = function(includeSelf) {$/;"	f
+p.addEventListener	src/js/vendor/TweenMax.js	/^		p.addEventListener = function(type, callback, scope, useParam, priority) {$/;"	f
+p.delay	src/js/vendor/TweenMax.js	/^		p.delay = function(value) {$/;"	c
+p.dispatchEvent	src/js/vendor/TweenMax.js	/^		p.dispatchEvent = function(type) {$/;"	f
+p.duration	src/js/vendor/TweenMax.js	/^		p.duration = function(value) {$/;"	c
+p.endTime	src/js/vendor/TweenMax.js	/^		p.endTime = function(includeRepeats) {$/;"	f
+p.eventCallback	src/js/vendor/TweenMax.js	/^		p.eventCallback = function(type, callback, params, scope) {$/;"	f
+p.getRatio	src/js/vendor/TweenMax.js	/^		p.getRatio = function(p) {$/;"	f
+p.invalidate	src/js/vendor/TweenMax.js	/^		p.invalidate = function() {$/;"	c
+p.isActive	src/js/vendor/TweenMax.js	/^		p.isActive = function() {$/;"	f
+p.kill	src/js/vendor/TweenMax.js	/^		p.kill = function(vars, target) {$/;"	c
+p.pause	src/js/vendor/TweenMax.js	/^		p.pause = function(atTime, suppressEvents) {$/;"	f
+p.paused	src/js/vendor/TweenMax.js	/^		p.paused = function(value) {$/;"	f
+p.play	src/js/vendor/TweenMax.js	/^		p.play = function(from, suppressEvents) {$/;"	f
+p.rawTime	src/js/vendor/TweenMax.js	/^		p.rawTime = function() {$/;"	f
+p.removeEventListener	src/js/vendor/TweenMax.js	/^		p.removeEventListener = function(type, callback) {$/;"	f
+p.render	src/js/vendor/TweenMax.js	/^		p.render = function(time, suppressEvents, force) {$/;"	c
+p.render	src/js/vendor/TweenMax.js	/^		p.render = function(time, suppressEvents, force) {$/;"	f
+p.restart	src/js/vendor/TweenMax.js	/^		p.restart = function(includeDelay, suppressEvents) {$/;"	f
+p.resume	src/js/vendor/TweenMax.js	/^		p.resume = function(from, suppressEvents) {$/;"	f
+p.reverse	src/js/vendor/TweenMax.js	/^		p.reverse = function(from, suppressEvents) {$/;"	f
+p.reversed	src/js/vendor/TweenMax.js	/^		p.reversed = function(value) {$/;"	f
+p.seek	src/js/vendor/TweenMax.js	/^		p.seek = function(time, suppressEvents) {$/;"	f
+p.startTime	src/js/vendor/TweenMax.js	/^		p.startTime = function(value) {$/;"	f
+p.time	src/js/vendor/TweenMax.js	/^		p.time = function(value, suppressEvents) {$/;"	f
+p.timeScale	src/js/vendor/TweenMax.js	/^		p.timeScale = function(value) {$/;"	c
+p.totalDuration	src/js/vendor/TweenMax.js	/^		p.totalDuration = function(value) {$/;"	c
+p.totalTime	src/js/vendor/TweenMax.js	/^		p.totalTime = function(time, suppressEvents, uncapped) {$/;"	f
+plumber	gulpfile.js	/^    var plumber      = require('gulp-plumber');$/;"	v
+postcss	gulpfile.js	/^    var postcss      = require('gulp-postcss');$/;"	v
+preexisting	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+pt.c	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.f	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.n	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.p	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.pg	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.s	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+pt.t	src/js/vendor/TweenMax.js	/^						pt = {t:blob, p:"setRatio", s:0, c:1, f:2, pg:0, n:overwriteProp || prop, pr:0}; \/\/"2" indicates it's a Blob property tween. Needed for RoundPropsPlugin for example.$/;"	p
+removeClassToggle	src/js/vendor/ScrollMagic.js	/^		this.removeClassToggle = function (reset) {$/;"	f
+removePin	src/js/vendor/ScrollMagic.js	/^		this.removePin = function (reset) {$/;"	f
+rename	gulpfile.js	/^    var rename       = require('gulp-rename');$/;"	v
+runSequence	gulpfile.js	/^    var runSequence  = require('run-sequence');$/;"	v
+sal	src/js/sal/sal.js	/^var sal, $$;$/;"	v
+sass	gulpfile.js	/^    var sass         = require('gulp-sass');$/;"	v
+setClassToggle	src/js/vendor/ScrollMagic.js	/^		this.setClassToggle = function (element, classes) {$/;"	f
+sourcemaps	gulpfile.js	/^    var sourcemaps   = require('gulp-sourcemaps');$/;"	v
+true	src/js/vendor/TweenMax.js	/^			_overwriteLookup = {none:0, all:1, auto:2, concurrent:3, allOnStart:4, preexisting:5, "true":1, "false":0},$/;"	p
+uglify	gulpfile.js	/^    var uglify       = require('gulp-uglify');$/;"	v
+var.animationObjects.x	src/js/sal/sal.js	/^                "x":{"x": value},$/;"	p
+var.eventVars.progress	src/js/vendor/ScrollMagic.js	/^						progress: _progress,$/;"	p
+var.eventVars.scrollDirection	src/js/vendor/ScrollMagic.js	/^						scrollDirection: scrollDirection$/;"	p
+var.eventVars.state	src/js/vendor/ScrollMagic.js	/^						state: _state,$/;"	p
+var.newCSS.position	src/js/vendor/ScrollMagic.js	/^						position: _pinOptions.inFlow ? "relative" : "absolute",$/;"	p
+var.trigger	src/js/vendor/ScrollMagic.js	/^					var trigger = function (eventName) { \/\/ tmp helper to simplify code$/;"	f

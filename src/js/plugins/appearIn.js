@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - modParallax.js                                                               //
+    //  Plugin - appearIn.js                                                                  //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,38 +35,27 @@ $(function () {
     (function($$){
 
         /**
-         * modParallax.js
-         * @param {string} ratio El ratio de "parallax" de la imagen en %
-         * @return {salObject} Devuelve un objeto SAL.
+         * appearIn
+         * @param {float} value Valor desde el que hacemos la entrada en Y.
+         * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
+         * @param {integer} offset Valor en pixel para el "retardo" de la animación.
+         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        $$.fn.modParallax = function(ratio) {
+        $$.fn.appearIn = function(axy, value, duration, offset, triggerHook) {
 
-            var extra, image;
+            // Si no se indica nada en el método los valores deben estar en el data-*
+            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
-            $(this.el).each(function() {
 
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-                image = $(this).css("background-image");
-                extra = $(this).children(".hero-parallax--back");
-                $(this).css({ "background-image": "none"});
-
-                // Set some styles..
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "height": (100 * ratio) + "%" });
-                $(extra).css( {
-                    "transform":
-                        "translate3d( 0, " + -(100 - (100 / ((100 * ratio) / 100))) + "%, 0.001px"
-                });
-
-                // Animamos
-                $$(extra[0], this).parallax(1, "onEnter");
-
-            })
+            // Animamos
+            $$(this.el, this.triggerel)
+                .move(axy, value, duration, offset, triggerHook)
 
             return this;
         };
 
     }(sal));
-
 });
