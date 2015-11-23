@@ -34,5 +34,6 @@
 $(function () {
 
     $$(".parallax").parallax(3.5);
+    $$(".hero-parallax").heroParallax(1.5);
 
 });
