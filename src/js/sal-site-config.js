@@ -36,4 +36,6 @@ $(function () {
     $$(".parallax").modParallax(3.5);
     $$(".hero-parallax").heroParallax("50%");
 
+    //$$(".cosa").fadeOutTween("onCenter");
+
 });

@@ -39,12 +39,8 @@ var sal, $$;
 (function () {
 
 
-    /**
+    /*
      * Constructor sal
-     * @param {string} el Elemento (query) que vamos a animar
-     * @param {string} triggerel Elemento (query) que vamos a usar como trigger
-     * @return {sal-object}
-     * @constructor
      */
 
     sal = $$ = function(el, triggerel) {
@@ -55,8 +51,8 @@ var sal, $$;
 
     /**
      * Sal
-     * @param {string} el Elemento en formato jQuery que vamos a animar
-     * @param {string} triggerel Elemento en formato jQuery que vamos a usar como trigger
+     * @param {string} el Elemento (query) que vamos a animar
+     * @param {string} triggerel Elemento (query) que vamos a usar como trigger
      * @return {sal}
      */
 
@@ -79,9 +75,9 @@ var sal, $$;
         this.triggerel = triggerel;
 
         /**
-         * getData
-         * @param {string} el Elemento en formato jQuery del que vamos a obtener los data-*
-         * @return {string}
+         * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
+         * @param {string} el Elemento (query) del que vamos a obtener los data
+         * @return {json}
          */
 
         this.getData = function(el) {
@@ -102,22 +98,44 @@ var sal, $$;
     sal.fn = SAL.prototype = {
 
         /**
-         * SOA. Single Object animation.
-         * Mueve un elemento utilizando un objeto Greensock
+         * Single Object animation.
+         * Mueve un elemento utilizando un objeto Greensock.
+         * @private
          * @param {object} gsobject Objeto Greensock que contiene la animación
          * @param {string} duration Duración de la animación en %/px
          * @param {number} offset Valor en px para el "retardo" de la animación
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          * @example
          * Devuelve bla bla bla
-         * soa ({"x":"-200px"});
+         * $$(".myClass").soa({"x":"-200px"});
          * @return {sal-object}
          */
 
-        soa: function( gsobject, duration, offset, triggerHook ) {
+        soa: function( gsobject, duration, offset, triggerHook, direction ) {
+
+            direction = typeof direction !== 'undefined' ? direction: "from";
+
+            var greenSockCompound = {
+                "el": this.el,
+                "time": 1,
+                "gsobject": gsobject
+            }
 
             // Greensock animation
-            var tween = TweenLite.from( this.el, 1, gsobject );
+            var tween;
+            if (direction == "from") {
+                tween = TweenLite.from(
+                        greenSockCompound["el"],
+                        greenSockCompound["time"],
+                        greenSockCompound["gsobject"]
+                );
+            } else {
+                tween = TweenLite.to(
+                        greenSockCompound["el"],
+                        greenSockCompound["time"],
+                        greenSockCompound["gsobject"]
+                );
+            }
 
             // ScrollMagic scene
             var scene = new ScrollMagic.Scene( {
@@ -135,12 +153,14 @@ var sal, $$;
 
 
         /**
-         * Move
          * Mueve un elemento en la coordenada dada
-         * @param {float} value Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         * @param {string} coord Coordenada que se va a animar "x", "y", "z"
+         * @param {float} value Valor la coordenada
+         * @param {string} duration Duración de la animación en %/px
+         * @param {number} offset Valor en px para el "retardo" de la animación
+         * @param {string} [triggerHook="onEnter"] Posición del trigger de ScrollMagic
+         * @param {string} [direction="from"] Dirección de la animación, from o to
+         * @return {sal-object}
          */
 
         move: function(coord, value, duration, offset, triggerHook) {
@@ -187,30 +207,6 @@ var sal, $$;
 
 
         /**
-         * Move Y
-         * Mueve un elemento en la coordenada Y, este método es básicamente para probar el
-         * como funciona el uso de otros métodos más "core", en concreto move()
-         * @param {float} value Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
-         */
-
-        moveY : function(value, duration, offset, triggerHook) {
-
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            // Uso del método privado move()
-            this.move("y", value, duration, offset, triggerHook);
-
-            return this;
-
-        },
-
-
-        /**
          * Scale
          * @param {float} fromValue Valor desde el que hacemos la escala
          * @param {integer-string} duration Valor de scroll en % o en px de la duración de la
@@ -248,6 +244,31 @@ var sal, $$;
             return this;
         },
 
+        fadeOut: function(duration, offset, triggerHook) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            $$(this.el, this.triggerel).fade("0", "to", duration, offset, triggerHook);
+
+            return this;
+
+        },
+
+        fadeIn: function(duration, offset, triggerHook) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            $$(this.el, this.triggerel).fade("0", "from", duration, offset, triggerHook);
+
+            return this;
+
+        },
 
         /**
          * Fade In con SimpleObjectAnimation
@@ -256,7 +277,7 @@ var sal, $$;
          * @return {salObject} Devuelve un objeto SAL.
          */
 
-        fadeIn : function(duration, offset, triggerHook) {
+        fade: function(value, direction, duration, offset, triggerHook) {
 
             // Valores por defecto
             duration = typeof duration !== 'undefined' ? duration: "100%";
@@ -275,10 +296,11 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger).soa(
-                        {"opacity":"0"},
+                        {"opacity": value},
                         duration,
                         offset,
-                        triggerHook
+                        triggerHook,
+                        direction
                 );
 
             });

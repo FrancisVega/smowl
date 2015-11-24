@@ -27,9 +27,9 @@
                 SAL
               </a>
                 <a
-                  href='#SAL.fadeIn'
+                  href='#SAL.fade'
                   class='regular block'>
-                  #fadeIn
+                  #fade
                 </a>
                 <a
                   href='#SAL.move'
@@ -37,29 +37,14 @@
                   #move
                 </a>
                 <a
-                  href='#SAL.moveY'
-                  class='regular block'>
-                  #moveY
-                </a>
-                <a
                   href='#SAL.scale'
                   class='regular block'>
                   #scale
-                </a>
-                <a
-                  href='#SAL.soa'
-                  class='regular block'>
-                  #soa
                 </a>
               <a
                 href='#getData'
                 class='block bold'>
                 getData
-              </a>
-              <a
-                href='#sal'
-                class='block bold'>
-                sal
               </a>
           </div>
         </div>
@@ -77,29 +62,29 @@
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
           :
           <span class='force-inline'>
-            <p>Elemento en formato jQuery que vamos a animar</p>
+            <p>Elemento (query) que vamos a animar</p>
 
           </span>
         </li>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerel</strong>
           :
           <span class='force-inline'>
-            <p>Elemento en formato jQuery que vamos a usar como trigger</p>
+            <p>Elemento (query) que vamos a usar como trigger</p>
 
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code><code><a href="#sal">sal</a></code></code>
+      <code><code>sal</code></code>
       
       <span class='force-inline'>
         
       </span>
       <h4>Instance members</h4>
-        <div class='collapsible' id='SAL.fadeIn'>
-          <a href='#SAL.fadeIn'>
+        <div class='collapsible' id='SAL.fade'>
+          <a href='#SAL.fade'>
             <code>
-              #fadeIn<span class='gray'>(duration, duration, offset, triggerHook)</span>
+              #fade<span class='gray'>(value, direction, duration, duration, offset, triggerHook)</span>
             </code>
             <span class='force-inline'>
               <p>Fade In con SimpleObjectAnimation</p>
@@ -108,13 +93,25 @@
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
-              <h2 id='SAL.fadeIn' class='mt0'>
-                fadeIn<span class='gray'>(duration, duration, offset, triggerHook)</span>
+              <h2 id='SAL.fade' class='mt0'>
+                fade<span class='gray'>(value, direction, duration, duration, offset, triggerHook)</span>
               </h2>
               <p>Fade In con SimpleObjectAnimation</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
+                    <li> <strong>value</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>direction</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
                     <li><code>float</code> <strong>duration</strong>
                       :
                       <span class='force-inline'>
@@ -155,114 +152,73 @@
         <div class='collapsible' id='SAL.move'>
           <a href='#SAL.move'>
             <code>
-              #move<span class='gray'>(coord, value, duration, offset, triggerHook)</span>
+              #move<span class='gray'>(coord, value, duration, offset, [triggerHook], [direction])</span>
             </code>
             <span class='force-inline'>
-              <p>Move
-Mueve un elemento en la coordenada dada</p>
+              <p>Mueve un elemento en la coordenada dada</p>
 
             </span>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
               <h2 id='SAL.move' class='mt0'>
-                move<span class='gray'>(coord, value, duration, offset, triggerHook)</span>
+                move<span class='gray'>(coord, value, duration, offset, [triggerHook], [direction])</span>
               </h2>
-              <p>Move
-            Mueve un elemento en la coordenada dada</p>
+              <p>Mueve un elemento en la coordenada dada</p>
             
                 <h4>Parameters</h4>
                 <ul class='suppress-p-margin'>
-                    <li> <strong>coord</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>coord</strong>
                       :
                       <span class='force-inline'>
-                        
+                        <p>Coordenada que se va a animar &quot;x&quot;, &quot;y&quot;, &quot;z&quot;</p>
+            
                       </span>
                     </li>
                     <li><code>float</code> <strong>value</strong>
                       :
                       <span class='force-inline'>
-                        <p>Valor desde el que hacemos la escala</p>
+                        <p>Valor la coordenada</p>
             
                       </span>
                     </li>
-                    <li><code>integer-string</code> <strong>duration</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>duration</strong>
                       :
                       <span class='force-inline'>
                         <p>Duraci&oacute;n de la animaci&oacute;n en %/px</p>
             
                       </span>
                     </li>
-                    <li><code>integer</code> <strong>offset</strong>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>offset</strong>
                       :
                       <span class='force-inline'>
                         <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n</p>
             
                       </span>
                     </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerHook</strong>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> <strong>triggerHook</strong>
+                        (default <code>&quot;onEnter&quot;</code>)
                       :
                       <span class='force-inline'>
-                        <p>Elemento que har&aacute; de trigger para scrollmagic</p>
+                        <p>Posici&oacute;n del trigger de ScrollMagic</p>
+            
+                      </span>
+                    </li>
+                    <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> <strong>direction</strong>
+                        (default <code>&quot;from&quot;</code>)
+                      :
+                      <span class='force-inline'>
+                        <p>Direcci&oacute;n de la animaci&oacute;n, from o to</p>
             
                       </span>
                     </li>
                 </ul>
-            </section>
-          </div>
-        </div>
-        <div class='collapsible' id='SAL.moveY'>
-          <a href='#SAL.moveY'>
-            <code>
-              #moveY<span class='gray'>(value, duration, offset, triggerHook)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Move Y
-Mueve un elemento en la coordenada Y, este m&eacute;todo es b&aacute;sicamente para probar el
-como funciona el uso de otros m&eacute;todos m&aacute;s &quot;core&quot;, en concreto move()</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='SAL.moveY' class='mt0'>
-                moveY<span class='gray'>(value, duration, offset, triggerHook)</span>
-              </h2>
-              <p>Move Y
-            Mueve un elemento en la coordenada Y, este m&eacute;todo es b&aacute;sicamente para probar el
-            como funciona el uso de otros m&eacute;todos m&aacute;s &quot;core&quot;, en concreto move()</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code>float</code> <strong>value</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Valor desde el que hacemos la escala</p>
-            
-                      </span>
-                    </li>
-                    <li><code>integer-string</code> <strong>duration</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Duraci&oacute;n de la animaci&oacute;n en %/px</p>
-            
-                      </span>
-                    </li>
-                    <li><code>integer</code> <strong>offset</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerHook</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Elemento que har&aacute; de trigger para scrollmagic</p>
-            
-                      </span>
-                    </li>
-                </ul>
+                  <h4>Returns</h4>
+                  <code><code>sal-object</code></code>
+                  
+                  <span class='force-inline'>
+                    
+                  </span>
             </section>
           </div>
         </div>
@@ -323,117 +279,25 @@ como funciona el uso de otros m&eacute;todos m&aacute;s &quot;core&quot;, en con
             </section>
           </div>
         </div>
-        <div class='collapsible' id='SAL.soa'>
-          <a href='#SAL.soa'>
-            <code>
-              #soa<span class='gray'>(gsobject, duration, offset, triggerHook)</span>
-            </code>
-            <span class='force-inline'>
-              <p>SOA. Single Object animation.
-Mueve un elemento utilizando un objeto Greensock</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='SAL.soa' class='mt0'>
-                soa<span class='gray'>(gsobject, duration, offset, triggerHook)</span>
-              </h2>
-              <p>SOA. Single Object animation.
-            Mueve un elemento utilizando un objeto Greensock</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>gsobject</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Objeto Greensock que contiene la animaci&oacute;n</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>duration</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Duraci&oacute;n de la animaci&oacute;n en %/px</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>offset</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerHook</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Elemento que har&aacute; de trigger para scrollmagic</p>
-            
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code>sal-object</code></code>
-                  
-                  <span class='force-inline'>
-                    
-                  </span>
-                <h4>Examples</h4>
-            <pre class='overflow-auto'>Devuelve bla bla bla
-            soa ({<span class="hljs-string">"x"</span>:<span class="hljs-string">"-200px"</span>});</pre>
-            </section>
-          </div>
-        </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='getData' class='mt0'>
     getData<span class='gray'>(el)</span>
   </h2>
-  <p>getData</p>
+  <p>Obtiene un objeto JSON con las etiquetas data y los valores del elemento</p>
 
     <h4>Parameters</h4>
     <ul class='suppress-p-margin'>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
           :
           <span class='force-inline'>
-            <p>Elemento en formato jQuery del que vamos a obtener los data-*</p>
+            <p>Elemento (query) del que vamos a obtener los data</p>
 
           </span>
         </li>
     </ul>
       <h4>Returns</h4>
-      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='sal' class='mt0'>
-    sal<span class='gray'>(el, triggerel)</span>
-  </h2>
-  <p>Constructor sal</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
-          :
-          <span class='force-inline'>
-            <p>Elemento (query) que vamos a animar</p>
-
-          </span>
-        </li>
-        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerel</strong>
-          :
-          <span class='force-inline'>
-            <p>Elemento (query) que vamos a usar como trigger</p>
-
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>sal-object</code></code>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">json</a></code></code>
       
       <span class='force-inline'>
         
