@@ -317,11 +317,11 @@ var sal, $$;
         fadeOut: function(duration, offset, triggerHook, time, reverse) {
 
             // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
+            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
+            offset      = typeof offset      !== 'undefined' ? offset:      0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            time = typeof time !== 'undefined' ? time: 1;
-            revesre = typeof revesre !== 'undefined' ? revesre: true;
+            time        = typeof time        !== 'undefined' ? time:        "1";
+            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
 
             $$(this.el, this.triggerel)
                 .fade("0", duration, offset, triggerHook, "to", time, reverse);
@@ -344,11 +344,11 @@ var sal, $$;
         fadeIn: function(duration, offset, triggerHook, time, reverse) {
 
             // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
+            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
+            offset      = typeof offset      !== 'undefined' ? offset:      0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            time = typeof time !== 'undefined' ? time: 1;
-            reverse = typeof reverse !== 'undefined' ? reverse: true;
+            time        = typeof time        !== 'undefined' ? time:        "1";
+            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
 
 
             $$(this.el, this.triggerel)
