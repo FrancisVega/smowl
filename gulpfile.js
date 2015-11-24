@@ -10,17 +10,13 @@
     'use strict';
 
     //
-    // Secuoyas 2015
-    // Web site 2015
-    //
-
-    //
     // GULP PLUGINS
     //
 
     // Gulp itself
     var gulp         = require('gulp');
     // General
+    var doc          = require('gulp-documentation');
     var postcss      = require('gulp-postcss');
     var browserSync  = require('browser-sync');
     var plumber      = require('gulp-plumber');
@@ -182,6 +178,18 @@
             .pipe(gulp.dest(dirs.src + '/min'))
     });
 
+
+    //
+    // Doc
+    //
+
+    gulp.task('doc', function() {
+        return gulp.src([ dirs.src + 'js/sal.js' ])
+            .pipe(doc({ format: 'html' }))
+            .pipe(gulp.dest('html-documentation'));
+    });
+
+
     //
     // Delete concats sal javascript files
     //
@@ -194,7 +202,7 @@
     // TAREAS GULP
     //
 
-    gulp.task('default', ['sass', 'watch']);
+    gulp.task('default', ['sass', 'watch', 'doc']);
     gulp.task('min', function(callback) {
         runSequence(
             ['minimize', 'minimize-bundle' ],

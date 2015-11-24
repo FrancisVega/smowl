@@ -43,7 +43,7 @@ var sal, $$;
      * Constructor sal
      * @param {string} el Elemento (query) que vamos a animar
      * @param {string} triggerel Elemento que vamos a usar como trigger
-     * @return {sal}
+     * @return {sal-object}
      * @constructor
      */
 
@@ -54,9 +54,9 @@ var sal, $$;
 
 
     /**
-     * Main function
-     * @param {string} el Elemento (query) que vamos a animar
-     * @param {string} triggerel Elemento que vamos a usar como trigger
+     * Sal
+     * @param {string} el Elemento en formato jQuery que vamos a animar
+     * @param {string} triggerel Elemento en formato jQuery que vamos a usar como trigger
      * @return {sal}
      */
 
@@ -80,15 +80,14 @@ var sal, $$;
 
         /**
          * getData
-         * @param {string} el Elemento (query) del que vamos a obtener los data-*
-         * @return {string|int|float}
+         * @param {string} el Elemento en formato jQuery del que vamos a obtener los data-*
+         * @return {string}
          */
 
         this.getData = function(el) {
             return $(el).data();
         }
 
-        // Devolvemos SAL
         return this;
 
     };
@@ -106,8 +105,13 @@ var sal, $$;
          * SOA. Single Object animation.
          * Mueve un elemento utilizando un objeto Greensock
          * @param {object} gsobject Objeto Greensock que contiene la animación
-         * @param {object} animationObject Objeto tipo Greensock para animar el elemento
+         * @param {string} duration Duración de la animación en %/px
+         * @param {number} offset Valor en px para el "retardo" de la animación
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         * @example
+         * Devuelve bla bla bla
+         * soa ({"x":"-200px"});
+         * @return {sal-object}
          */
 
         soa: function( gsobject, duration, offset, triggerHook ) {
@@ -247,7 +251,7 @@ var sal, $$;
 
         /**
          * Fade In con SimpleObjectAnimation
-         * @param {float} fromValue El valor desde el que se va a animar
+         * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
          */
