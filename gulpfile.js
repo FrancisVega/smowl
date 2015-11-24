@@ -145,6 +145,7 @@
                 dirs.src + 'js/plugins/appearIn.js',
                 dirs.src + 'js/plugins/landIn.js',
                 dirs.src + 'js/plugins/heroParallax.js',
+                dirs.src + 'js/plugins/modParallax.js',
             ])
             .pipe(plumber())
             .pipe(concat('sal-0.21.js'))
@@ -169,6 +170,7 @@
                 dirs.src + 'js/plugins/appearIn.js',
                 dirs.src + 'js/plugins/landIn.js',
                 dirs.src + 'js/plugins/heroParallax.js',
+                dirs.src + 'js/plugins/modParallax.js',
             ])
             .pipe(plumber())
             .pipe(concat('sal-0.21-bundle.js'))

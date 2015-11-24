@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - heroParallax.js                                                              //
+    //  Plugin - modParallax.js                                                               //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,16 +34,16 @@
 (function($$){
 
     /**
-     * heroParallax
+     * modParallax
      * @param {float} ratio La velocidad de scroll
      * @param {float} duration La duración en % de scroll o px
      * @return {salObject} Devuelve un objeto SAL.
      */
 
-    $$.fn.heroParallax = function(ratio, duration) {
+    $$.fn.modParallax = function(ratio, duration) {
 
         duration = typeof duration !== 'undefined' ? duration:
-            ($(this.el).innerHeight()) + "px";
+            this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
 
         var _this = this;
         var Trigger;
@@ -73,17 +73,17 @@
             $(extra).css({ "right": "0" });
             $(extra).css({ "top": "0" });
             $(extra).css({ "bottom": "0" });
+            $(extra).css({ "height": (100 * ratio) + "%" });
             $(extra).css( {
                 "transform":
-                    "translate3d( 0, " + ratio + ", 0.001px"
+                    "translate3d( 0, " + -(100 - (100 / ((100 * ratio) / 100))) + "%, 0.001px"
             });
 
-            // Llamamos a soa
             $$($(extra), _this.triggerel).soa(
-                    { "transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+                    { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
                     duration,
                     0,
-                    "onLeave"
+                    "onEnter"
             );
 
         });

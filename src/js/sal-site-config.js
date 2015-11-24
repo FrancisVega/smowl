@@ -33,7 +33,7 @@
 
 $(function () {
 
-    $$(".parallax").parallax(3.5);
+    $$(".parallax").modParallax(3.5);
     $$(".hero-parallax").heroParallax("50%");
 
 });
