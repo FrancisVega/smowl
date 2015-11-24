@@ -39,12 +39,8 @@ var sal, $$;
 (function () {
 
 
-    /**
+    /*
      * Constructor sal
-     * @param {string} el Elemento (query) que vamos a animar
-     * @param {string} triggerel Elemento que vamos a usar como trigger
-     * @return {sal}
-     * @constructor
      */
 
     sal = $$ = function(el, triggerel) {
@@ -54,9 +50,9 @@ var sal, $$;
 
 
     /**
-     * Main function
+     * Sal
      * @param {string} el Elemento (query) que vamos a animar
-     * @param {string} triggerel Elemento que vamos a usar como trigger
+     * @param {string} triggerel Elemento (query) que vamos a usar como trigger
      * @return {sal}
      */
 
@@ -79,16 +75,15 @@ var sal, $$;
         this.triggerel = triggerel;
 
         /**
-         * getData
-         * @param {string} el Elemento (query) del que vamos a obtener los data-*
-         * @return {string|int|float}
+         * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
+         * @param {string} el Elemento (query) del que vamos a obtener los data
+         * @return {json}
          */
 
         this.getData = function(el) {
             return $(el).data();
         }
 
-        // Devolvemos SAL
         return this;
 
     };
@@ -97,21 +92,50 @@ var sal, $$;
     //   /\  _ .
     //  /~~\|_)|
     //      |
+    //
+    // TODO: Unificar el ratio de modParallax y HeroParallax
 
     sal.fn = SAL.prototype = {
 
         /**
-         * SOA. Single Object animation.
-         * Mueve un elemento utilizando un objeto Greensock
+         * Single Object animation.
+         * Mueve un elemento utilizando un objeto Greensock.
+         * @private
          * @param {object} gsobject Objeto Greensock que contiene la animación
-         * @param {object} animationObject Objeto tipo Greensock para animar el elemento
+         * @param {string} duration Duración de la animación en %/px
+         * @param {number} offset Valor en px para el "retardo" de la animación
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         * @example
+         * Devuelve bla bla bla
+         * $$(".myClass").soa({"x":"-200px"});
+         * @return {sal-object}
          */
 
-        soa : function( gsobject, duration, offset, triggerHook ) {
+        soa: function( gsobject, duration, offset, triggerHook, direction ) {
+
+            direction = typeof direction !== 'undefined' ? direction: "from";
+
+            var greenSockCompound = {
+                "el": this.el,
+                "time": 1,
+                "gsobject": gsobject
+            }
 
             // Greensock animation
-            var tween = TweenLite.from( this.el, 1, gsobject );
+            var tween;
+            if (direction == "from") {
+                tween = TweenLite.from(
+                        greenSockCompound["el"],
+                        greenSockCompound["time"],
+                        greenSockCompound["gsobject"]
+                );
+            } else {
+                tween = TweenLite.to(
+                        greenSockCompound["el"],
+                        greenSockCompound["time"],
+                        greenSockCompound["gsobject"]
+                );
+            }
 
             // ScrollMagic scene
             var scene = new ScrollMagic.Scene( {
@@ -129,12 +153,14 @@ var sal, $$;
 
 
         /**
-         * Move
          * Mueve un elemento en la coordenada dada
-         * @param {float} value Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+         * @param {string} coord Coordenada que se va a animar "x", "y", "z"
+         * @param {float} value Valor la coordenada
+         * @param {string} duration Duración de la animación en %/px
+         * @param {number} offset Valor en px para el "retardo" de la animación
+         * @param {string} [triggerHook="onEnter"] Posición del trigger de ScrollMagic
+         * @param {string} [direction="from"] Dirección de la animación, from o to
+         * @return {sal-object}
          */
 
         move: function(coord, value, duration, offset, triggerHook) {
@@ -181,30 +207,6 @@ var sal, $$;
 
 
         /**
-         * Move Y
-         * Mueve un elemento en la coordenada Y, este método es básicamente para probar el
-         * como funciona el uso de otros métodos más "core", en concreto move()
-         * @param {float} value Valor desde el que hacemos la escala
-         * @param {integer-string} duration Duración de la animación en %/px
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
-         */
-
-        moveY : function(value, duration, offset, triggerHook) {
-
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            // Uso del método privado move()
-            this.move("y", value, duration, offset, triggerHook);
-
-            return this;
-
-        },
-
-
-        /**
          * Scale
          * @param {float} fromValue Valor desde el que hacemos la escala
          * @param {integer-string} duration Valor de scroll en % o en px de la duración de la
@@ -242,15 +244,40 @@ var sal, $$;
             return this;
         },
 
+        fadeOut: function(duration, offset, triggerHook) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            $$(this.el, this.triggerel).fade("0", "to", duration, offset, triggerHook);
+
+            return this;
+
+        },
+
+        fadeIn: function(duration, offset, triggerHook) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+
+            $$(this.el, this.triggerel).fade("0", "from", duration, offset, triggerHook);
+
+            return this;
+
+        },
 
         /**
          * Fade In con SimpleObjectAnimation
-         * @param {float} fromValue El valor desde el que se va a animar
+         * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
          */
 
-        fadeIn : function(duration, offset, triggerHook) {
+        fade: function(value, direction, duration, offset, triggerHook) {
 
             // Valores por defecto
             duration = typeof duration !== 'undefined' ? duration: "100%";
@@ -269,189 +296,18 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger).soa(
-                        {"opacity":"0"},
+                        {"opacity": value},
                         duration,
                         offset,
-                        triggerHook
+                        triggerHook,
+                        direction
                 );
 
             });
 
             return this;
 
-        },
-
-
-        /**
-         * Parallax
-         * @param {float} ratio La velocidad de scroll
-         * @param {float} duration La duración en % de scroll o px
-         * @return {salObject} Devuelve un objeto SAL.
-         */
-
-        parallax: function(ratio, duration) {
-
-            duration = typeof duration !== 'undefined' ? duration:
-                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
-
-            var _this = this;
-            var Trigger;
-
-            // Selectores $jQuery
-            $(this.el).each(function() {
-
-                Trigger = this.closest(_this.triggerel)
-
-                // Creamos el contenedor extra
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-
-                // Obtenemos la imagen del contenedor parallax
-                image = $(this).css("background-image");
-
-                // Obtenemos el objeto del contenedor extra
-                extra = $(this).children(".hero-parallax--back");
-
-                // Aplicamos los estilos necesarios al contenedor parallax
-                $(this).css({ "background-image": "none"});
-                $(this).css({ "position": "relative"});
-                $(this).css({ "overflow": "hidden"});
-
-                // Aplicamos los estilos necesarios al nuevo contenedor
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "position": "absolute" });
-                $(extra).css({ "z-index": "-1" });
-                $(extra).css({ "left": "0" });
-                $(extra).css({ "right": "0" });
-                $(extra).css({ "top": "0" });
-                $(extra).css({ "bottom": "0" });
-                $(extra).css({ "height": (100 * ratio) + "%" });
-                $(extra).css( {
-                    "transform":
-                        "translate3d( 0, " + -(100 - (100 / ((100 * ratio) / 100))) + "%, 0.001px"
-                });
-
-                // Timeline
-                var TWEEN = TweenLite.to(
-                        $(extra), 1,
-                        {
-                            css: { "transform": "translate3d(0, 0%, 0.001px)" },
-                            scale: 1.2,
-                            ease: Power0.easeNone
-                        });
-
-                // Scene
-                var SCENE = new ScrollMagic.Scene({
-                    triggerElement: Trigger,
-                    duration: duration,
-                    triggerHook: "onEnter"
-                })
-
-                // Attachments
-                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
-           });
-
-        },
-
-
-        /**
-         * Hero Parallax
-         * @param {float} ratio La velocidad de scroll
-         * @param {float} duration La duración en % de scroll o px
-         * @return {salObject} Devuelve un objeto SAL.
-         */
-
-        // TODO: Terminar de implementar heroparllax como mod-parallax
-
-        heroParallax: function(ratio, duration) {
-
-            duration = typeof duration !== 'undefined' ? duration:
-                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
-
-            var _this = this;
-            var Trigger;
-
-            // Selectores $jQuery
-            $(this.el).each(function() {
-
-                Trigger = this.closest(_this.triggerel)
-
-                // Creamos el contenedor extra
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-
-                // Obtenemos la imagen del contenedor parallax
-                image = $(this).css("background-image");
-
-                // Obtenemos el objeto del contenedor extra
-                extra = $(this).children(".hero-parallax--back");
-
-                // Aplicamos los estilos necesarios al contenedor parallax
-                $(this).css({ "background-image": "none"});
-                $(this).css({ "position": "relative"});
-                $(this).css({ "overflow": "hidden"});
-
-                // Aplicamos los estilos necesarios al nuevo contenedor
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "background-repeat": "no-repeat" });
-                $(extra).css({ "background-size": "cover" });
-                $(extra).css({ "backface-visibility": "hidden" });
-                $(extra).css({ "z-index": "-1" });
-                $(extra).css({ "position": "absolute" });
-                $(extra).css({ "left": "0" });
-                $(extra).css({ "right": "0" });
-                $(extra).css({ "top": "0" });
-                $(extra).css({ "bottom": "0" });
-                $(extra).css({ "height": "100%" });
-                $(extra).css({ "transform": "translate(0, "+ ratio +")" });
-
-                // Timeline
-                var TWEEN = TweenLite.to(
-                        $(extra), 1,
-                        {
-                            css: { "transform": "translate3d(0, 0%, 0.001px)" },
-                            scale: 1.2,
-                            ease: Power0.easeNone
-                        });
-
-                // Scene
-                var SCENE = new ScrollMagic.Scene({
-                    triggerElement: Trigger,
-                    duration: duration,
-                    triggerHook: "onEnter"
-                })
-
-                // Attachments
-                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
-           });
-
         }
-/*
- *        heroParallax : function(ratio, duration) {
- *
- *            duration = typeof duration !== 'undefined' ? duration:
- *                this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
- *
- *            var extra, image;
- *
- *            // Selectores $jQuery
- *            $(this.el).each(function() {
- *
- *                $(this).prepend('<div class="hero-parallax--back"></div>');
- *                image = $(this).css("background-image");
- *                extra = $(this).children(".hero-parallax--back");
- *                $(this).css({ "background-image": "none"});
- *
- *                // Set some styles..
- *                $(extra).css({ "background-image": image });
- *                $(extra).css({ "z-index": "-1" });
- *                $(extra).css( { "transform": "translate(0, "+ ratio +")" });
- *
- *                //$$(".hero-parallax--back").parallax();
- *                $$(extra[0], this).parallax();
- *
- *            });
- *
- *            return this;
- *        };
- */
+
     }
 })();

@@ -31,32 +31,28 @@
     */
 
 
-$(function () {
-    (function($$){
+(function($$){
 
-        /**
-         * appearIn
-         * Muestra un elemento desde los ejes x, y con un fadeIn
-         * @param {float} value Valor desde el que hacemos la entrada en Y.
-         * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
-         * @param {integer} offset Valor en pixel para el "retardo" de la animación.
-         * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
-         */
+    /**
+     * appearIn
+     * @param {float} value Valor desde el que hacemos la entrada en Y.
+     * @param {string} duration Valor de scroll en % o en px de la duración de la animación.
+     * @param {integer} offset Valor en pixel para el "retardo" de la animación.
+     * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
+     */
 
-        $$.fn.appearIn = function(axy, value, duration, offset, triggerHook) {
+    $$.fn.appearIn = function(axy, value, duration, offset, triggerHook) {
 
-            // Si no se indica nada en el método los valores deben estar en el data-*
-            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
-            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
+        // Si no se indica nada en el método los valores deben estar en el data-*
+        duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+        offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+        triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
+        // Animamos
+        $$(this.el, this.triggerel).move(axy, value, duration, offset, triggerHook)
 
-            // Animamos
-            $$(this.el, this.triggerel)
-                .move(axy, value, duration, offset, triggerHook).fadeIn();
+        return this;
 
-            return this;
-        };
+    };
 
-    }(sal));
-});
+}(sal));

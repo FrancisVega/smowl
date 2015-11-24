@@ -31,31 +31,28 @@
     */
 
 
-$(function () {
-    (function($$){
+(function($$){
 
-        /**
-         * landIn
-         * @param {float} ratio Ratio de desplazamiento 1 = 100% 0.5 = 50%
-         * @return {sal}
-         */
+    /**
+     * landIn
+     * @param {float} ratio Ratio de desplazamiento 1 = 100% 0.5 = 50%
+     * @return {sal}
+     */
 
-        $$.fn.landIn = function(value, duration, offset, triggerHook) {
+    $$.fn.landIn = function(value, duration, offset, triggerHook) {
 
-            // Si no se indica nada en el método los valores deben estar en el data-*
-            duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
-            offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
+        // Si no se indica nada en el método los valores deben estar en el data-*
+        duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
+        offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
+        triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
-            // Animamos
-            $$(this.el, this.triggerel)
-                .moveY(value, duration, offset, triggerHook)
-                .scale(1.25);
+        // Animamos
+        $$(this.el, this.triggerel)
+            .moveY(value, duration, offset, triggerHook)
+            .scale(1.25);
 
-            return this;
+        return this;
 
-        };
+    };
 
-    }(sal));
-
-});
+}(sal));

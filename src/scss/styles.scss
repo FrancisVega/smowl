@@ -14,6 +14,16 @@
 
 .land {
     min-height: 600px;
-    background-color: olive;
-    /*background-image: url("../image.jpg");*/
+    background-image: url("../image.jpg");
 }
+
+.parallax {
+    height: 300px;
+    background: url("../image.jpg") center center no-repeat;
+}
+
+.hero-parallax {
+    height: 400px;
+    background: url("../image.jpg") center center no-repeat;
+}
+
