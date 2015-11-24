@@ -82,7 +82,7 @@ var sal, $$;
 
         this.getData = function(el) {
             return $(el).data();
-        }
+        };
 
         return this;
 
@@ -117,21 +117,21 @@ var sal, $$;
                 "el": this.el,
                 "time": time,
                 "gsobject": gsobject
-            }
+            };
 
             // Greensock animation
             var tween;
             if (direction == "from") {
                 tween = TweenLite.from(
-                        greenSockCompound["el"],
-                        greenSockCompound["time"],
-                        greenSockCompound["gsobject"]
+                        greenSockCompound.el,
+                        greenSockCompound.time,
+                        greenSockCompound.gsobject
                 );
             } else {
                 tween = TweenLite.to(
-                        greenSockCompound["el"],
-                        greenSockCompound["time"],
-                        greenSockCompound["gsobject"]
+                        greenSockCompound.el,
+                        greenSockCompound.time,
+                        greenSockCompound.gsobject
                 );
             }
 
@@ -167,15 +167,14 @@ var sal, $$;
          */
 
         move: function(
-          axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay
-        ) {
+          axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay) {
 
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
+            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
+            offset      = typeof offset      !== 'undefined' ? offset:      0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            direction = typeof direction !== 'undefined' ? direction: "from";
-            time = typeof time !== 'undefined' ? time: "1";
-            reverse = typeof reverse !== 'undefined' ? reverse: true;
+            direction   = typeof direction   !== 'undefined' ? direction:   "from";
+            time        = typeof time        !== 'undefined' ? time:        "1";
+            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
 
             // TODO:
             // Por favor encontrar una solución a esta cha-pu-za
@@ -183,14 +182,14 @@ var sal, $$;
                 "x":{ "x": value, ease: ease, delay: delay },
                 "y":{ "y": value, ease: ease, delay: delay },
                 "z":{ "z": value, ease: ease, delay: delay }
-            }
+            };
 
             // Objeto GreenSock
             var smobject = {
                 triggerElement: $(this.el).closest(this.triggerel)[0],
                 duration: duration,
                 triggerHook: triggerHook
-            }
+            };
 
             var _this = this;
             var trigger;
@@ -226,15 +225,15 @@ var sal, $$;
          * @retunr {sal}
          */
 
-        scale : function(axy, value, duration, offset, triggerHook, direction, time, reverse) {
+        scale: function(axy, value, duration, offset, triggerHook, direction, time, reverse) {
 
             // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
+            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
+            offset      = typeof offset      !== 'undefined' ? offset:      0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            direction = typeof direction !== 'undefined' ? direction: "from";
-            time = typeof time !== 'undefined' ? time: 1;
-            reverse = typeof reverse !== 'undefined' ? reverse: true;
+            direction   = typeof direction   !== 'undefined' ? direction:   "from";
+            time        = typeof time        !== 'undefined' ? time:        1;
+            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
 
             var _this = this;
             var trigger;
@@ -272,7 +271,7 @@ var sal, $$;
 
         fade: function(value, duration, offset, triggerHook, direction, time, reverse) {
 
-            if (duration == 0) {
+            if (duration === 0) {
                 reverse = false;
             }
 
@@ -359,5 +358,6 @@ var sal, $$;
 
         },
 
-    }
+    };
+
 })();

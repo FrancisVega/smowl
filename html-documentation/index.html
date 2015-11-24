@@ -27,11 +27,6 @@
                 SAL
               </a>
                 <a
-                  href='#SAL.fade'
-                  class='regular block'>
-                  #fade
-                </a>
-                <a
                   href='#SAL.move'
                   class='regular block'>
                   #move
@@ -81,84 +76,10 @@
         
       </span>
       <h4>Instance members</h4>
-        <div class='collapsible' id='SAL.fade'>
-          <a href='#SAL.fade'>
-            <code>
-              #fade<span class='gray'>(value, direction, duration, duration, offset, triggerHook, time)</span>
-            </code>
-            <span class='force-inline'>
-              <p>Fade In con SimpleObjectAnimation</p>
-
-            </span>
-          </a>
-          <div class='collapser border px2'>
-            <section class='py2 clearfix'>
-              <h2 id='SAL.fade' class='mt0'>
-                fade<span class='gray'>(value, direction, duration, duration, offset, triggerHook, time)</span>
-              </h2>
-              <p>Fade In con SimpleObjectAnimation</p>
-            
-                <h4>Parameters</h4>
-                <ul class='suppress-p-margin'>
-                    <li> <strong>value</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                    <li> <strong>direction</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                    <li><code>float</code> <strong>duration</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>El valor desde el que se va a animar</p>
-            
-                      </span>
-                    </li>
-                    <li><code>float</code> <strong>duration</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>La duraci&oacute;n en % de scroll o px</p>
-            
-                      </span>
-                    </li>
-                    <li> <strong>offset</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                    <li> <strong>triggerHook</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                    <li> <strong>time</strong>
-                      :
-                      <span class='force-inline'>
-                        
-                      </span>
-                    </li>
-                </ul>
-                  <h4>Returns</h4>
-                  <code><code>salObject</code></code>
-                  :
-                  <span class='force-inline'>
-                    <p>Devuelve un objeto SAL.</p>
-            
-                  </span>
-            </section>
-          </div>
-        </div>
         <div class='collapsible' id='SAL.move'>
           <a href='#SAL.move'>
             <code>
-              #move<span class='gray'>(coord, value, duration, offset, [triggerHook], [direction], time, reverse)</span>
+              #move<span class='gray'>(coord, axy, value, duration, offset, [triggerHook], [direction], time, reverse, ease, delay)</span>
             </code>
             <span class='force-inline'>
               <p>Mueve un elemento en la coordenada dada</p>
@@ -168,7 +89,7 @@
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
               <h2 id='SAL.move' class='mt0'>
-                move<span class='gray'>(coord, value, duration, offset, [triggerHook], [direction], time, reverse)</span>
+                move<span class='gray'>(coord, axy, value, duration, offset, [triggerHook], [direction], time, reverse, ease, delay)</span>
               </h2>
               <p>Mueve un elemento en la coordenada dada</p>
             
@@ -179,6 +100,12 @@
                       <span class='force-inline'>
                         <p>Coordenada que se va a animar &quot;x&quot;, &quot;y&quot;, &quot;z&quot;</p>
             
+                      </span>
+                    </li>
+                    <li> <strong>axy</strong>
+                      :
+                      <span class='force-inline'>
+                        
                       </span>
                     </li>
                     <li><code>float</code> <strong>value</strong>
@@ -230,6 +157,18 @@
                         
                       </span>
                     </li>
+                    <li> <strong>ease</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>delay</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>sal-object</code></code>
@@ -243,7 +182,7 @@
         <div class='collapsible' id='SAL.scale'>
           <a href='#SAL.scale'>
             <code>
-              #scale<span class='gray'>(fromValue, value, duration, offset, triggerHook)</span>
+              #scale<span class='gray'>(fromValue, axy, value, duration, offset, triggerHook, direction, time, reverse)</span>
             </code>
             <span class='force-inline'>
               <p>Scale</p>
@@ -253,7 +192,7 @@
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
               <h2 id='SAL.scale' class='mt0'>
-                scale<span class='gray'>(fromValue, value, duration, offset, triggerHook)</span>
+                scale<span class='gray'>(fromValue, axy, value, duration, offset, triggerHook, direction, time, reverse)</span>
               </h2>
               <p>Scale</p>
             
@@ -264,6 +203,12 @@
                       <span class='force-inline'>
                         <p>Valor desde el que hacemos la escala</p>
             
+                      </span>
+                    </li>
+                    <li> <strong>axy</strong>
+                      :
+                      <span class='force-inline'>
+                        
                       </span>
                     </li>
                     <li> <strong>value</strong>
@@ -288,6 +233,24 @@
                       </span>
                     </li>
                     <li> <strong>triggerHook</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>direction</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>time</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
+                    <li> <strong>reverse</strong>
                       :
                       <span class='force-inline'>
                         

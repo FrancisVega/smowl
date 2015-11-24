@@ -49,7 +49,7 @@
         triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
 
         // Animamos
-        $$(this.el, this.triggerel).move(axy, value, duration, offset, triggerHook)
+        $$(this.el, this.triggerel).move(axy, value, duration, offset, triggerHook);
 
         return this;
 

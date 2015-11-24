@@ -127,7 +127,7 @@
     //
 
     gulp.task('lint', function() {
-        return gulp.src(dirs.src + 'js/*.js')
+        return gulp.src(dirs.src + 'js/**/*')
             .pipe(plumber())
             .pipe(jshint())
             .pipe(jshint.reporter('default'));
