@@ -97,6 +97,8 @@ var sal, $$;
     //   /\  _ .
     //  /~~\|_)|
     //      |
+    //
+    // TODO: Unificar el ratio de modParallax y HeroParallax
 
     sal.fn = SAL.prototype = {
 
@@ -108,7 +110,7 @@ var sal, $$;
          * @param {string} triggerHook Elemento que hará de trigger para scrollmagic
          */
 
-        soa : function( gsobject, duration, offset, triggerHook ) {
+        soa: function( gsobject, duration, offset, triggerHook ) {
 
             // Greensock animation
             var tween = TweenLite.from( this.el, 1, gsobject );
@@ -347,76 +349,10 @@ var sal, $$;
                 })
 
                 // Attachments
-                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
+                .setTween(TWEEN).addTo(_this.CONTROLLER);
            });
 
-        },
-
-
-        /**
-         * Hero Parallax
-         * @param {float} ratio La velocidad de scroll
-         * @param {float} duration La duración en % de scroll o px
-         * @return {salObject} Devuelve un objeto SAL.
-         */
-
-        heroParallax: function(ratio, duration) {
-
-            var _this = this;
-            var Trigger;
-
-            // Selectores $jQuery
-            $(this.el).each(function() {
-
-                var Trigger = this.closest(_this.triggerel);
-
-                // Creamos el contenedor extra
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-
-                // Obtenemos la imagen del contenedor parallax
-                image = $(this).css("background-image");
-
-                // Obtenemos el objeto del contenedor extra
-                extra = $(this).children(".hero-parallax--back");
-
-                // Aplicamos los estilos necesarios al contenedor parallax
-                $(this).css({ "background-image": "none"});
-                $(this).css({ "position": "relative"});
-                $(this).css({ "overflow": "hidden"});
-
-                // Aplicamos los estilos necesarios al nuevo contenedor
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "position": "absolute" });
-                $(extra).css({ "z-index": "-1" });
-                $(extra).css({ "left": "0" });
-                $(extra).css({ "right": "0" });
-                $(extra).css({ "top": "0" });
-                $(extra).css({ "bottom": "0" });
-                $(extra).css( {
-                    "transform":
-                        "translate3d( 0, 50%, 0.001px"
-                });
-
-
-                // Timeline
-                var TWEEN = TweenLite.from(
-                        $(extra), 4,
-                        {
-                            css: { "transform": "translate3d(0, 0, 0.001px)" },
-                            ease: Power0.easeNone
-                        });
-
-                // Scene
-                var SCENE = new ScrollMagic.Scene({
-                    triggerElement: Trigger,
-                    duration: duration,
-                    triggerHook: "onLeave"
-                })
-
-                // Attachments
-                .setTween(TWEEN).addIndicators().addTo(_this.CONTROLLER);
-
-            });
         }
+
     }
 })();

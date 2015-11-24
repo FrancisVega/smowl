@@ -31,39 +31,65 @@
     */
 
 
-$(function () {
-    (function($$){
+(function($$){
 
-        /**
-         * heroParallax.js
-         * @param {string} ratio El ratio de "parallax" de la imagen en %
-         * @return {salObject} Devuelve un objeto SAL.
-         */
+    /**
+     * Hero Parallax
+     * @param {float} ratio La velocidad de scroll
+     * @param {float} duration La duración en % de scroll o px
+     * @return {salObject} Devuelve un objeto SAL.
+     */
 
-        $$.fn.heroParallax = function(ratio) {
+    $$.fn.heroParallax = function(ratio, duration) {
 
-            var extra, image;
+        duration = typeof duration !== 'undefined' ? duration:
+            ($(this.el).innerHeight()) + "px";
 
-            $(this.el).each(function() {
+        var _this = this;
+        var Trigger;
 
-                $(this).prepend('<div class="hero-parallax--back"></div>');
-                image = $(this).css("background-image");
-                extra = $(this).children(".hero-parallax--back");
-                $(this).css({ "background-image": "none"});
+        // Selectores $jQuery
+        $(this.el).each(function() {
 
-                // Set some styles..
-                $(extra).css({ "background-image": image });
-                $(extra).css({ "z-index": "-1" });
-                $(extra).css( { "transform": "translate(0, "+ ratio +")" });
+            // Creamos el contenedor extra
+            $(this).prepend('<div class="hero-parallax--back"></div>');
 
-                //$$(".hero-parallax--back").parallax();
-                $$(extra[0], this).parallax();
+            // Obtenemos la imagen del contenedor parallax
+            image = $(this).css("background-image");
 
-            })
+            // Obtenemos el objeto del contenedor extra
+            extra = $(this).children(".hero-parallax--back");
 
-            return this;
-        };
+            // Aplicamos los estilos necesarios al contenedor parallax
+            $(this).css({ "background-image": "none"});
+            $(this).css({ "position": "relative"});
+            $(this).css({ "overflow": "hidden"});
 
-    }(sal));
+            // Aplicamos los estilos necesarios al nuevo contenedor
+            $(extra).css({ "background-image": image });
+            $(extra).css({ "position": "absolute" });
+            $(extra).css({ "z-index": "-1" });
+            $(extra).css({ "left": "0" });
+            $(extra).css({ "right": "0" });
+            $(extra).css({ "top": "0" });
+            $(extra).css({ "bottom": "0" });
+            $(extra).css( {
+                "transform":
+                    "translate3d( 0, " + ratio + ", 0.001px"
+            });
 
-});
+            // Llamamos a soa
+            $$($(extra), _this.triggerel).soa(
+                    { "transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+                    duration,
+                    0,
+                    "onLeave"
+                    );
+
+        });
+
+        return this;
+
+    };
+
+}(sal));

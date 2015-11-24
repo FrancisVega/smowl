@@ -31,23 +31,22 @@
     */
 
 
-$(function () {
-    (function($$){
+(function($$){
 
-        /**
-         * pluginName.js
-         * @param {type} name Description
-         * @return {sal}
-         */
+    /**
+     * pluginName.js
+     * @param {type} name Description
+     * @return {sal}
+     */
 
-        $$.fn.pluginName = function() {
+    $$.fn.pluginName = function() {
 
-            $$(this.el, this.triggerel)
-                .move("x", value, duration, offset, triggerHook)
-                .scale(1.25);
+        $$(this.el, this.triggerel)
+            .move("x", value, duration, offset, triggerHook)
+            .scale(1.25);
 
-            return this;
-        };
+        return this;
 
-    }(sal));
-});
+    };
+
+}(sal));
