@@ -73,6 +73,8 @@
             $(extra).css({ "right": "0" });
             $(extra).css({ "top": "0" });
             $(extra).css({ "bottom": "0" });
+            $(extra).css({ "background-size": "cover" });
+            $(extra).css({ "background-repeat": "no-repeat" });
             $(extra).css({ "height": (100 * ratio) + "%" });
             $(extra).css( {
                 "transform":

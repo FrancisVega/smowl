@@ -42,7 +42,7 @@ var sal, $$;
     /**
      * Constructor sal
      * @param {string} el Elemento (query) que vamos a animar
-     * @param {string} triggerel Elemento que vamos a usar como trigger
+     * @param {string} triggerel Elemento (query) que vamos a usar como trigger
      * @return {sal-object}
      * @constructor
      */
