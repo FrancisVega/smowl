@@ -32,5 +32,13 @@
 
 
 $(function () {
+    $$(".a", ".hero").fadeIn(0, 0, "onCenter", 1).move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0);
+
+    $$(".b", ".hero")
+        .fadeIn(0, 0, "onCenter", 1)
+        .move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0.2)
+
+    $$(".fadeout")
+        .fadeOut("20%", 0, 0.2, 1, true);
 
 });

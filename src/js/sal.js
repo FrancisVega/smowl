@@ -111,13 +111,11 @@ var sal, $$;
          * @return {sal-object}
          */
 
-        soa: function( gsobject, duration, offset, triggerHook, direction ) {
-
-            direction = typeof direction !== 'undefined' ? direction: "from";
+        soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse) {
 
             var greenSockCompound = {
                 "el": this.el,
-                "time": 1,
+                "time": time,
                 "gsobject": gsobject
             }
 
@@ -137,14 +135,19 @@ var sal, $$;
                 );
             }
 
+            console.log(reverse);
+
             // ScrollMagic scene
             var scene = new ScrollMagic.Scene( {
                 triggerElement: $(this.el).closest(this.triggerel)[0],
                 duration: duration,
+                reverse: reverse,
+                offset: offset,
                 triggerHook: triggerHook
             })
 
             // Attachments
+            //.setTween(tween).addIndicators().addTo(this.CONTROLLER);
             .setTween(tween).addTo(this.CONTROLLER);
 
             return this;
@@ -163,18 +166,23 @@ var sal, $$;
          * @return {sal-object}
          */
 
-        move: function(coord, value, duration, offset, triggerHook) {
+        move: function(
+          axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay
+        ) {
 
             duration = typeof duration !== 'undefined' ? duration: "100%";
             offset = typeof offset !== 'undefined' ? offset: 0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            direction = typeof direction !== 'undefined' ? direction: "from";
+            time = typeof time !== 'undefined' ? time: "1";
+            reverse = typeof reverse !== 'undefined' ? reverse: true;
 
             // TODO:
             // Por favor encontrar una solución a esta cha-pu-za
             var gsobject = {
-                "x":{"x": value},
-                "y":{"y": value},
-                "z":{"z": value}
+                "x":{ "x": value, ease: ease, delay: delay },
+                "y":{ "y": value, ease: ease, delay: delay },
+                "z":{ "z": value, ease: ease, delay: delay }
             }
 
             // Objeto GreenSock
@@ -194,10 +202,13 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger).soa(
-                        gsobject[coord],
+                        gsobject[axy],
                         duration,
                         offset,
-                        triggerHook
+                        triggerHook,
+                        direction,
+                        time,
+                        reverse
                 );
 
             });
@@ -215,12 +226,15 @@ var sal, $$;
          * @retunr {sal}
          */
 
-        scale : function(value, duration, offset, triggerHook) {
+        scale : function(axy, value, duration, offset, triggerHook, direction, time, reverse) {
 
             // Valores por defecto
             duration = typeof duration !== 'undefined' ? duration: "100%";
             offset = typeof offset !== 'undefined' ? offset: 0;
             triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            direction = typeof direction !== 'undefined' ? direction: "from";
+            time = typeof time !== 'undefined' ? time: 1;
+            reverse = typeof reverse !== 'undefined' ? reverse: true;
 
             var _this = this;
             var trigger;
@@ -236,7 +250,10 @@ var sal, $$;
                         {"scale": value},
                         duration,
                         offset,
-                        triggerHook
+                        triggerHook,
+                        direction,
+                        time,
+                        reverse
                 );
 
             });
@@ -244,45 +261,20 @@ var sal, $$;
             return this;
         },
 
-        fadeOut: function(duration, offset, triggerHook) {
-
-            // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            $$(this.el, this.triggerel).fade("0", "to", duration, offset, triggerHook);
-
-            return this;
-
-        },
-
-        fadeIn: function(duration, offset, triggerHook) {
-
-            // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-
-            $$(this.el, this.triggerel).fade("0", "from", duration, offset, triggerHook);
-
-            return this;
-
-        },
 
         /**
-         * Fade In con SimpleObjectAnimation
+         * Fade con SimpleObjectAnimation
+         * @private
          * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
          */
 
-        fade: function(value, direction, duration, offset, triggerHook) {
+        fade: function(value, duration, offset, triggerHook, direction, time, reverse) {
 
-            // Valores por defecto
-            duration = typeof duration !== 'undefined' ? duration: "100%";
-            offset = typeof offset !== 'undefined' ? offset: 0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            if (duration == 0) {
+                reverse = false;
+            }
 
             // Loop por cada elementoSelectores $jQuery
             var _this = this;
@@ -300,14 +292,72 @@ var sal, $$;
                         duration,
                         offset,
                         triggerHook,
-                        direction
+                        direction,
+                        time,
+                        reverse
                 );
 
             });
 
             return this;
 
-        }
+        },
+
+
+        /**
+         * Anima un elemento hacia opacidad cero
+         * @private
+         * @param {string} duration La duración en % de scroll o px
+         * @param {number} offset Retardo de la animación con respecto al trigger
+         * @param {string} triggerHook Posición del trigger de scrollmagic
+         * @param {number} time Tiempo de la animaciónen caso de tener duración 0
+         * @param {bool} reverse Determina si la animación sucede también con el scroll reverso
+         * @return {bool} Devuelve un objeto SAL.
+         */
+
+        fadeOut: function(duration, offset, triggerHook, time, reverse) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            time = typeof time !== 'undefined' ? time: 1;
+            revesre = typeof revesre !== 'undefined' ? revesre: true;
+
+            $$(this.el, this.triggerel)
+                .fade("0", duration, offset, triggerHook, "to", time, reverse);
+
+            return this;
+
+        },
+
+        /**
+         * Anima un elemento hacia opacidad uno
+         * @private
+         * @param {string} duration La duración en % de scroll o px
+         * @param {number} offset Retardo de la animación con respecto al trigger
+         * @param {string} triggerHook Posición del trigger de scrollmagic
+         * @param {number} time Tiempo de la animaciónen caso de tener duración 0
+         * @param {bool} reverse Determina si la animación sucede también con el scroll reverso
+         * @return {bool} Devuelve un objeto SAL.
+         */
+
+        fadeIn: function(duration, offset, triggerHook, time, reverse) {
+
+            // Valores por defecto
+            duration = typeof duration !== 'undefined' ? duration: "100%";
+            offset = typeof offset !== 'undefined' ? offset: 0;
+            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
+            time = typeof time !== 'undefined' ? time: 1;
+            reverse = typeof reverse !== 'undefined' ? reverse: true;
+
+
+            $$(this.el, this.triggerel)
+                .fade("0", duration, offset, triggerHook, "from", time, reverse);
+
+            return this;
+
+        },
 
     }
 })();

@@ -62,6 +62,7 @@
 
             // Aplicamos los estilos necesarios al contenedor parallax
             $(this).css({ "background-image": "none"});
+            $(this).css({ "background-color": "transparent"});
             $(this).css({ "position": "relative"});
             $(this).css({ "overflow": "hidden"});
 
