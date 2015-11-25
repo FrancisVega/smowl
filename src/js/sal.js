@@ -230,23 +230,23 @@ var sal, $$;
          * @return {sal-object}
          */
 
-        move: function(obj) {
+        move: function(config) {
 
-            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
-            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
-            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
-            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
-            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
-            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
-            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
-            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
+            config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    "100%";
+            config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      0;
+            config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
+            config.direction   = typeof config.direction   !== 'undefined' ? config.direction:   "from";
+            config.time        = typeof config.time        !== 'undefined' ? config.time:        "1";
+            config.reverse     = typeof config.reverse     !== 'undefined' ? config.reverse:     true;
+            config.ease        = typeof config.ease        !== 'undefined' ? config.ease:        "Power0.easeNone";
+            config.delay       = typeof config.delay       !== 'undefined' ? config.delay:       "0";
 
             // TODO:
             // Por favor encontrar una solución a esta cha-pu-za
             var gsobject = {
-                "x":{ "x": obj.value, ease: obj.ease, delay: obj.delay },
-                "y":{ "y": obj.value, ease: obj.ease, delay: obj.delay },
-                "z":{ "z": obj.value, ease: obj.ease, delay: obj.delay }
+                "x":{ "x": config.value, ease: config.ease, delay: config.delay },
+                "y":{ "y": config.value, ease: config.ease, delay: config.delay },
+                "z":{ "z": config.value, ease: config.ease, delay: config.delay }
             };
 
             var _this = this;
@@ -262,13 +262,13 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger, pinel).soa(
-                        gsobject[obj.axy],
-                        obj.duration,
-                        obj.offset,
-                        obj.triggerHook,
-                        obj.direction,
-                        obj.time,
-                        obj.reverse
+                        gsobject[config.axy],
+                        config.duration,
+                        config.offset,
+                        config.triggerHook,
+                        config.direction,
+                        config.time,
+                        config.reverse
                 );
 
             });
@@ -279,39 +279,45 @@ var sal, $$;
 
         /**
          * Scale
-         * @param {float} fromValue Valor desde el que hacemos la escala
-         * @param {integer-string} duration Valor de scroll en % o en px de la duración de la
-         * animación
-         * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @param {object} config
+         * @param {number} config.value Valor desde el que hacemos la escala.
+         * @param {string} config.axy Coordebada de escala, x, y, z o all.
+         * @param {string} config.duration Valor de scroll en % o en px de la duración de la animación.
+         * @param {number} config.offset Valor en px para el "retardo" de la animación.
+         * @param {string} config.direction Dirección de la animación, from o to.
+         * @param {string} config.time Tiempo de animación en caso de que duration sea 0.
+         * @param {string} config.reverse Determina si existe animación con el scroll inverso.
+         * @param {string} config.ease Curva de animación.
+         * @param {string} config.delay Delay de la animación si duración es 0.
          * @retunr {sal}
          */
 
-        scale: function(obj) {
+        scale: function(config) {
 
             // Console
             if (this.CONSOLE)
                 console.log("-> scale()");
 
             // Valores por defecto
-            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
-            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
-            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
-            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
-            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        1;
-            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
-            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
-            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
+            config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    "100%";
+            config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      0;
+            config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
+            config.direction   = typeof config.direction   !== 'undefined' ? config.direction:   "from";
+            config.time        = typeof config.time        !== 'undefined' ? config.time:        1;
+            config.reverse     = typeof config.reverse     !== 'undefined' ? config.reverse:     true;
+            config.ease        = typeof config.ease        !== 'undefined' ? config.ease:        "Power0.easeNone";
+            config.delay       = typeof config.delay       !== 'undefined' ? config.delay:       "0";
 
             // TODO:
             // Por favor encontrar una solución a esta cha-pu-za
             var gsobject = {
-                "x":{ "scaleX": obj.value, ease: obj.ease, delay: obj.delay },
-                "y":{ "scaleY": obj.value, ease: obj.ease, delay: obj.delay },
-                "z":{ "scaleZ": obj.value, ease: obj.ease, delay: obj.delay },
-                "all":{ "scale": obj.value, ease: obj.ease, delay: obj.delay }
+                "x":{ "scaleX": config.value, ease: config.ease, delay: config.delay },
+                "y":{ "scaleY": config.value, ease: config.ease, delay: config.delay },
+                "z":{ "scaleZ": config.value, ease: config.ease, delay: config.delay },
+                "all":{ "scale": config.value, ease: config.ease, delay: config.delay }
             };
 
-            console.log(gsobject[obj.axy]);
+            console.log(gsobject[config.axy]);
 
             var _this = this;
             var trigger;
@@ -327,13 +333,13 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger, pinel).soa(
-                        gsobject[obj.axy],
-                        obj.duration,
-                        obj.offset,
-                        obj.triggerHook,
-                        obj.direction,
-                        obj.time,
-                        obj.reverse
+                        gsobject[config.axy],
+                        config.duration,
+                        config.offset,
+                        config.triggerHook,
+                        config.direction,
+                        config.time,
+                        config.reverse
                 );
 
             });
@@ -353,32 +359,32 @@ var sal, $$;
          * @return {bool} Devuelve un objeto SAL.
          */
 
-        fadeOut: function(obj) {
+        fadeOut: function(config) {
 
             // Console
             if (this.CONSOLE)
                 console.log("-> fadeOut()");
 
             // Valores por defecto
-            obj.value       = typeof obj.value       !== 'undefined' ? obj.value:       "0"
-            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
-            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      "0";
-            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
-            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "tj";
-            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
-            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
+            config.value       = typeof config.value       !== 'undefined' ? config.value:       "0"
+            config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    "100%";
+            config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      "0";
+            config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
+            config.direction   = typeof config.direction   !== 'undefined' ? config.direction:   "tj";
+            config.time        = typeof config.time        !== 'undefined' ? config.time:        "1";
+            config.reverse     = typeof config.reverse     !== 'undefined' ? config.reverse:     true;
 
             // Llamamos a fade
             $$(this.el, this.triggerel, this.pinel)
                 .fade(
-                        obj.value,
-                        obj.duration,
-                        obj.offset,
-                        obj.triggerHook,
-                        obj.direction,
-                        obj.time,
-                        obj.reverse,
-                        obj.indicators
+                        config.value,
+                        config.duration,
+                        config.offset,
+                        config.triggerHook,
+                        config.direction,
+                        config.time,
+                        config.reverse,
+                        config.indicators
                 );
 
             return this;
@@ -387,43 +393,43 @@ var sal, $$;
 
         /**
          * Anima un elemento hacia opacidad uno
-         * @param {object} obj Objeto animación
-         * @param {string} obj.value Valor inicial para el fadeIn
-         * @param {string} obj.duration La duración en % de scroll o px
-         * @param {number} obj.offset Retardo de la animación con respecto al trigger
-         * @param {string} obj.triggerHook Posición del trigger de scrollmagic
-         * @param {number} obj.time Tiempo de la animaciónen caso de tener duración 0
-         * @param {bool} obj.reverse Determina si la animación sucede también con el scroll reverso
+         * @param {object} config Objeto animación
+         * @param {string} config.value Valor inicial para el fadeIn
+         * @param {string} config.duration La duración en % de scroll o px
+         * @param {number} config.offset Retardo de la animación con respecto al trigger
+         * @param {string} config.triggerHook Posición del trigger de scrollmagic
+         * @param {number} config.time Tiempo de la animaciónen caso de tener duración 0
+         * @param {bool} config.reverse Determina si la animación sucede también con el scroll reverso
          * @return {bool} Devuelve un objeto SAL.
          */
 
-        fadeIn: function(obj) {
+        fadeIn: function(config) {
 
             // Console
             if (this.CONSOLE)
                 console.log("-> fadeIn()");
 
             // Valores por defecto
-            obj.value       = typeof obj.value       !== 'undefined' ? obj.value:       "0"
-            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
-            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      "0";
-            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
-            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
-            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
-            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
-            obj.indicators  = typeof obj.indicators  !== 'undefined' ? obj.indicators:  false;
+            config.value       = typeof config.value       !== 'undefined' ? config.value:       "0"
+            config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    "100%";
+            config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      "0";
+            config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
+            config.direction   = typeof config.direction   !== 'undefined' ? config.direction:   "from";
+            config.time        = typeof config.time        !== 'undefined' ? config.time:        "1";
+            config.reverse     = typeof config.reverse     !== 'undefined' ? config.reverse:     true;
+            config.indicators  = typeof config.indicators  !== 'undefined' ? config.indicators:  false;
 
             // Llamamos a fade
             $$(this.el, this.triggerel, this.pinel)
                 .fade(
-                        obj.value,
-                        obj.duration,
-                        obj.offset,
-                        obj.triggerHook,
-                        obj.direction,
-                        obj.time,
-                        obj.reverse,
-                        obj.indicators
+                        config.value,
+                        config.duration,
+                        config.offset,
+                        config.triggerHook,
+                        config.direction,
+                        config.time,
+                        config.reverse,
+                        config.indicators
                 );
 
             return this;
