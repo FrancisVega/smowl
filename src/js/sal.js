@@ -170,121 +170,6 @@ var sal, $$;
 
 
         /**
-         * Mueve un elemento en la coordenada dada
-         * @param {string} coord Coordenada que se va a animar "x", "y", "z"
-         * @param {float} value Valor la coordenada
-         * @param {string} duration Duración de la animación en %/px
-         * @param {number} offset Valor en px para el "retardo" de la animación
-         * @param {string} [triggerHook="onEnter"] Posición del trigger de ScrollMagic
-         * @param {string} [direction="from"] Dirección de la animación, from o to
-         * @return {sal-object}
-         */
-
-        move: function(obj) {
-          //axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay) {
-
-            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
-            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
-            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
-            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
-            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
-            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
-            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
-            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
-
-            // TODO:
-            // Por favor encontrar una solución a esta cha-pu-za
-            var gsobject = {
-                "x":{ "x": obj.value, ease: obj.ease, delay: obj.delay },
-                "y":{ "y": obj.value, ease: obj.ease, delay: obj.delay },
-                "z":{ "z": obj.value, ease: obj.ease, delay: obj.delay }
-            };
-
-            // Objeto GreenSock
-            var smobject = {
-                triggerElement: $(this.el).closest(this.triggerel)[0],
-                duration: obj.duration,
-                triggerHook: obj.triggerHook
-            };
-
-            var _this = this;
-            var trigger;
-
-            $(this.el).each(function() {
-
-                // Obtenemos el trigger
-                trigger = $(this).closest(_this.triggerel)[0];
-
-                // Obtenemos el pinel
-                pinel = $(this).closest(_this.pinel)[0];
-
-                // Llamamos a soa
-                $$(this, trigger, pinel).soa(
-                        gsobject[obj.axy],
-                        obj.duration,
-                        obj.offset,
-                        obj.triggerHook,
-                        obj.direction,
-                        obj.time,
-                        obj.reverse
-                );
-
-            });
-
-            return this;
-        },
-
-
-        /**
-         * Scale
-         * @param {float} fromValue Valor desde el que hacemos la escala
-         * @param {integer-string} duration Valor de scroll en % o en px de la duración de la
-         * animación
-         * @param {integer} offset Valor en px para el "retardo" de la animación
-         * @retunr {sal}
-         */
-
-        scale: function(
-               axy, value, duration, offset, triggerHook, direction, time, reverse) {
-
-            // Valores por defecto
-            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
-            offset      = typeof offset      !== 'undefined' ? offset:      0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            direction   = typeof direction   !== 'undefined' ? direction:   "from";
-            time        = typeof time        !== 'undefined' ? time:        1;
-            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
-
-            var _this = this;
-            var trigger;
-
-            // Loop entre elementos jQuery
-            $(this.el).each(function() {
-
-                // Obtenemos el trigger
-                trigger = $(this).closest(_this.triggerel)[0];
-
-                // Obtenemos el pinel
-                pinel = $(this).closest(_this.pinel)[0];
-
-                // Llamamos a soa
-                $$(this, trigger, pinel).soa(
-                        {"scale": value},
-                        duration,
-                        offset,
-                        triggerHook,
-                        direction,
-                        time,
-                        reverse
-                );
-
-            });
-
-            return this;
-        },
-
-
-        /**
          * Fade con SimpleObjectAnimation
          * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
@@ -335,6 +220,129 @@ var sal, $$;
 
 
         /**
+         * Mueve un elemento en la coordenada dada
+         * @param {string} coord Coordenada que se va a animar "x", "y", "z"
+         * @param {float} value Valor la coordenada
+         * @param {string} duration Duración de la animación en %/px
+         * @param {number} offset Valor en px para el "retardo" de la animación
+         * @param {string} [triggerHook="onEnter"] Posición del trigger de ScrollMagic
+         * @param {string} [direction="from"] Dirección de la animación, from o to
+         * @return {sal-object}
+         */
+
+        move: function(obj) {
+
+            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
+            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
+            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
+            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
+            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
+            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
+            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
+            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
+
+            // TODO:
+            // Por favor encontrar una solución a esta cha-pu-za
+            var gsobject = {
+                "x":{ "x": obj.value, ease: obj.ease, delay: obj.delay },
+                "y":{ "y": obj.value, ease: obj.ease, delay: obj.delay },
+                "z":{ "z": obj.value, ease: obj.ease, delay: obj.delay }
+            };
+
+            var _this = this;
+            var trigger;
+
+            $(this.el).each(function() {
+
+                // Obtenemos el trigger
+                trigger = $(this).closest(_this.triggerel)[0];
+
+                // Obtenemos el pinel
+                pinel = $(this).closest(_this.pinel)[0];
+
+                // Llamamos a soa
+                $$(this, trigger, pinel).soa(
+                        gsobject[obj.axy],
+                        obj.duration,
+                        obj.offset,
+                        obj.triggerHook,
+                        obj.direction,
+                        obj.time,
+                        obj.reverse
+                );
+
+            });
+
+            return this;
+        },
+
+
+        /**
+         * Scale
+         * @param {float} fromValue Valor desde el que hacemos la escala
+         * @param {integer-string} duration Valor de scroll en % o en px de la duración de la
+         * animación
+         * @param {integer} offset Valor en px para el "retardo" de la animación
+         * @retunr {sal}
+         */
+
+        scale: function(obj) {
+
+            // Console
+            if (this.CONSOLE)
+                console.log("-> scale()");
+
+            // Valores por defecto
+            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
+            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
+            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
+            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
+            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        1;
+            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
+            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
+            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
+
+            // TODO:
+            // Por favor encontrar una solución a esta cha-pu-za
+            var gsobject = {
+                "x":{ "scaleX": obj.value, ease: obj.ease, delay: obj.delay },
+                "y":{ "scaleY": obj.value, ease: obj.ease, delay: obj.delay },
+                "z":{ "scaleZ": obj.value, ease: obj.ease, delay: obj.delay },
+                "all":{ "scale": obj.value, ease: obj.ease, delay: obj.delay }
+            };
+
+            console.log(gsobject[obj.axy]);
+
+            var _this = this;
+            var trigger;
+
+            // Loop entre elementos jQuery
+            $(this.el).each(function() {
+
+                // Obtenemos el trigger
+                trigger = $(this).closest(_this.triggerel)[0];
+
+                // Obtenemos el pinel
+                pinel = $(this).closest(_this.pinel)[0];
+
+                // Llamamos a soa
+                $$(this, trigger, pinel).soa(
+                        gsobject[obj.axy],
+                        obj.duration,
+                        obj.offset,
+                        obj.triggerHook,
+                        obj.direction,
+                        obj.time,
+                        obj.reverse
+                );
+
+            });
+
+            return this;
+        },
+
+
+        /**
          * Anima un elemento hacia opacidad cero
          * @private
          * @param {string} duration La duración en % de scroll o px
@@ -381,11 +389,11 @@ var sal, $$;
          * Anima un elemento hacia opacidad uno
          * @param {object} obj Objeto animación
          * @param {string} obj.value Valor inicial para el fadeIn
-         * @param {string} duration La duración en % de scroll o px
-         * @param {number} offset Retardo de la animación con respecto al trigger
-         * @param {string} triggerHook Posición del trigger de scrollmagic
-         * @param {number} time Tiempo de la animaciónen caso de tener duración 0
-         * @param {bool} reverse Determina si la animación sucede también con el scroll reverso
+         * @param {string} obj.duration La duración en % de scroll o px
+         * @param {number} obj.offset Retardo de la animación con respecto al trigger
+         * @param {string} obj.triggerHook Posición del trigger de scrollmagic
+         * @param {number} obj.time Tiempo de la animaciónen caso de tener duración 0
+         * @param {bool} obj.reverse Determina si la animación sucede también con el scroll reverso
          * @return {bool} Devuelve un objeto SAL.
          */
 

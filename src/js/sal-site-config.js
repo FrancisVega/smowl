@@ -33,26 +33,13 @@
 
 $(function () {
 
-    //fadeOut: function(duration, offset, triggerHook, time, reverse, pinel) {
+    $$(".ratm__title", ".ratm__title")
+        .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+          .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
+    $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+    $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
 
-    $$(".hero__scroll", ".hero__scroll")
-        .fadeIn({ "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
-          .move({ "duration": "20%", "triggerHook": "onCenter", "axy": "x", "value": "-300px" });
-
-    $$(".a").fadeOut({"duration": "100%", "indicators": true});
-
-/*
- *    $$(".hero__scroll", ".hero__scroll", ".hero__scroll").fadeOut("100%", 0, "onCenter", 1, true);
- *
- *
- *    $$(".a", ".hero").fadeIn(0, 0, "onCenter", 1).move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0);
- *    $$(".b", ".hero")
- *        .fadeIn(0, 0, "onCenter", 1)
- *        .move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0.2)
- *        $$(".fadeout")
- *        .fadeOut("20%", 0, 0.2, 1, true);
- *
- */
+    $$(".box").scale({"axy": "all", "value": "2.1"});
 
 });

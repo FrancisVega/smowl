@@ -95,7 +95,7 @@
         <div class='collapsible' id='SAL.fade'>
           <a href='#SAL.fade'>
             <code>
-              #fade<span class='gray'>(value, duration, duration, offset, triggerHook, direction, time, reverse)</span>
+              #fade<span class='gray'>(value, duration, duration, offset, triggerHook, direction, time, reverse, indicators)</span>
             </code>
             <span class='force-inline'>
               <p>Fade con SimpleObjectAnimation</p>
@@ -105,7 +105,7 @@
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
               <h2 id='SAL.fade' class='mt0'>
-                fade<span class='gray'>(value, duration, duration, offset, triggerHook, direction, time, reverse)</span>
+                fade<span class='gray'>(value, duration, duration, offset, triggerHook, direction, time, reverse, indicators)</span>
               </h2>
               <p>Fade con SimpleObjectAnimation</p>
             
@@ -161,6 +161,12 @@
                         
                       </span>
                     </li>
+                    <li> <strong>indicators</strong>
+                      :
+                      <span class='force-inline'>
+                        
+                      </span>
+                    </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>salObject</code></code>
@@ -175,7 +181,7 @@
         <div class='collapsible' id='SAL.fadeIn'>
           <a href='#SAL.fadeIn'>
             <code>
-              #fadeIn<span class='gray'>(obj, duration, offset, triggerHook, time, reverse)</span>
+              #fadeIn<span class='gray'>(obj)</span>
             </code>
             <span class='force-inline'>
               <p>Anima un elemento hacia opacidad uno</p>
@@ -185,7 +191,7 @@
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
               <h2 id='SAL.fadeIn' class='mt0'>
-                fadeIn<span class='gray'>(obj, duration, offset, triggerHook, time, reverse)</span>
+                fadeIn<span class='gray'>(obj)</span>
               </h2>
               <p>Anima un elemento hacia opacidad uno</p>
             
@@ -202,42 +208,22 @@
                           <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> obj.value
                             <p>Valor inicial para el fadeIn</p>
             </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> obj.duration
+                            <p>La duraci&oacute;n en % de scroll o px</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> obj.offset
+                            <p>Retardo de la animaci&oacute;n con respecto al trigger</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> obj.triggerHook
+                            <p>Posici&oacute;n del trigger de scrollmagic</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> obj.time
+                            <p>Tiempo de la animaci&oacute;nen caso de tener duraci&oacute;n 0</p>
+            </li>
+                          <li><code>bool</code> obj.reverse
+                            <p>Determina si la animaci&oacute;n sucede tambi&eacute;n con el scroll reverso</p>
+            </li>
                       </ul>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>duration</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>La duraci&oacute;n en % de scroll o px</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>offset</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Retardo de la animaci&oacute;n con respecto al trigger</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerHook</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Posici&oacute;n del trigger de scrollmagic</p>
-            
-                      </span>
-                    </li>
-                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> <strong>time</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Tiempo de la animaci&oacute;nen caso de tener duraci&oacute;n 0</p>
-            
-                      </span>
-                    </li>
-                    <li><code>bool</code> <strong>reverse</strong>
-                      :
-                      <span class='force-inline'>
-                        <p>Determina si la animaci&oacute;n sucede tambi&eacute;n con el scroll reverso</p>
-            
-                      </span>
-                    </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>bool</code></code>
