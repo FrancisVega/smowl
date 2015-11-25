@@ -40,7 +40,11 @@
      * @return {salObject} Devuelve un objeto SAL.
      */
 
-    $$.fn.modParallax = function(ratio, duration) {
+    $$.fn.modParallax = function(config) {
+
+        // Console
+        if (this.CONSOLE)
+            console.log("-> heroParallax()");
 
         duration = typeof duration !== 'undefined' ? duration:
             this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
@@ -76,17 +80,21 @@
             $(extra).css({ "bottom": "0" });
             $(extra).css({ "background-size": "cover" });
             $(extra).css({ "background-repeat": "no-repeat" });
-            $(extra).css({ "height": (100 * ratio) + "%" });
+            $(extra).css({ "height": (100 * config.ratio) + "%" });
             $(extra).css( {
                 "transform":
-                    "translate3d( 0, " + -(100 - (100 / ((100 * ratio) / 100))) + "%, 0.001px"
+                    "translate3d( 0, " + -(100 - (100 / ((100 * config.ratio) / 100))) + "%, 0.001px"
             });
 
             $$($(extra), _this.triggerel).soa(
                     { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
-                    duration,
+                    config.duration,
                     0,
-                    "onEnter"
+                    "onEnter",
+                    "from",
+                    "1",
+                    "true",
+                    false
             );
 
         });

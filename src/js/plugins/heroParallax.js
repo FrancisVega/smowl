@@ -40,9 +40,13 @@
      * @return {salObject} Devuelve un objeto SAL.
      */
 
-    $$.fn.heroParallax = function(ratio, duration) {
+    $$.fn.heroParallax = function(config) {
 
-        duration = typeof duration !== 'undefined' ? duration:
+        // Console
+        if (this.CONSOLE)
+            console.log("-> heroParallax()");
+
+        config.duration = typeof config.duration !== 'undefined' ? config.duration:
             ($(this.el).innerHeight()) + "px";
 
         var _this = this;
@@ -76,15 +80,19 @@
             $(extra).css({ "bottom": "0" });
             $(extra).css( {
                 "transform":
-                    "translate3d( 0, " + ratio + ", 0.001px"
+                    "translate3d( 0, " + config.ratio + ", 0.001px"
             });
 
             // Llamamos a soa
             $$($(extra), _this.triggerel).soa(
                     { "transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
-                    duration,
+                    config.duration,
                     0,
-                    "onLeave"
+                    "onLeave",
+                    "from",
+                    "1",
+                    "true",
+                    false
             );
 
         });
