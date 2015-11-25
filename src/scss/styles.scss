@@ -15,6 +15,16 @@ body {
     min-height: 100px;
 }
 
+.fadeout {
+    position: relative;
+}
+
+.ratm__title {
+    font-weight: 100;
+    font-size: 24px;
+    padding-left: 120px;
+    color: #666;
+}
 
 .hero {
     margin-left: 120px;
@@ -23,4 +33,15 @@ body {
 .hero__title {
     font-size: 64px;
     margin: 0;
+}
+
+.a, .b {
+    top: 0;
+    position: absolute;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: purple;
 }

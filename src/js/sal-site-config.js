@@ -32,13 +32,14 @@
 
 
 $(function () {
-    $$(".a", ".hero").fadeIn(0, 0, "onCenter", 1).move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0);
 
-    $$(".b", ".hero")
-        .fadeIn(0, 0, "onCenter", 1)
-        .move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0.2)
+    $$(".ratm__title", ".ratm__title")
+        .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+          .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
-    $$(".fadeout")
-        .fadeOut("20%", 0, 0.2, 1, true);
+    $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+    $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
+
+    $$(".box").scale({"axy": "all", "value": "2.1"});
 
 });
