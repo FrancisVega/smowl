@@ -232,6 +232,10 @@ var sal, $$;
 
         move: function(config) {
 
+            // Console
+            if (this.CONSOLE)
+                console.log("-> move()");
+
             config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    "100%";
             config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      0;
             config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
