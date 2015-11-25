@@ -100,7 +100,6 @@ var sal, $$;
         /**
          * Single Object animation.
          * Mueve un elemento utilizando un objeto Greensock.
-         * @private
          * @param {object} gsobject Objeto Greensock que contiene la animación
          * @param {string} duration Duración de la animación en %/px
          * @param {number} offset Valor en px para el "retardo" de la animación
@@ -263,7 +262,6 @@ var sal, $$;
 
         /**
          * Fade con SimpleObjectAnimation
-         * @private
          * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
@@ -305,7 +303,6 @@ var sal, $$;
 
         /**
          * Anima un elemento hacia opacidad cero
-         * @private
          * @param {string} duration La duración en % de scroll o px
          * @param {number} offset Retardo de la animación con respecto al trigger
          * @param {string} triggerHook Posición del trigger de scrollmagic
@@ -332,7 +329,6 @@ var sal, $$;
 
         /**
          * Anima un elemento hacia opacidad uno
-         * @private
          * @param {string} duration La duración en % de scroll o px
          * @param {number} offset Retardo de la animación con respecto al trigger
          * @param {string} triggerHook Posición del trigger de scrollmagic
