@@ -70,7 +70,7 @@ var sal, $$;
         this.CONTROLLER = new ScrollMagic.Controller();
         this.BROWSER_HEIGHT = $(window).height();
         this.BROWSER_WIDTH = $(window).width();
-        this.DEBUG = false;
+        this.INDICATORS = false;
         this.CONSOLE = true;
 
         // Elemento y trigger, aun en formato String
@@ -115,7 +115,7 @@ var sal, $$;
          * @return {sal-object}
          */
 
-        soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse) {
+        soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse, indicators) {
 
             // Console
             if (this.CONSOLE)
@@ -151,14 +151,16 @@ var sal, $$;
                 offset: offset,
                 triggerHook: triggerHook
             })
+
             // Attachments
             .setTween(tween).addTo(this.CONTROLLER);
 
             if (this.pinel != "undefined") {
+                console.log("-> Hay Pin");
                 scene.setPin(this.pinel);
             }
 
-            if (this.DEBUG) {
+            if (this.INDICATORS || indicators) {
                 scene.addIndicators();
             }
 
@@ -178,29 +180,31 @@ var sal, $$;
          * @return {sal-object}
          */
 
-        move: function(
-          axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay) {
+        move: function(obj) {
+          //axy, value, duration, offset, triggerHook, direction, time, reverse, ease, delay) {
 
-            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
-            offset      = typeof offset      !== 'undefined' ? offset:      0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            direction   = typeof direction   !== 'undefined' ? direction:   "from";
-            time        = typeof time        !== 'undefined' ? time:        "1";
-            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
+            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
+            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      0;
+            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
+            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
+            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
+            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
+            obj.ease        = typeof obj.ease        !== 'undefined' ? obj.ease:        "Power0.easeNone";
+            obj.delay       = typeof obj.delay       !== 'undefined' ? obj.delay:       "0";
 
             // TODO:
             // Por favor encontrar una solución a esta cha-pu-za
             var gsobject = {
-                "x":{ "x": value, ease: ease, delay: delay },
-                "y":{ "y": value, ease: ease, delay: delay },
-                "z":{ "z": value, ease: ease, delay: delay }
+                "x":{ "x": obj.value, ease: obj.ease, delay: obj.delay },
+                "y":{ "y": obj.value, ease: obj.ease, delay: obj.delay },
+                "z":{ "z": obj.value, ease: obj.ease, delay: obj.delay }
             };
 
             // Objeto GreenSock
             var smobject = {
                 triggerElement: $(this.el).closest(this.triggerel)[0],
-                duration: duration,
-                triggerHook: triggerHook
+                duration: obj.duration,
+                triggerHook: obj.triggerHook
             };
 
             var _this = this;
@@ -216,13 +220,13 @@ var sal, $$;
 
                 // Llamamos a soa
                 $$(this, trigger, pinel).soa(
-                        gsobject[axy],
-                        duration,
-                        offset,
-                        triggerHook,
-                        direction,
-                        time,
-                        reverse
+                        gsobject[obj.axy],
+                        obj.duration,
+                        obj.offset,
+                        obj.triggerHook,
+                        obj.direction,
+                        obj.time,
+                        obj.reverse
                 );
 
             });
@@ -282,13 +286,12 @@ var sal, $$;
 
         /**
          * Fade con SimpleObjectAnimation
-         * @private
          * @param {float} duration El valor desde el que se va a animar
          * @param {float} duration La duración en % de scroll o px
          * @return {salObject} Devuelve un objeto SAL.
          */
 
-        fade: function(value, duration, offset, triggerHook, direction, time, reverse) {
+        fade: function(value, duration, offset, triggerHook, direction, time, reverse, indicators) {
 
             // Console
             if (this.CONSOLE)
@@ -320,7 +323,8 @@ var sal, $$;
                         triggerHook,
                         direction,
                         time,
-                        reverse
+                        reverse,
+                        indicators
                 );
 
             });
@@ -341,21 +345,33 @@ var sal, $$;
          * @return {bool} Devuelve un objeto SAL.
          */
 
-        fadeOut: function(duration, offset, triggerHook, time, reverse) {
+        fadeOut: function(obj) {
 
             // Console
             if (this.CONSOLE)
                 console.log("-> fadeOut()");
 
             // Valores por defecto
-            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
-            offset      = typeof offset      !== 'undefined' ? offset:      0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            time        = typeof time        !== 'undefined' ? time:        "1";
-            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
+            obj.value       = typeof obj.value       !== 'undefined' ? obj.value:       "0"
+            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
+            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      "0";
+            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
+            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "tj";
+            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
+            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
 
+            // Llamamos a fade
             $$(this.el, this.triggerel, this.pinel)
-                .fade("0", duration, offset, triggerHook, "to", time, reverse);
+                .fade(
+                        obj.value,
+                        obj.duration,
+                        obj.offset,
+                        obj.triggerHook,
+                        obj.direction,
+                        obj.time,
+                        obj.reverse,
+                        obj.indicators
+                );
 
             return this;
 
@@ -363,7 +379,8 @@ var sal, $$;
 
         /**
          * Anima un elemento hacia opacidad uno
-         * @private
+         * @param {object} obj Objeto animación
+         * @param {string} obj.value Valor inicial para el fadeIn
          * @param {string} duration La duración en % de scroll o px
          * @param {number} offset Retardo de la animación con respecto al trigger
          * @param {string} triggerHook Posición del trigger de scrollmagic
@@ -372,18 +389,34 @@ var sal, $$;
          * @return {bool} Devuelve un objeto SAL.
          */
 
-        fadeIn: function(duration, offset, triggerHook, time, reverse) {
+        fadeIn: function(obj) {
+
+            // Console
+            if (this.CONSOLE)
+                console.log("-> fadeIn()");
 
             // Valores por defecto
-            duration    = typeof duration    !== 'undefined' ? duration:    "100%";
-            offset      = typeof offset      !== 'undefined' ? offset:      0;
-            triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: "onEnter";
-            time        = typeof time        !== 'undefined' ? time:        "1";
-            reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
+            obj.value       = typeof obj.value       !== 'undefined' ? obj.value:       "0"
+            obj.duration    = typeof obj.duration    !== 'undefined' ? obj.duration:    "100%";
+            obj.offset      = typeof obj.offset      !== 'undefined' ? obj.offset:      "0";
+            obj.triggerHook = typeof obj.triggerHook !== 'undefined' ? obj.triggerHook: "onEnter";
+            obj.direction   = typeof obj.direction   !== 'undefined' ? obj.direction:   "from";
+            obj.time        = typeof obj.time        !== 'undefined' ? obj.time:        "1";
+            obj.reverse     = typeof obj.reverse     !== 'undefined' ? obj.reverse:     true;
+            obj.indicators  = typeof obj.indicators  !== 'undefined' ? obj.indicators:  false;
 
-
-            $$(this.el, this.triggerel)
-                .fade("0", duration, offset, triggerHook, "from", time, reverse);
+            // Llamamos a fade
+            $$(this.el, this.triggerel, this.pinel)
+                .fade(
+                        obj.value,
+                        obj.duration,
+                        obj.offset,
+                        obj.triggerHook,
+                        obj.direction,
+                        obj.time,
+                        obj.reverse,
+                        obj.indicators
+                );
 
             return this;
 
