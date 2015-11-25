@@ -32,13 +32,18 @@
 
 
 $(function () {
-    $$(".a", ".hero").fadeIn(0, 0, "onCenter", 1).move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0);
 
+    //fadeOut: function(duration, offset, triggerHook, time, reverse, pinel) {
+
+    $$(".hero__scroll", ".hero__scroll", ".hero__scroll").fadeOut("100%", 0, "onCenter", 1, true);
+
+
+    $$(".a", ".hero").fadeIn(0, 0, "onCenter", 1).move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0);
     $$(".b", ".hero")
         .fadeIn(0, 0, "onCenter", 1)
         .move("x", "100px", 0, 0, "onCenter", "from", 0.75, false, "Power3.easeInOut", 0.2)
-
-    $$(".fadeout")
+        $$(".fadeout")
         .fadeOut("20%", 0, 0.2, 1, true);
+
 
 });

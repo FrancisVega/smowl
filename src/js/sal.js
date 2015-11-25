@@ -43,9 +43,10 @@ var sal, $$;
      * Constructor sal
      */
 
-    sal = $$ = function(el, triggerel) {
+    sal = $$ = function(el, triggerel, pinel) {
         triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
-        return new SAL(el, triggerel);
+        pinel     = typeof pinel     !== 'undefined' ? pinel:     "undefined"
+        return new SAL(el, triggerel, pinel);
     };
 
 
@@ -56,7 +57,7 @@ var sal, $$;
      * @return {sal}
      */
 
-    var SAL = function(el, triggerel) {
+    var SAL = function(el, triggerel, pinel) {
 
         // About object
         this.about = {
@@ -69,10 +70,13 @@ var sal, $$;
         this.CONTROLLER = new ScrollMagic.Controller();
         this.BROWSER_HEIGHT = $(window).height();
         this.BROWSER_WIDTH = $(window).width();
+        this.DEBUG = false;
+        this.CONSOLE = true;
 
         // Elemento y trigger, aun en formato String
         this.el = el;
         this.triggerel = triggerel;
+        this.pinel = pinel;
 
         /**
          * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
@@ -113,6 +117,10 @@ var sal, $$;
 
         soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse) {
 
+            // Console
+            if (this.CONSOLE)
+                console.log("-> soa()");
+
             var greenSockCompound = {
                 "el": this.el,
                 "time": time,
@@ -135,8 +143,6 @@ var sal, $$;
                 );
             }
 
-            console.log(reverse);
-
             // ScrollMagic scene
             var scene = new ScrollMagic.Scene( {
                 triggerElement: $(this.el).closest(this.triggerel)[0],
@@ -145,10 +151,16 @@ var sal, $$;
                 offset: offset,
                 triggerHook: triggerHook
             })
-
             // Attachments
-            //.setTween(tween).addIndicators().addTo(this.CONTROLLER);
             .setTween(tween).addTo(this.CONTROLLER);
+
+            if (this.pinel != "undefined") {
+                scene.setPin(this.pinel);
+            }
+
+            if (this.DEBUG) {
+                scene.addIndicators();
+            }
 
             return this;
 
@@ -199,8 +211,11 @@ var sal, $$;
                 // Obtenemos el trigger
                 trigger = $(this).closest(_this.triggerel)[0];
 
+                // Obtenemos el pinel
+                pinel = $(this).closest(_this.pinel)[0];
+
                 // Llamamos a soa
-                $$(this, trigger).soa(
+                $$(this, trigger, pinel).soa(
                         gsobject[axy],
                         duration,
                         offset,
@@ -225,7 +240,8 @@ var sal, $$;
          * @retunr {sal}
          */
 
-        scale: function(axy, value, duration, offset, triggerHook, direction, time, reverse) {
+        scale: function(
+               axy, value, duration, offset, triggerHook, direction, time, reverse) {
 
             // Valores por defecto
             duration    = typeof duration    !== 'undefined' ? duration:    "100%";
@@ -244,8 +260,11 @@ var sal, $$;
                 // Obtenemos el trigger
                 trigger = $(this).closest(_this.triggerel)[0];
 
+                // Obtenemos el pinel
+                pinel = $(this).closest(_this.pinel)[0];
+
                 // Llamamos a soa
-                $$(this, trigger).soa(
+                $$(this, trigger, pinel).soa(
                         {"scale": value},
                         duration,
                         offset,
@@ -271,6 +290,10 @@ var sal, $$;
 
         fade: function(value, duration, offset, triggerHook, direction, time, reverse) {
 
+            // Console
+            if (this.CONSOLE)
+                console.log("-> fade()");
+
             if (duration === 0) {
                 reverse = false;
             }
@@ -278,6 +301,7 @@ var sal, $$;
             // Loop por cada elementoSelectores $jQuery
             var _this = this;
             var trigger;
+            var pinel;
 
             // Loop entre elementos jQuery
             $(this.el).each(function() {
@@ -285,8 +309,11 @@ var sal, $$;
                 // Obtenemos el trigger
                 trigger = $(this).closest(_this.triggerel)[0];
 
+                // Obtenemos el pinel
+                pinel = $(this).closest(_this.pinel)[0];
+
                 // Llamamos a soa
-                $$(this, trigger).soa(
+                $$(this, trigger, pinel).soa(
                         {"opacity": value},
                         duration,
                         offset,
@@ -316,6 +343,10 @@ var sal, $$;
 
         fadeOut: function(duration, offset, triggerHook, time, reverse) {
 
+            // Console
+            if (this.CONSOLE)
+                console.log("-> fadeOut()");
+
             // Valores por defecto
             duration    = typeof duration    !== 'undefined' ? duration:    "100%";
             offset      = typeof offset      !== 'undefined' ? offset:      0;
@@ -323,7 +354,7 @@ var sal, $$;
             time        = typeof time        !== 'undefined' ? time:        "1";
             reverse     = typeof reverse     !== 'undefined' ? reverse:     true;
 
-            $$(this.el, this.triggerel)
+            $$(this.el, this.triggerel, this.pinel)
                 .fade("0", duration, offset, triggerHook, "to", time, reverse);
 
             return this;
