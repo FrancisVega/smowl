@@ -1,0 +1,52 @@
+/*
+        _ _ |  . _   __|_ | _  _   _| _  _ _  _
+       _\(_||. |_\  _\ |\/|(/__\  (_|(/_| | |(_)
+              L|        /
+   */
+body {
+  font-family: "Vidaloka";
+  background-color: #121212;
+  color: #f2f2f2;
+}
+
+.space {
+  min-height: 100px;
+}
+
+.fadeout {
+  position: relative;
+}
+
+.ratm__title {
+  font-weight: 100;
+  font-size: 24px;
+  padding-left: 120px;
+  color: #666;
+}
+
+.hero {
+  margin-left: 120px;
+}
+
+.hero__title {
+  font-size: 64px;
+  margin: 0;
+}
+
+.a, .b {
+  top: 0;
+  position: absolute;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: purple;
+}
+
+.mod-parallax {
+  height: 500px;
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3N0ZGluIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNHOzs7O0tBSUU7QUFFTDtFQUNJLHdCQUF3QjtFQUN4QiwwQkFBMEI7RUFDMUIsZUFBZTtDQUNsQjs7QUFFRDtFQUNJLGtCQUFrQjtDQUNyQjs7QUFFRDtFQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtFQUNJLGlCQUFpQjtFQUNqQixnQkFBZ0I7RUFDaEIsb0JBQW9CO0VBQ3BCLFlBQVk7Q0FDZjs7QUFFRDtFQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtFQUNJLGdCQUFnQjtFQUNoQixVQUFVO0NBQ2I7O0FBRUQ7RUFDSSxPQUFPO0VBQ1AsbUJBQW1CO0NBQ3RCOztBQUVEO0VBQ0ksYUFBYTtFQUNiLGNBQWM7RUFDZCx5QkFBeUI7Q0FDNUI7O0FBRUQ7RUFDSSxjQUFjO0VBQ2Qsc0JBQXNCO0NBQ3pCIiwiZmlsZSI6InN0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgIC8qXG4gICAgICAgIF8gXyB8ICAuIF8gICBfX3xfIHwgXyAgXyAgIF98IF8gIF8gXyAgX1xuICAgICAgIF9cXChffHwuIHxfXFwgIF9cXCB8XFwvfCgvX19cXCAgKF98KC9ffCB8IHwoXylcbiAgICAgICAgICAgICAgTHwgICAgICAgIC9cbiAgICovXG5cbmJvZHkge1xuICAgIGZvbnQtZmFtaWx5OiBcIlZpZGFsb2thXCI7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzEyMTIxMjtcbiAgICBjb2xvcjogI2YyZjJmMjtcbn1cblxuLnNwYWNlIHtcbiAgICBtaW4taGVpZ2h0OiAxMDBweDtcbn1cblxuLmZhZGVvdXQge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLnJhdG1fX3RpdGxlIHtcbiAgICBmb250LXdlaWdodDogMTAwO1xuICAgIGZvbnQtc2l6ZTogMjRweDtcbiAgICBwYWRkaW5nLWxlZnQ6IDEyMHB4O1xuICAgIGNvbG9yOiAjNjY2O1xufVxuXG4uaGVybyB7XG4gICAgbWFyZ2luLWxlZnQ6IDEyMHB4O1xufVxuXG4uaGVyb19fdGl0bGUge1xuICAgIGZvbnQtc2l6ZTogNjRweDtcbiAgICBtYXJnaW46IDA7XG59XG5cbi5hLCAuYiB7XG4gICAgdG9wOiAwO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbn1cblxuLmJveCB7XG4gICAgd2lkdGg6IDIwMHB4O1xuICAgIGhlaWdodDogMjAwcHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcHVycGxlO1xufVxuXG4ubW9kLXBhcmFsbGF4IHtcbiAgICBoZWlnaHQ6IDUwMHB4O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHJlZDtcbn1cbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */

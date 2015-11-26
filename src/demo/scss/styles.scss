@@ -1,0 +1,52 @@
+
+   /*
+        _ _ |  . _   __|_ | _  _   _| _  _ _  _
+       _\(_||. |_\  _\ |\/|(/__\  (_|(/_| | |(_)
+              L|        /
+   */
+
+body {
+    font-family: "Vidaloka";
+    background-color: #121212;
+    color: #f2f2f2;
+}
+
+.space {
+    min-height: 100px;
+}
+
+.fadeout {
+    position: relative;
+}
+
+.ratm__title {
+    font-weight: 100;
+    font-size: 24px;
+    padding-left: 120px;
+    color: #666;
+}
+
+.hero {
+    margin-left: 120px;
+}
+
+.hero__title {
+    font-size: 64px;
+    margin: 0;
+}
+
+.a, .b {
+    top: 0;
+    position: absolute;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+}
+
+.mod-parallax {
+    height: 500px;
+    border: 1px solid red;
+}
