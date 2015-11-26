@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - pluginName.js                                                                //
+    //  Animation Configure File                                                              //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,22 +31,15 @@
     */
 
 
-(function($$){
+$(function () {
 
-    /**
-     * pluginName.js
-     * @param {type} name Description
-     * @return {sal}
-     */
+    $$(".ratm__title", ".ratm__title")
+        .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+          .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
-    $$.fn.pluginName = function() {
+    $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+    $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
 
-        $$(this.el, this.triggerel)
-            .move("x", value, duration, offset, triggerHook)
-            .scale(1.25);
+    $$(".box").scale({"axy": "all", "value": "2.1"});
 
-        return this;
-
-    };
-
-}(sal));
+});
