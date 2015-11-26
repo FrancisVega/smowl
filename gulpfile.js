@@ -145,7 +145,7 @@ gulp.task('minimize', function() {
 console.log("MINIMIZE");
 return gulp.src([
 dirs.src + 'lib/sal.js',
-dirs.src + 'lib/plugins/appearIn.js',
+//dirs.src + 'lib/plugins/appearIn.js',
 dirs.src + 'lib/plugins/landIn.js',
 dirs.src + 'lib/plugins/heroParallax.js',
 dirs.src + 'lib/plugins/modParallax.js',
@@ -170,7 +170,7 @@ dirs.src + 'lib/vendor/ScrollMagic.js',
 dirs.src + 'lib/vendor/TweenMax.js',
 dirs.src + 'lib/vendor/animation.gsp.js',
 dirs.src + 'lib/sal.js',
-dirs.src + 'lib/plugins/appearIn.js',
+//dirs.src + 'lib/plugins/appearIn.js',
 dirs.src + 'lib/plugins/landIn.js',
 dirs.src + 'lib/plugins/heroParallax.js',
 dirs.src + 'lib/plugins/modParallax.js',
@@ -189,7 +189,7 @@ dirs.src + 'lib/plugins/modParallax.js',
 //
 
 gulp.task('doc', function() {
-return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/appearIn.js', dirs.src + 'lib/plugins/landIn.js' ])
+return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' ])
 .pipe(doc({ format: 'html' }))
 .pipe(gulp.dest( dirs.doc ));
 });
