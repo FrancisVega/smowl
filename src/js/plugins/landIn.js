@@ -42,13 +42,13 @@
     $$.fn.landIn = function(value, duration, offset, triggerHook) {
 
         // Si no se indica nada en el método los valores deben estar en el data-*
-        duration = typeof duration !== 'undefined' ? duration: this.getData(this.el).duration;
-        offset = typeof offset !== 'undefined' ? offset: this.getData(this.el).offset;
-        triggerHook = typeof triggerHook !== 'undefined' ? triggerHook: this.getData(this.el).triggerHook;
+        config.duration    = typeof config.duration    !== 'undefined' ? config.duration:    this.getData(this.el).duration;
+        config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      this.getData(this.el).offset;
+        config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: this.getData(this.el).triggerHook;
 
         // Animamos
         $$(this.el, this.triggerel)
-            .moveY(value, duration, offset, triggerHook)
+            .moveY(config.value, config.duration, config.offset, config.triggerHook)
             .scale(1.25);
 
         return this;
