@@ -39,7 +39,7 @@
    * @return {sal}
    */
 
-  $$.fn.pluginName = function(config) {
+  $$.fn.pluginName = function(args) {
 
     $$(this.el, this.triggerel, this.pinel)
       .move("x", value, duration, offset, triggerHook)
