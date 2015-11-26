@@ -73,6 +73,7 @@
 
       // Aplicamos los estilos necesarios al nuevo contenedor
       $(extra).css({ "background-image": image });
+      $(extra).css({ "background-size": "cover" });
       $(extra).css({ "position": "absolute" });
       $(extra).css({ "z-index": "-1" });
       $(extra).css({ "left": "0" });

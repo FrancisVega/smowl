@@ -70,7 +70,7 @@ var sal, $$;
     this.BROWSER_HEIGHT = $(window).height();
     this.BROWSER_WIDTH = $(window).width();
     this.INDICATORS = false;
-    this.CONSOLE = true;
+    this.CONSOLE = false;
 
     // Elemento y trigger, aun en formato String
     this.el = el;
