@@ -239,6 +239,7 @@ var sal, $$;
             config.offset      = typeof config.offset      !== 'undefined' ? config.offset:      0;
             config.triggerHook = typeof config.triggerHook !== 'undefined' ? config.triggerHook: "onEnter";
             config.direction   = typeof config.direction   !== 'undefined' ? config.direction:   "from";
+            // Sdfsd
             config.time        = typeof config.time        !== 'undefined' ? config.time:        "1";
             config.reverse     = typeof config.reverse     !== 'undefined' ? config.reverse:     true;
             config.ease        = typeof config.ease        !== 'undefined' ? config.ease:        "Power0.easeNone";
