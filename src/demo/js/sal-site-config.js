@@ -33,6 +33,8 @@
 
 $(function () {
 
+  $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": true});
+
     $$(".ratm__title", ".ratm__title")
         .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
           .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });

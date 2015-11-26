@@ -46,8 +46,9 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
-    duration = typeof duration !== 'undefined' ? duration:
+    config.duration = typeof config.duration !== 'undefined' ? config.duration:
       this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+
 
     var _this = this;
     var Trigger;
@@ -81,20 +82,21 @@
       $(extra).css({ "background-size": "cover" });
       $(extra).css({ "background-repeat": "no-repeat" });
       $(extra).css({ "height": (100 * config.ratio) + "%" });
+      console.log(config.ratio);
       $(extra).css( {
         "transform":
           "translate3d( 0, " + -(100 - (100 / ((100 * config.ratio) / 100))) + "%, 0.001px"
       });
 
-      $$($(extra), _this.triggerel).soa(
+      $$($(extra), _this.triggerel, _this.pinel).soa(
           { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
           config.duration,
           0,
           "onEnter",
           "from",
           "1",
-          "true",
-          false
+          true,
+          config.indicators
           );
 
     });
