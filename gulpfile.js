@@ -92,7 +92,8 @@ gulp.task('browserSync', function() {
   browserSync({
     files: "*.php, *.html, *.js, *.css",
     server: {
-      baseDir: dirs.demo
+      baseDir: dirs.src,
+      index: "demo/index.html"
     },
     // browser: 'safari'
     browser: 'google chrome',
