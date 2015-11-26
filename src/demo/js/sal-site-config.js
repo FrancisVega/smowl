@@ -3,7 +3,7 @@
     ////////////////////////////////////////////////////////////////////////////////////////////
     //                                                                                        //
     //  Secuoyas Animation Library - Secuoyas (c) 2015                                        //
-    //  Plugin - pluginName.js                                                                //
+    //  Animation Configure File                                                              //
     //                                                                                        //
     ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -30,23 +30,28 @@
     dealings in the software.
     */
 
+$(function () {
 
-(function($$){
+  // Globals
+  $$INDICATORS = false;
+  $$CONSOLE_LOG = true;
 
-    /**
-     * pluginName.js
-     * @param {type} name Description
-     * @return {sal}
-     */
+  // Valores por defecto
+  $$SETUP = {
+    "duration": "100%",
+    "ease":"Power0.easeNone"
+  }
 
-    $$.fn.pluginName = function() {
 
-        $$(this.el, this.triggerel)
-            .move("x", value, duration, offset, triggerHook)
-            .scale(1.25);
+  $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": false});
 
-        return this;
+    $$(".ratm__title", ".ratm__title")
+        .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+          .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
-    };
+    $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+    $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": true});
 
-}(sal));
+    $$(".box").scale({"axy": "all", "value": "2.1"});
+
+});
