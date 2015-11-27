@@ -187,6 +187,50 @@ var sal, $$;
 
     },
 
+    rotate: function(args) {
+      // Console
+      if (this.CONSOLE_LOG)
+        console.log("-> rotate()");
+
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+      args.origin      = typeof args.origin      !== 'undefined' ? args.origin: this.SETUP.delay;
+
+      var _this = this;
+      var trigger;
+
+      $(this.el).each(function() {
+
+        // Obtenemos el trigger
+        trigger = $(this).closest(_this.triggerel)[0];
+
+        // Obtenemos el pinel
+        pinel = $(this).closest(_this.pinel)[0];
+
+        // Llamamos a soa
+        $$(this, trigger, pinel).soa(
+          {"rotation":args.value, transformOrigin: args.origin, ease: args.ease, delay: args.delay},
+          args.duration,
+          args.offset,
+          args.triggerHook,
+          args.direction,
+          args.time,
+          args.reverse,
+          args.indicators
+        );
+
+      });
+
+      return this;
+
+
+    },
 
     /**
      * Fade con SimpleObjectAnimation

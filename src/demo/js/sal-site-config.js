@@ -32,9 +32,10 @@
 
 $(function () {
 
+
   // Globals
   $$INDICATORS = false;
-  $$CONSOLE_LOG = true;
+  $$CONSOLE_LOG = false;
 
   // Valores por defecto
   $$SETUP = {
@@ -49,8 +50,9 @@ $(function () {
     .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
   $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
-  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": true});
+  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
 
-  $$(".box").scale({"axy": "all", "value": "2.1"});
+  $$(".box", ".trigger-box").rotate({"value":"-360", "origin":"bottom right", "indicators":false});
+
 
 });

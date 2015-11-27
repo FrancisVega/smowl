@@ -50,3 +50,8 @@ body {
     height: 500px;
     border: 1px solid red;
 }
+
+.sampleClass {float:left;}
+@media only screen and (max-width: 800px){
+    .sampleClass {float:none; font-size: 40px;}
+}
