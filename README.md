@@ -1,9 +1,15 @@
 # Sal.js
 
 
-## Variables Globales
+## Settings globales
+```
+$$CONSOLE = (true|false)
+```
+```
+$$INDICATORS = (true|false)
+```
 
-- Valores por defecto
+## Valores por defecto
 ```
 $$SETUP = {
   "duration": $$SETUP.duration,
@@ -16,6 +22,18 @@ $$SETUP = {
   "delay": $$SETUP.delay,
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Sal
 
