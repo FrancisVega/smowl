@@ -43,7 +43,6 @@ var dirs = {
   dst: 'dist/',
   doc: 'src/doc/',
   min: 'src/min/',
-  demo: 'src/demo/'
 };
 
 var version = argv.version;
@@ -63,14 +62,14 @@ gulp.task('sass', function(){
     //csswring
   ];
 
-  return gulp.src(dirs.demo + 'scss/*.scss')
+  return gulp.src(dirs.src + 'scss/*.scss')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
     .pipe(postcss(processors))
     //.pipe(autoprefixer())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(dirs.demo + 'css'))
+    .pipe(gulp.dest(dirs.src + 'css'))
     // Reloading the stream
     .pipe(browserSync.reload({
         stream: true
@@ -88,7 +87,7 @@ gulp.task('browserSync', function() {
     files: "*.php, *.html, *.js, *.css",
     server: {
       baseDir: dirs.src,
-      index: "demo/index.html"
+      index: "index.html"
     },
     // browser: 'safari'
     browser: 'google chrome',
@@ -104,11 +103,10 @@ gulp.task('browserSync', function() {
 //
 
 gulp.task('watch', ['browserSync'], function(){
-  gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
-  gulp.watch(dirs.demo + 'js/**/*.js', browserSync.reload);
-  gulp.watch(dirs.demo + '*.html', browserSync.reload);
+  gulp.watch(dirs.src + 'scss/*.scss', ['sass']);
+  gulp.watch(dirs.src + 'js/**/*.js', browserSync.reload);
+  gulp.watch(dirs.src + '*.html', browserSync.reload);
   gulp.watch(dirs.src + 'lib/**/*.js', browserSync.reload);
-  gulp.watch(dirs.demo + 'js/**/*.js', browserSync.reload);
 });
 
 
