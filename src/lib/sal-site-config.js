@@ -34,25 +34,30 @@ $(function () {
 
 
   // Globals
-  $$INDICATORS = false;
+  //$$INDICATORS = false;
   $$CONSOLE_LOG = false;
 
   // Valores por defecto
   $$SETUP = {
-    "duration": "100%",
     "ease":"Power0.easeNone"
   }
 
-  $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": false});
+/*
+ *  $$(".ratm__title", ".ratm__title")
+ *    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+ *    .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
+ *
+ *  $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+ *  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
+ */
 
-  $$(".ratm__title", ".ratm__title")
-    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
-    .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
+  $$(".ratm__title").appearIn({"axy":"x", "value":"-100px", "duration":"50%"})
 
-  $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
-  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
-
-  $$(".box", ".trigger-box").rotate({"value":"-360", "origin":"bottom right", "indicators":false});
+  $$(".box", ".trigger-box")
+      //.move({ "axy":"x", "value":"100px", "triggerHook": "onEnter"})
+      .scale({ "ease":"Power4.easeIn", "axy":"all", "value":"0", "direction":"to", "triggerHook": "onEnter"})
+      .rotate({ "ease":"Power4.easeOut", "value":"-360", "triggerHook": "onEnter"})
+      .fadeOut({ "triggerHook": "onEnter"})
 
 
 });
