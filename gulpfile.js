@@ -150,7 +150,7 @@ gulp.task('minimize', function() {
       .pipe(concat('sal-'+version+'.js'))
       .pipe(gulp.dest(dirs.min))
       .pipe(rename('sal-'+version+'.min.js'))
-      .pipe(uglify())
+      //.pipe(uglify())
       .pipe(gulp.dest(dirs.min))
       });
 
