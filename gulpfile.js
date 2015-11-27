@@ -105,8 +105,9 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', ['browserSync'], function(){
   gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
+  gulp.watch(dirs.demo + 'js/**/*.js', browserSync.reload);
   gulp.watch(dirs.demo + '*.html', browserSync.reload);
-  gulp.watch(dirs.src + 'lib/*.js', browserSync.reload);
+  gulp.watch(dirs.src + 'lib/**/*.js', browserSync.reload);
 });
 
 

@@ -33,6 +33,8 @@
 
 $(function () {
 
+    $$CONSOLE = true;
+
   $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": true});
 
     $$(".ratm__title", ".ratm__title")

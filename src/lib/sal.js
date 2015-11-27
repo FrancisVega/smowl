@@ -70,8 +70,9 @@ var sal, $$;
     this.CONTROLLER = new ScrollMagic.Controller();
     this.BROWSER_HEIGHT = $(window).height();
     this.BROWSER_WIDTH = $(window).width();
+
     this.INDICATORS = false;
-    this.CONSOLE = true;
+    this.CONSOLE = $$CONSOLE;
 
     // Elemento y trigger, aun en formato String
     this.el = el;
@@ -157,7 +158,6 @@ var sal, $$;
       .setTween(tween).addTo(this.CONTROLLER);
 
       if (this.pinel != "undefined") {
-        console.log("-> Hay Pin");
         scene.setPin(this.pinel);
       }
 

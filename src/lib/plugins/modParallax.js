@@ -83,7 +83,6 @@
       $(extra).css({ "top": "0" });
       $(extra).css({ "bottom": "0" });
       $(extra).css({ "height": (100 * args.ratio) + "%" });
-      console.log(args.ratio);
       $(extra).css( {
         "transform":
           "translate3d( 0, " + -(100 - (100 / ((100 * args.ratio) / 100))) + "%, 0.001px"
