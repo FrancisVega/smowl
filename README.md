@@ -1,5 +1,9 @@
 # Sal.js
 
+
+## Variables Globales
+
+- Valores por defecto
 ```
 $$SETUP = {
   "duration": $$SETUP.duration,
