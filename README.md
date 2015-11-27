@@ -1,5 +1,24 @@
 # SAL
 
+## Setting Globales
+#### Se puede añadir en el sal-site-config.js estas variables que actuan de forma genérica.
+
+Activa o desactiva la salida de llamadas a métodos en la consola
+$$CONSOLE = (true|false)
+
+Establece los valores por defecto a nivel general del site.
+$$SETUP = {
+  "duration": ""
+  "offset": ""
+  "triggerHook": ""
+  "direction": ""
+  "time": ""
+  "reverse": ""
+  "ease": ""
+  "delay": ""
+}
+
+
 Main function
 
 **Parameters**
@@ -115,5 +134,4 @@ Constructor sal
 -   `el` **string** Elemento (query) que vamos a animar
 -   `triggerel` **string** Elemento que vamos a usar como trigger
 
-Returns **sal** 
-
+Returns **sal**
