@@ -1,25 +1,27 @@
 # **Sal.js** #
 
+### **Setting Globales**
+##### Se puede añadir en el sal-site-config.js estas variables que actuan de forma genérica.
+#
+```js
+// Activa salida de métodos por la consola
+$$CONSOLE = (true|false);
 
-## Settings globales
-```
-$$CONSOLE = (true|false)
-$$INDICATORS = (true|false)
-```
+// Activa los indicadores para todos los elementos animados
+$$INDICATORS = (true|false);
 
-## Valores por defecto
-```
+// Establece los valores por defecto a nivel general del site.
 $$SETUP = {
-  "duration": $$SETUP.duration,
-  "offset": $$SETUP.offset,
-  "triggerHook": $$SETUP.triggerHook,
-  "direction": $$SETUP.direction,
-  "time": $$SETUP.time,
-  "reverse": $$SETUP.reverse,
-  "ease": $$SETUP.ease,
-  "delay": $$SETUP.delay,
-}
-```
+  "duration": "", // "20%", "50%", ...
+  "offset": "", // "0", "20", ...
+  "triggerHook": "", // ".foo", "#bar", ...
+  "direction": "", // ("from"|"to")
+  "time": "", // "1", "1.6", ... segs
+  "reverse": "", // (true|false)
+  "ease": "", // "Power0.easeNone", "Power3.easeIn", ...
+  "delay": "", // "0", "42", ...
+};
+````
 
 
 
