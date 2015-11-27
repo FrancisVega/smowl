@@ -45,7 +45,7 @@ var sal, $$;
 
   sal = $$ = function(el, triggerel, pinel) {
     triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
-    pinel   = typeof pinel   !== 'undefined' ? pinel:   "undefined"
+    pinel = typeof pinel !== 'undefined' ? pinel: "undefined";
     return new SAL(el, triggerel, pinel);
   };
 
@@ -68,11 +68,11 @@ var sal, $$;
     $$SETUP.INDICATORS = typeof $$SETUP.INDICATORS !== 'undefined' ? $$SETUP.INDICATORS: false;
     $$SETUP.CONSOLE_LOG = typeof $$SETUP.CONSOLE_LOG !== 'undefined' ? $$SETUP.CONSOLE_LOG: false;
 
-    this.INDICATORS = $$INDICATORS;
-    this.CONSOLE_LOG = $$CONSOLE_LOG;
+    this.INDICATORS = $$SETUP.INDICATORS;
+    this.CONSOLE_LOG = $$SETUP.CONSOLE_LOG;
 
     // Valores por defecto globales
-    $$SETUP.duration = typeof $$SETUP.duration !== 'undefined' ? $$SETUP.duration: "0";
+    $$SETUP.duration = typeof $$SETUP.duration !== 'undefined' ? $$SETUP.duration: "100%";
     $$SETUP.offset = typeof $$SETUP.offset !== 'undefined' ? $$SETUP.offset: "0";
     $$SETUP.triggerHook = typeof $$SETUP.triggerHook !== 'undefined' ? $$SETUP.triggerHook: "onEnter";
     $$SETUP.direction = typeof $$SETUP.direction !== 'undefined' ? $$SETUP.direction: "from";
@@ -90,7 +90,7 @@ var sal, $$;
       "reverse": $$SETUP.reverse,
       "ease": $$SETUP.ease,
       "delay": $$SETUP.delay,
-    }
+    };
 
     // Elemento y trigger, aun en formato String
     this.el = el;
@@ -144,7 +144,7 @@ var sal, $$;
       var greenSockCompound = {
         "el": this.el,
         "time": time,
-        "gsobject": gsobject
+        "gsobject": gsobject,
       };
 
       // Greensock animation
@@ -187,6 +187,50 @@ var sal, $$;
 
     },
 
+    rotate: function(args) {
+      // Console
+      if (this.CONSOLE_LOG)
+        console.log("-> rotate()");
+
+      // Valores por defecto
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+      args.origin      = typeof args.origin      !== 'undefined' ? args.origin: "center center";
+
+      var _this = this;
+      var trigger;
+
+      $(this.el).each(function() {
+
+        // Obtenemos el trigger
+        trigger = $(this).closest(_this.triggerel)[0];
+
+        // Obtenemos el pinel
+        pinel = $(this).closest(_this.pinel)[0];
+
+        // Llamamos a soa
+        $$(this, trigger, pinel).soa(
+          {"rotation":args.value, transformOrigin: args.origin, ease: args.ease, delay: args.delay},
+          args.duration,
+          args.offset,
+          args.triggerHook,
+          args.direction,
+          args.time,
+          args.reverse,
+          args.indicators
+        );
+
+      });
+
+      return this;
+
+    },
 
     /**
      * Fade con SimpleObjectAnimation
@@ -393,7 +437,7 @@ var sal, $$;
         console.log("-> fadeOut()");
 
       // Valores por defecto
-      args.value       = typeof args.value       !== 'undefined' ? args.value: "0"
+      args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -413,6 +457,7 @@ var sal, $$;
             args.direction,
             args.time,
             args.reverse,
+            args.ease,
             args.indicators
         );
 
@@ -438,8 +483,9 @@ var sal, $$;
       if (this.CONSOLE_LOG)
         console.log("-> fadeIn()");
 
+
       // Valores por defecto
-      args.value       = typeof args.value       !== 'undefined' ? args.value: "0"
+      args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -449,6 +495,7 @@ var sal, $$;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
       args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
 
+      console.log(args.value);
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
         .fade(

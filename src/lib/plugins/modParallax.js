@@ -73,14 +73,15 @@
 
       // Aplicamos los estilos necesarios al nuevo contenedor
       $(extra).css({ "background-image": image });
+      $(extra).css({ "background-size": "cover" });
+      $(extra).css({ "background-size": "cover" });
+      $(extra).css({ "background-repeat": "no-repeat" });
       $(extra).css({ "position": "absolute" });
       $(extra).css({ "z-index": "-1" });
       $(extra).css({ "left": "0" });
       $(extra).css({ "right": "0" });
       $(extra).css({ "top": "0" });
       $(extra).css({ "bottom": "0" });
-      $(extra).css({ "background-size": "cover" });
-      $(extra).css({ "background-repeat": "no-repeat" });
       $(extra).css({ "height": (100 * args.ratio) + "%" });
       $(extra).css( {
         "transform":
@@ -88,15 +89,15 @@
       });
 
       $$($(extra), _this.triggerel, _this.pinel).soa(
-          { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
-          args.duration,
-          0,
-          "onEnter",
-          "from",
-          "1",
-          true,
-          args.indicators
-          );
+        { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
+        args.duration,
+        0,
+        "onEnter",
+        "from",
+        "1",
+        true,
+        args.indicators
+      );
 
     });
 
