@@ -21,7 +21,7 @@ $$SETUP = {
   "ease": "", // "Power0.easeNone", "Power3.easeIn", ...
   "delay": "", // "0", "42", ...
 };
-````
+```
 
 
 
