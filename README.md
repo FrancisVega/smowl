@@ -1,3 +1,18 @@
+# Sal.js
+
+```
+$$SETUP = {
+  "duration": $$SETUP.duration,
+  "offset": $$SETUP.offset,
+  "triggerHook": $$SETUP.triggerHook,
+  "direction": $$SETUP.direction,
+  "time": $$SETUP.time,
+  "reverse": $$SETUP.reverse,
+  "ease": $$SETUP.ease,
+  "delay": $$SETUP.delay,
+}
+```
+
 #Sal
 
 Main function
