@@ -6,16 +6,12 @@
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 'use strict';
-
-//
-// GULP PLUGINS
-//
 
 // Gulp itself
 var gulp         = require('gulp');
 // General
+var argv         = require('yargs').argv;
 var doc          = require('gulp-documentation');
 var postcss      = require('gulp-postcss');
 var browserSync  = require('browser-sync');
@@ -32,7 +28,6 @@ var csswring     = require('csswring'); // <- postcss
 // JS
 var uglify       = require('gulp-uglify');
 var jshint       = require('gulp-jshint');
-// }}}
 
 
 //
@@ -48,10 +43,9 @@ var dirs = {
   dst: 'dist/',
   doc: 'src/doc/',
   min: 'src/min/',
-  demo: 'src/demo/'
 };
-// }}}
 
+var version = argv.version;
 
 //
 // SASS => CSS
@@ -68,19 +62,19 @@ gulp.task('sass', function(){
     //csswring
   ];
 
-  return gulp.src(dirs.demo + 'scss/*.scss')
-                                    .pipe(plumber())
-                                    .pipe(sourcemaps.init())
-                                    .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
-                                    .pipe(postcss(processors))
+  return gulp.src(dirs.src + 'scss/*.scss')
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
+    .pipe(postcss(processors))
     //.pipe(autoprefixer())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(dirs.demo + 'css'))
+    .pipe(gulp.dest(dirs.src + 'css'))
     // Reloading the stream
     .pipe(browserSync.reload({
-    stream: true
+        stream: true
     }));
-    });
+});
 
 
 //
@@ -93,7 +87,7 @@ gulp.task('browserSync', function() {
     files: "*.php, *.html, *.js, *.css",
     server: {
       baseDir: dirs.src,
-      index: "demo/index.html"
+      index: "index.html"
     },
     // browser: 'safari'
     browser: 'google chrome',
@@ -109,9 +103,10 @@ gulp.task('browserSync', function() {
 //
 
 gulp.task('watch', ['browserSync'], function(){
-  gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
-  gulp.watch(dirs.demo + '*.html', browserSync.reload);
-  gulp.watch(dirs.src + 'lib/*.js', browserSync.reload);
+  gulp.watch(dirs.src + 'scss/*.scss', ['sass']);
+  gulp.watch(dirs.src + 'js/**/*.js', browserSync.reload);
+  gulp.watch(dirs.src + '*.html', browserSync.reload);
+  gulp.watch(dirs.src + 'lib/**/*.js', browserSync.reload);
 });
 
 
@@ -130,32 +125,10 @@ gulp.task('clean', function () {
 //
 
 gulp.task('lint', function() {
-return gulp.src(dirs.src + 'lib/**/*')
-                                   .pipe(plumber())
-                                   .pipe(jshint())
-                                   .pipe(jshint.reporter('default'));
-                                   });
-
-
-//
-// CONCATENATE sal, greensock & scrollmagic
-//
-
-gulp.task('minimize', function() {
-console.log("MINIMIZE");
-return gulp.src([
-dirs.src + 'lib/sal.js',
-//dirs.src + 'lib/plugins/appearIn.js',
-dirs.src + 'lib/plugins/landIn.js',
-dirs.src + 'lib/plugins/heroParallax.js',
-dirs.src + 'lib/plugins/modParallax.js',
-])
-.pipe(plumber())
-.pipe(concat('sal-0.21.js'))
-.pipe(gulp.dest(dirs.min))
-.pipe(rename('sal-0.21.min.js'))
-.pipe(uglify())
-.pipe(gulp.dest(dirs.min))
+  return gulp.src(dirs.src + 'lib/**/*')
+    .pipe(plumber())
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 
@@ -163,24 +136,45 @@ dirs.src + 'lib/plugins/modParallax.js',
 // CONCATENATE sal, greensock & scrollmagic
 //
 
+gulp.task('minimize', function() {
+    console.log("MINIMIZE");
+    return gulp.src([
+      dirs.src + 'lib/sal.js',
+      //dirs.src + 'lib/plugins/appearIn.js',
+      dirs.src + 'lib/plugins/landIn.js',
+      dirs.src + 'lib/plugins/heroParallax.js',
+      dirs.src + 'lib/plugins/modParallax.js',
+      ])
+      .pipe(plumber())
+      .pipe(concat('sal-'+version+'.js'))
+      .pipe(gulp.dest(dirs.min))
+      .pipe(rename('sal-'+version+'.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(dirs.min))
+      });
+
+
+//
+// CONCATENATE sal, greensock & scrollmagic
+//
+
 gulp.task('minimize-bundle', function() {
-console.log("MINIMIZE-BUNDLE");
-return gulp.src([
-dirs.src + 'lib/vendor/ScrollMagic.js',
-dirs.src + 'lib/vendor/TweenMax.js',
-dirs.src + 'lib/vendor/animation.gsp.js',
-dirs.src + 'lib/sal.js',
-//dirs.src + 'lib/plugins/appearIn.js',
-dirs.src + 'lib/plugins/landIn.js',
-dirs.src + 'lib/plugins/heroParallax.js',
-dirs.src + 'lib/plugins/modParallax.js',
-])
-.pipe(plumber())
-.pipe(concat('sal-0.21-bundle.js'))
-.pipe(gulp.dest(dirs.min))
-.pipe(rename('sal-0.21-bundle.min.js'))
-.pipe(uglify())
-.pipe(gulp.dest(dirs.min))
+    console.log("MINIMIZE-BUNDLE");
+    return gulp.src([
+        dirs.src + 'lib/vendor/ScrollMagic.js',
+        dirs.src + 'lib/vendor/TweenMax.js',
+        dirs.src + 'lib/vendor/animation.gsp.js',
+        dirs.src + 'lib/sal.js',
+        //dirs.src + 'lib/plugins/appearIn.js',
+        dirs.src + 'lib/plugins/landIn.js',
+        dirs.src + 'lib/plugins/heroParallax.js',
+        dirs.src + 'lib/plugins/modParallax.js'])
+    .pipe(plumber())
+    .pipe(concat('sal-'+version+'-bundle.js'))
+    .pipe(gulp.dest(dirs.min))
+    .pipe(rename('sal-'+version+'-bundle.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(dirs.min))
 });
 
 
@@ -189,9 +183,9 @@ dirs.src + 'lib/plugins/modParallax.js',
 //
 
 gulp.task('doc', function() {
-return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' ])
-.pipe(doc({ format: 'html' }))
-.pipe(gulp.dest( dirs.doc ));
+    return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' ])
+    .pipe(doc({ format: 'html' }))
+    .pipe(gulp.dest( dirs.doc ));
 });
 
 
@@ -199,8 +193,8 @@ return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax
 // Delete concats sal javascript files
 //
 gulp.task('cleanSalJs', function () {
-console.log("DELETE");
-return del([ dirs.min + 'sal-0.21-bundle.js', dirs.min + "sal-0.21.js" ]);
+    console.log("DELETE");
+    return del([ dirs.min + 'sal-'+version+'-bundle.js', dirs.min + 'sal-'+version+'.js' ]);
 });
 
 //
