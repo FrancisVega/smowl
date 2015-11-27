@@ -6,7 +6,7 @@
   //  _\(_||. |_\                                                                               //
   //                                                                                            //
   //  Secuoyas Animation Library - Secuoyas (c) 2015                                            //
-  //  sal.js v0.3                                                                       //
+  //  sal.js v0.3                                                                               //
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -59,20 +59,38 @@ var sal, $$;
 
   var SAL = function(el, triggerel, pinel) {
 
-    // About object
-    this.about = {
-      "name": "Secuoyas Animation Library",
-      "autor": "Secuoyas",
-      "version": "0.21"
-    };
-
     // Globals
     this.CONTROLLER = new ScrollMagic.Controller();
     this.BROWSER_HEIGHT = $(window).height();
     this.BROWSER_WIDTH = $(window).width();
 
-    this.INDICATORS = false;
-    this.CONSOLE = $$CONSOLE;
+    // DEBUGGIN
+    $$SETUP.INDICATORS = typeof $$SETUP.INDICATORS !== 'undefined' ? $$SETUP.INDICATORS: false;
+    $$SETUP.CONSOLE_LOG = typeof $$SETUP.CONSOLE_LOG !== 'undefined' ? $$SETUP.CONSOLE_LOG: false;
+
+    this.INDICATORS = $$INDICATORS;
+    this.CONSOLE_LOG = $$CONSOLE_LOG;
+
+    // Valores por defecto globales
+    $$SETUP.duration = typeof $$SETUP.duration !== 'undefined' ? $$SETUP.duration: "0";
+    $$SETUP.offset = typeof $$SETUP.offset !== 'undefined' ? $$SETUP.offset: "0";
+    $$SETUP.triggerHook = typeof $$SETUP.triggerHook !== 'undefined' ? $$SETUP.triggerHook: "onEnter";
+    $$SETUP.direction = typeof $$SETUP.direction !== 'undefined' ? $$SETUP.direction: "from";
+    $$SETUP.time = typeof $$SETUP.time !== 'undefined' ? $$SETUP.time: "1";
+    $$SETUP.reverse = typeof $$SETUP.reverse !== 'undefined' ? $$SETUP.reverse: true;
+    $$SETUP.ease = typeof $$SETUP.ease !== 'undefined' ? $$SETUP.ease: "Power0.easeNone";
+    $$SETUP.delay = typeof $$SETUP.delay !== 'undefined' ? $$SETUP.delay: "0";
+
+    this.SETUP = {
+      "duration": $$SETUP.duration,
+      "offset": $$SETUP.offset,
+      "triggerHook": $$SETUP.triggerHook,
+      "direction": $$SETUP.direction,
+      "time": $$SETUP.time,
+      "reverse": $$SETUP.reverse,
+      "ease": $$SETUP.ease,
+      "delay": $$SETUP.delay,
+    }
 
     // Elemento y trigger, aun en formato String
     this.el = el;
@@ -120,7 +138,7 @@ var sal, $$;
                  gsobject, duration, offset, triggerHook, direction, time, reverse, indicators) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> soa()");
 
       var greenSockCompound = {
@@ -180,7 +198,7 @@ var sal, $$;
     fade: function(value, duration, offset, triggerHook, direction, time, reverse, indicators) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> fade()");
 
       if (duration === 0) {
@@ -222,29 +240,34 @@ var sal, $$;
 
     /**
      * Mueve un elemento en la coordenada dada
-     * @param {string} coord Coordenada que se va a animar "x", "y", "z"
-     * @param {float} value Valor la coordenada
-     * @param {string} duration Duración de la animación en %/px
-     * @param {number} offset Valor en px para el "retardo" de la animación
-     * @param {string} [triggerHook="onEnter"] Posición del trigger de ScrollMagic
-     * @param {string} [direction="from"] Dirección de la animación, from o to
+     * @param {object} args Argumentos en formato 'object notation'
+     * @param {string} args.coord Coordenada que se va a animar "x", "y", "z", "all"
+     * @param {string} args.value Valor la coordenada
+     * @param {string} [args.duration="100%"] Duración de la animación en %/px
+     * @param {string} [args.offset="0"] Valor en px para el "retardo" de la animación
+     * @param {string} [args.triggerHook="onEnter"] Posición del trigger de ScrollMagic
+     * @param {string} [args.direction="from"] Dirección de la animación, from o to
+     * @param {string} [args.time="1"] Timepo de animación cuando duration = 0
+     * @param {bool} [args.reverse=true] True si la animación sucede con el scroll inverso
+     * @param {string} [args.ease="Power0.easeNone"] Curva de la animación
+     * @param {string} [args.delay="0"] Retardo de la animación cuando duration = 0
      * @return {sal-object}
      */
 
     move: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> move()");
 
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: "100%";
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: 0;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: "onEnter";
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
-      args.time        = typeof args.time        !== 'undefined' ? args.time: "1";
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: true;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: "Power0.easeNone";
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: "0";
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -300,18 +323,18 @@ var sal, $$;
     scale: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> scale()");
 
       // Valores por defecto
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: "100%";
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: 0;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: "onEnter";
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
-      args.time        = typeof args.time        !== 'undefined' ? args.time: 1;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: true;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: "Power0.easeNone";
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: "0";
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -366,17 +389,19 @@ var sal, $$;
     fadeOut: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> fadeOut()");
 
       // Valores por defecto
       args.value       = typeof args.value       !== 'undefined' ? args.value: "0"
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: "100%";
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: "0";
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: "onEnter";
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "tj";
-      args.time        = typeof args.time        !== 'undefined' ? args.time: "1";
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: true;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "to";
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
@@ -410,18 +435,19 @@ var sal, $$;
     fadeIn: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (this.CONSOLE_LOG)
         console.log("-> fadeIn()");
 
       // Valores por defecto
       args.value       = typeof args.value       !== 'undefined' ? args.value: "0"
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: "100%";
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: "0";
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: "onEnter";
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
       args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
-      args.time        = typeof args.time        !== 'undefined' ? args.time: "1";
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: true;
-      args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: false;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)

@@ -30,20 +30,27 @@
     dealings in the software.
     */
 
-
 $(function () {
 
-    $$CONSOLE = true;
+  // Globals
+  $$INDICATORS = false;
+  $$CONSOLE_LOG = true;
 
-  $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": true});
+  // Valores por defecto
+  $$SETUP = {
+    "duration": "100%",
+    "ease":"Power0.easeNone"
+  }
 
-    $$(".ratm__title", ".ratm__title")
-        .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
-          .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
+  $$(".mod-parallax").modParallax({"ratio": 1.5, "indicators": false});
 
-    $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
-    $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
+  $$(".ratm__title", ".ratm__title")
+    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+    .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
 
-    $$(".box").scale({"axy": "all", "value": "2.1"});
+  $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": true});
+
+  $$(".box").scale({"axy": "all", "value": "2.1"});
 
 });
