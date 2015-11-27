@@ -1,11 +1,9 @@
-# Sal.js
+# **Sal.js** #
 
 
 ## Settings globales
 ```
 $$CONSOLE = (true|false)
-```
-```
 $$INDICATORS = (true|false)
 ```
 
