@@ -45,14 +45,14 @@ $(function () {
   $$(".box").progress({"background-position":"%p% 0"});
 
 
-/*
- *  $$(".ratm__title", ".ratm__title")
- *    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
- *    .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
- *
- *  $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
- *  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
- */
+
+  $$(".ratm__title", ".ratm__title")
+    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })
+    .move({ "reverse": false, "duration": "20%", "triggerHook": "onCenter", "axy": "y", "value": "-80px" });
+
+  $$(".a").fadeOut({"reverse": false, "duration": "50%", "indicators": false});
+  $$(".b").fadeIn( {"reverse": false, "duration": "100%", "triggerHook": 0.6, "indicators": false});
+
 
   $$(".ratm__title").appearIn({"axy":"x", "value":"-100px", "duration":"50%"})
 
