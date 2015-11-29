@@ -86,8 +86,7 @@ gulp.task('browserSync', function() {
   browserSync({
     files: "*.php, *.html, *.js, *.css",
     server: {
-      baseDir: dirs.src,
-      index: "index.html"
+      baseDir: dirs.src
     },
     // browser: 'safari'
     browser: 'google chrome',
@@ -104,7 +103,6 @@ gulp.task('browserSync', function() {
 
 gulp.task('watch', ['browserSync'], function(){
   gulp.watch(dirs.src + 'scss/*.scss', ['sass']);
-  gulp.watch(dirs.src + 'js/**/*.js', browserSync.reload);
   gulp.watch(dirs.src + '*.html', browserSync.reload);
   gulp.watch(dirs.src + 'lib/**/*.js', browserSync.reload);
 });
@@ -183,7 +181,8 @@ gulp.task('minimize-bundle', function() {
 //
 
 gulp.task('doc', function() {
-    return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/pllugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' ])
+    //return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/plugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' , dirs.src + 'lib/plugins/appearIn.js'])
+    return gulp.src([ dirs.src + 'lib/sal.js'])
     .pipe(doc({ format: 'html' }))
     .pipe(gulp.dest( dirs.doc ));
 });

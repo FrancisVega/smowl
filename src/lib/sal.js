@@ -38,6 +38,7 @@ var sal, $$;
 
 (function () {
 
+
   /*
    * Constructor sal
    */
@@ -109,7 +110,6 @@ var sal, $$;
     return this;
 
   };
-
 
   //   /\  _ .
   //  /~~\|_)|
@@ -186,6 +186,23 @@ var sal, $$;
 
     },
 
+    /**
+     * Rotate
+     * @param {object} args Argumentos en formato 'object notation'
+     * @param {string} args.duration Descripción
+     * @param {string} args.offset Descripción
+     * @param {string} args.triggerHook Descripción
+     * @param {string} args.direction Descripción
+     * @param {string} args.time Descripción
+     * @param {string} args.reverse Descripción
+     * @param {string} args.ease Descripción
+     * @param {string} args.delay Descripción
+     * @param {string} args.origin Descripción
+     * @example
+     * $$(".myClass").rotate({"value": "180", "origin": "center bottom"});
+     * @return {salObject} Devuelve un objeto SAL.
+     */
+
     rotate: function(args) {
       // Console
       if (this.CONSOLE_LOG)
@@ -205,6 +222,7 @@ var sal, $$;
       var _this = this;
       var trigger;
 
+      // Loop por cada elemento del query
       $(this.el).each(function() {
 
         // Obtenemos el trigger
@@ -494,7 +512,7 @@ var sal, $$;
 
       console.log(args.value);
       // Llamamos a fade
-      $$(this.el, this.triggerel, this.pinel)
+     $$(this.el, this.triggerel, this.pinel)
         .fade(
             args.value,
             args.duration,
@@ -510,6 +528,91 @@ var sal, $$;
 
     },
 
+    progress_bask: function(args) {
+
+
+      var controller = new ScrollMagic.Controller();
+      var _this = this;
+
+      var scene = new ScrollMagic.Scene({
+        triggerElement: this.el,
+        duration: "100%",
+        triggerHook: "onEnter"
+      })
+      .addTo(controller)
+      .on("progress", function (e) {
+        $(_this.el).css({"background-position":-(((((e.progress*11).toFixed(0))/100)*104).toFixed(0))*104+"px 0"});
+        console.log(  -(((((e.progress*12).toFixed(0))/100)*104).toFixed(0))*104  );
+        //$(_this.el).css({"border-radius":(e.progress.toFixed(3)*100)+"px"})
+        //$(_this.el).css({"background-color":"rgb("+(e.progress.toFixed(1)*255)+","+(e.progress.toFixed(1)*255)+",130)"})
+      });
+
+    },
+
+
+    progress: function(args, callback) {
+
+      // Valores por defecto
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
+      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
+      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+      args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.delay;
+
+
+      var _this = this;
+      var trigger;
+      var pinel;
+
+      $(this.el).each(function() {
+
+        var el = this;
+
+        // Obtenemos el trigger
+        trigger = $(this).closest(_this.triggerel)[0];
+
+        // Pin element
+        pinel = $(this).closest(_this.pinel)[0];
+
+        var scene = new ScrollMagic.Scene( {
+          triggerElement: trigger,
+          duration: "100%",
+          triggerHook: args.triggerHook,
+        })
+
+        var scene = new ScrollMagic.Scene( {
+          triggerElement: trigger,
+          duration: args.duration,
+          reverse: args.reverse,
+          offset: args.offset,
+          triggerHook: args.triggerHook
+        })
+
+        .on("progress", function(e){
+          // Añado el elemento a this.el
+          this.el = el;
+          callback.call(this, e)
+        })
+
+        .addTo(_this.CONTROLLER).addIndicators()
+
+        if (this.pinel != "undefined") {
+          scene.setPin(pinel);
+        }
+
+      });
+
+      return this;
+    },
+
   };
+
+  if(!window.SAL) {
+    window.SAL = SAL;
+  }
 
 })();

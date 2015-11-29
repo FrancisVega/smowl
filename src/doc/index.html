@@ -42,6 +42,11 @@
                   #move
                 </a>
                 <a
+                  href='#SAL.rotate'
+                  class='regular block'>
+                  #rotate
+                </a>
+                <a
                   href='#SAL.scale'
                   class='regular block'>
                   #scale
@@ -50,16 +55,6 @@
                 href='#getData'
                 class='block bold'>
                 getData
-              </a>
-              <a
-                href='#landIn'
-                class='block bold'>
-                landIn
-              </a>
-              <a
-                href='#modParallax'
-                class='block bold'>
-                modParallax
               </a>
           </div>
         </div>
@@ -321,6 +316,74 @@
             </section>
           </div>
         </div>
+        <div class='collapsible' id='SAL.rotate'>
+          <a href='#SAL.rotate'>
+            <code>
+              #rotate<span class='gray'>(args)</span>
+            </code>
+            <span class='force-inline'>
+              <p>Rotate</p>
+
+            </span>
+          </a>
+          <div class='collapser border px2'>
+            <section class='py2 clearfix'>
+              <h2 id='SAL.rotate' class='mt0'>
+                rotate<span class='gray'>(args)</span>
+              </h2>
+              <p>Rotate</p>
+            
+                <h4>Parameters</h4>
+                <ul class='suppress-p-margin'>
+                    <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
+                      :
+                      <span class='force-inline'>
+                        <p>Argumentos en formato &apos;object notation&apos;</p>
+            
+                      </span>
+                    </li>
+                      <ul>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.offset
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.direction
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.time
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.reverse
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.ease
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.delay
+                            <p>Descripci&oacute;n</p>
+            </li>
+                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.origin
+                            <p>Descripci&oacute;n</p>
+            </li>
+                      </ul>
+                </ul>
+                  <h4>Returns</h4>
+                  <code><code>salObject</code></code>
+                  :
+                  <span class='force-inline'>
+                    <p>Devuelve un objeto SAL.</p>
+            
+                  </span>
+                <h4>Examples</h4>
+            <pre class='overflow-auto'>$$(<span class="hljs-string">".myClass"</span>).rotate({<span class="hljs-string">"value"</span>: <span class="hljs-string">"180"</span>, <span class="hljs-string">"origin"</span>: <span class="hljs-string">"center bottom"</span>});</pre>
+            </section>
+          </div>
+        </div>
         <div class='collapsible' id='SAL.scale'>
           <a href='#SAL.scale'>
             <code>
@@ -401,90 +464,6 @@
       
       <span class='force-inline'>
         
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='landIn' class='mt0'>
-    landIn<span class='gray'>(ratio, value, duration, offset, triggerHook)</span>
-  </h2>
-  <p>landIn</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>float</code> <strong>ratio</strong>
-          :
-          <span class='force-inline'>
-            <p>Ratio de desplazamiento 1 = 100% 0.5 = 50%</p>
-
-          </span>
-        </li>
-        <li> <strong>value</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li> <strong>duration</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li> <strong>offset</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-        <li> <strong>triggerHook</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>sal</code></code>
-      
-      <span class='force-inline'>
-        
-      </span>
-</section>
-</div><div class='py1'><section class='py2 clearfix'>
-  <h2 id='modParallax' class='mt0'>
-    modParallax<span class='gray'>(ratio, duration, args)</span>
-  </h2>
-  <p>modParallax</p>
-
-    <h4>Parameters</h4>
-    <ul class='suppress-p-margin'>
-        <li><code>float</code> <strong>ratio</strong>
-          :
-          <span class='force-inline'>
-            <p>La velocidad de scroll</p>
-
-          </span>
-        </li>
-        <li><code>float</code> <strong>duration</strong>
-          :
-          <span class='force-inline'>
-            <p>La duraci&oacute;n en % de scroll o px</p>
-
-          </span>
-        </li>
-        <li> <strong>args</strong>
-          :
-          <span class='force-inline'>
-            
-          </span>
-        </li>
-    </ul>
-      <h4>Returns</h4>
-      <code><code>salObject</code></code>
-      :
-      <span class='force-inline'>
-        <p>Devuelve un objeto SAL.</p>
-
       </span>
 </section>
 </div>
