@@ -42,6 +42,9 @@ $(function () {
     "ease":"Power0.easeNone"
   }
 
+  $$(".box").progress({"background-position":"%p% 0"});
+
+
 /*
  *  $$(".ratm__title", ".ratm__title")
  *    .fadeIn({ "reverse": false, "duration": "50%", "triggerHook": "onCenter", "time": "2", "indicators": false })

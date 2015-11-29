@@ -513,6 +513,27 @@ var sal, $$;
 
     },
 
+    progress: function() {
+
+      var controller = new ScrollMagic.Controller();
+
+      // ScrollMagic scene
+      var scene = new ScrollMagic.Scene( {
+        triggerElement: this.el,
+        duration: "100%",
+        triggerHook: "onEnter"
+      })
+
+      .addTo(controller)
+      .on("progress", function (event) {
+        console.log(event.progress.toFixed(1));
+      });
+
+      return this;
+
+    }
+
+
   };
 
 })();
