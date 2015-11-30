@@ -43,17 +43,24 @@ $(function () {
     "ease":"Power0.easeNone"
   }
 
-  $$(".box", ".trigger-box", ".box").progress(
+  // Animacion
+  $$(".box", ".trigger-box").progress(
 
       {"duration": "100%", "triggerHook": "onCenter"},
 
       function(e) {
+        // Scroll progress
         var p = e.progress;
+
+        // Config animación
         var nFrames = 12;
         var widthFrame = 104;
+
+        // Calcula el background position
         var bp = (-(p*(nFrames-1)).toFixed(0))*widthFrame;
-        var el = this.el;
-        $(el).css({'backgroundPosition':''+ bp +'px 0'});
+
+        // Aplicamos el background positino calculado
+        $(this.el).css({'backgroundPosition':''+ bp +'px 0'});
       }
 
   );
