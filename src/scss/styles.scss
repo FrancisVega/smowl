@@ -7,7 +7,7 @@
 
 body {
     font-family: "Vidaloka";
-    background-color: #121212;
+    background-color: #fff;
     color: #f2f2f2;
 }
 
@@ -41,9 +41,11 @@ body {
 }
 
 .box {
-    width: 200px;
-    height: 200px;
-    background-color: purple;
+    width: 104px;
+    height: 150px;
+    background: url("../guybrush.jpg") red left top no-repeat;
+    background-position: "0 0";
+    border:2px solid pink;
 }
 
 .mod-parallax {
@@ -51,7 +53,3 @@ body {
     border: 1px solid red;
 }
 
-.sampleClass {float:left;}
-@media only screen and (max-width: 800px){
-    .sampleClass {float:none; font-size: 40px;}
-}
