@@ -36,34 +36,45 @@ $(function () {
   // Globals
   //$$INDICATORS = false;
   $$CONSOLE_LOG = false;
-  $$INDICATORS = true;
+  $$INDICATORS = false;
 
   // Valores por defecto
   $$SETUP = {
     "ease":"Power0.easeNone"
   }
 
-  // Animacion
-  $$(".box", ".trigger-box").progress(
-
-      {"duration": "100%", "triggerHook": "onCenter"},
-
-      function(e) {
-        // Scroll progress
-        var p = e.progress;
-
-        // Config animación
-        var nFrames = 12;
-        var widthFrame = 104;
-
-        // Calcula el background position
-        var bp = (-(p*(nFrames-1)).toFixed(0))*widthFrame;
-
-        // Aplicamos el background positino calculado
-        $(this.el).css({'backgroundPosition':''+ bp +'px 0'});
-      }
-
+  $$(".box", ".box", ".box").spriteAnim({
+    "duration": "100%",
+    "triggerHook": "onCenter",
+    "direction": "x",
+    "frameCount": "22",
+    "frameWidth": "384"}
   );
+
+
+  // Animacion
+/*
+ *  $$(".box", ".trigger-box").progress(
+ *
+ *      {"duration": "100%", "triggerHook": "onCenter"},
+ *
+ *      function(e) {
+ *        // Scroll progress
+ *        var p = e.progress;
+ *
+ *        // Config animación
+ *        var nFrames = 12;
+ *        var widthFrame = 104;
+ *
+ *        // Calcula el background position
+ *        var bp = (-(p*(nFrames-1)).toFixed(0))*widthFrame;
+ *
+ *        // Aplicamos el background positino calculado
+ *        $(this.el).css({'backgroundPosition':''+ bp +'px 0'});
+ *      }
+ *
+ *  );
+ */
 
 /*
  *  $$(".ratm__title", ".ratm__title")

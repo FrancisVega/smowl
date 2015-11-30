@@ -7,8 +7,8 @@
 
 body {
     font-family: "Vidaloka";
-    background-color: #fff;
-    color: #f2f2f2;
+    background-color: #232323;
+    color: #232323;
 }
 
 .space {
@@ -41,11 +41,10 @@ body {
 }
 
 .box {
-    width: 104px;
-    height: 150px;
-    background: url("../guybrush.jpg") red left top no-repeat;
+    width: 384px;
+    height: 192px;
+    background: url("../fight.png") left top no-repeat;
     background-position: "0 0";
-    border:2px solid pink;
 }
 
 .mod-parallax {

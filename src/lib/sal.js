@@ -120,6 +120,33 @@ var sal, $$;
   sal.fn = SAL.prototype = {
 
     /**
+     * test
+     */
+    scene: function(controller, args) {
+
+      var scene = new ScrollMagic.Scene( {
+        triggerElement: args.triggerElement,
+        duration: args.duration,
+        reverse: args.reverse,
+        offset: args.offset,
+        triggerHook: args.triggerHook
+      })
+
+      .addTo(_this.CONTROLLER);
+
+      if (args.indicators) {
+        scene.addIndicators();
+      }
+
+      if (args.pinel != "undefined") {
+        scene.setPin(pinel);
+      }
+
+      return scene;
+
+    },
+
+    /**
      * Single Object animation.
      * Mueve un elemento utilizando un objeto Greensock.
      * @private
