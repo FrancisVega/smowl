@@ -25,8 +25,8 @@
     args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
     args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
     args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
-    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay
-    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators
+    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators;
 
     var _this = this;
     var trigger;
@@ -59,12 +59,12 @@
         } else if(args.frameDir == "y") {
           $(el).css({"backgroundPositionY": bgPos+"px"});
         }
-      })
+      });
 
     });
 
     return this;
 
-  }
+  };
 
 }(sal));

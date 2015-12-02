@@ -16,7 +16,7 @@ $(function () {
   // Valores por defecto
   $$SETUP = {
     "ease":"Power0.easeNone"
-  }
+  };
 
   // Animación
   $$(".box", ".box", ".box").spriteAnim({
@@ -24,8 +24,10 @@ $(function () {
     "frameWidth": "384",
     "frameCount": "43",
     "triggerHook": "onCenter",
-    "indicators": true,
+    "indicators": false,
     "frameDir": "x"
   });
+
+  $$(".texto").fadeOut({"duration":"100%", "value":"0", "indicators":true})
 
 });

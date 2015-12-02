@@ -14,6 +14,8 @@ var sal, $$;
 
 (function () {
 
+  'use strict';
+
   /*
    * Constructor sal
    */
@@ -90,7 +92,7 @@ var sal, $$;
 
   //   /\  _ .
   //  /~~\|_)|
-  //    |
+  //      |
   //
   // TODO: Unificar el ratio de modParallax y HeroParallax
 
@@ -100,8 +102,11 @@ var sal, $$;
      * Scene
      * Crea un objeto scene de scrollmagic
      * @private
-     * @param {object} controller Controller de scrollmagic
      * @param {object} args Argumentos de la escena
+     * @param {string} args.duration Duración del scroll
+     * @param {string} args.offset Offset del trigger
+     * @param {string} args.triggerHook Posición del trigger
+     * @param {string} args.reverse Activa o desactiva el scroll hacia atrás
      * @return {scene} Devuelve una escena de scrollmagic
      */
 
@@ -112,7 +117,7 @@ var sal, $$;
         duration: args.duration,
         triggerHook: args.triggerHook
       })
-      .addTo(this.CONTROLLER)
+      .addTo(this.CONTROLLER);
 
       if (this.pinel != "undefined") {
         scene.setPin(this.pinel);
@@ -141,8 +146,7 @@ var sal, $$;
      * @return {sal-object}
      */
 
-    soa: function(
-                 gsobject, duration, offset, triggerHook, direction, time, reverse, indicators) {
+    soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse, indicators) {
 
       // Console
       if (this.CONSOLE_LOG)
@@ -170,25 +174,16 @@ var sal, $$;
         );
       }
 
-      // ScrollMagic scene
-      var scene = new ScrollMagic.Scene( {
-        triggerElement: $(this.el).closest(this.triggerel)[0],
-        duration: duration,
-        reverse: reverse,
-        offset: offset,
-        triggerHook: triggerHook
+      // Creamos la escena
+      $$(this.el, this.triggerel, this.pinel).scene({
+        "duration": duration,
+        "offset": offset,
+        "triggerHook": triggerHook,
+        "reverse": reverse,
+        "indicators": indicators
       })
 
-      // Attachments
-      .setTween(tween).addTo(this.CONTROLLER);
-
-      if (this.pinel != "undefined") {
-        scene.setPin(this.pinel);
-      }
-
-      if (this.INDICATORS || indicators) {
-        scene.addIndicators();
-      }
+      .addTween(tween)
 
       return this;
 
