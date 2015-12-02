@@ -17,7 +17,7 @@ var sal, $$;
   'use strict';
 
   /*
-   * Constructor sal
+   * Constructor
    */
 
   sal = $$ = function(el, triggerel, pinel) {
@@ -112,11 +112,16 @@ var sal, $$;
 
     scene: function(args) {
 
+      // Console
+      if (this.CONSOLE_LOG)
+        console.log("-> scene()");
+
       var scene = new ScrollMagic.Scene({
         triggerElement: this.triggerel,
         duration: args.duration,
         triggerHook: args.triggerHook
       })
+
       .addTo(this.CONTROLLER);
 
       if (this.pinel != "undefined") {
@@ -183,7 +188,8 @@ var sal, $$;
         "indicators": indicators
       })
 
-      .addTween(tween)
+      // Set tween
+      .setTween(tween)
 
       return this;
 
@@ -207,11 +213,13 @@ var sal, $$;
      */
 
     rotate: function(args) {
+
       // Console
       if (this.CONSOLE_LOG)
         console.log("-> rotate()");
 
       // Valores por defecto
+      args             = typeof args             !== 'undefined' ? args: {};
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -325,6 +333,7 @@ var sal, $$;
       if (this.CONSOLE_LOG)
         console.log("-> move()");
 
+      args             = typeof args             !== 'undefined' ? args: {};
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -392,6 +401,7 @@ var sal, $$;
         console.log("-> scale()");
 
       // Valores por defecto
+      args             = typeof args             !== 'undefined' ? args: {};
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -458,7 +468,8 @@ var sal, $$;
         console.log("-> fadeOut()");
 
       // Valores por defecto
-      args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
+      args             = typeof args             !== 'undefined' ? args: {};
+      args.value       = typeof args.value       !== 'undefined' ? args.value: 0;
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -467,6 +478,7 @@ var sal, $$;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
       args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
@@ -504,6 +516,7 @@ var sal, $$;
         console.log("-> fadeIn()");
 
       // Valores por defecto
+      args             = typeof args             !== 'undefined' ? args: {};
       args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;

@@ -28,6 +28,6 @@ $(function () {
     "frameDir": "x"
   });
 
-  $$(".texto").fadeOut({"duration":"100%", "value":"0", "indicators":true})
+  $$(".texto").fadeOut()
 
 });
