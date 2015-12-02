@@ -12,12 +12,22 @@
   /**
    * spriteAnim.js
    * @param {type} name Description
+   * @param {string} args.duration Description
+   * @param {string} args.offset Description
+   * @param {string} args.triggerHook Description
+   * @param {string} args.frameDir Description
+   * @param {string} args.ram Description
+   * @param {bool} args.reverse Description
+   * @param {string} args.ease Description
+   * @param {string} args.delay Description
+   * @param {bool} args.indicators Description
    * @return {sal}
    */
 
   $$.fn.spriteAnim = function(args) {
 
     // Valores por defecto
+    args             = typeof args             !== 'undefined' ? args: {};
     args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
     args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
     args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;

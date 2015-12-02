@@ -189,7 +189,7 @@ var sal, $$;
       })
 
       // Set tween
-      .setTween(tween)
+      .setTween(tween);
 
       return this;
 
