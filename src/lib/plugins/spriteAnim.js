@@ -49,14 +49,12 @@
     args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
     args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
     args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
-    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
-    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.delay;
-
+    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay
+    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators
 
     var _this = this;
     var trigger;
     var pinel;
-
 
     $(this.el).each(function(){
 
@@ -68,28 +66,24 @@
       // Pin element
       pinel = $(this).closest(_this.pinel)[0];
 
-      var scene = new ScrollMagic.Scene( {
-        triggerElement: trigger,
-        duration: args.duration,
-        reverse: args.reverse,
-        offset: args.offset,
-        triggerHook: args.triggerHook
+      // New Scene
+      $$(trigger, trigger, args.pinel).scene({
+        "duration": args.duration,
+        "offset": args.offset,
+        "triggerHook": args.triggerHook,
+        "direction": args.direction,
+        "reverse": args.reverse,
+        "pinel": pinel,
+        "indicators": args.indicators
       })
-
       .on("progress", function(e){
-        // Añado el elemento a this.el
-        this.el = el;
         var bgPos = -((e.progress*(args.frameCount-1)).toFixed(0))*args.frameWidth;
         $(el).css({"backgroundPosition": bgPos+"px 0"});
       })
 
-      .addTo(_this.CONTROLLER)
-
-      if (this.pinel != "undefined") {
-        scene.setPin(this.pinel);
-      }
-
     });
+
+    return this;
 
   }
 

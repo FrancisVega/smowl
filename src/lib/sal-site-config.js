@@ -45,12 +45,11 @@ $(function () {
 
   $$(".box", ".box", ".box").spriteAnim({
     "duration": "100%",
+    "frameWidth": "384",
+    "frameCount": "43",
     "triggerHook": "onCenter",
-    "direction": "x",
-    "frameCount": "22",
-    "frameWidth": "384"}
-  );
-
+    "indicators": true
+  });
 
   // Animacion
 /*

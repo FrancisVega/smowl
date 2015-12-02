@@ -59,11 +59,6 @@ var sal, $$;
 
   var SAL = function(el, triggerel, pinel) {
 
-    // Globals
-    this.CONTROLLER = new ScrollMagic.Controller();
-    this.BROWSER_HEIGHT = $(window).height();
-    this.BROWSER_WIDTH = $(window).width();
-
     // DEBUGGIN
     $$SETUP.INDICATORS = typeof $$SETUP.INDICATORS !== 'undefined' ? $$SETUP.INDICATORS: false;
     $$SETUP.CONSOLE_LOG = typeof $$SETUP.CONSOLE_LOG !== 'undefined' ? $$SETUP.CONSOLE_LOG: false;
@@ -97,6 +92,11 @@ var sal, $$;
     this.triggerel = triggerel;
     this.pinel = pinel;
 
+    // Globals
+    this.CONTROLLER = new ScrollMagic.Controller();
+    this.BROWSER_HEIGHT = $(window).height();
+    this.BROWSER_WIDTH = $(window).width();
+
     /**
      * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
      * @param {string} el Elemento (query) del que vamos a obtener los data
@@ -120,31 +120,35 @@ var sal, $$;
   sal.fn = SAL.prototype = {
 
     /**
-     * test
+     * Scene
+     * Crea un objeto scene de scrollmagic
+     * @private
+     * @param {object} controller Controller de scrollmagic
+     * @param {object} args Argumentos de la escena
+     * @return {scene} Devuelve una escena de scrollmagic
      */
-    scene: function(controller, args) {
 
-      var scene = new ScrollMagic.Scene( {
-        triggerElement: args.triggerElement,
+    scene: function(args) {
+
+      var scene = new ScrollMagic.Scene({
+        triggerElement: this.triggerel,
         duration: args.duration,
-        reverse: args.reverse,
-        offset: args.offset,
         triggerHook: args.triggerHook
       })
+      .addTo(this.CONTROLLER)
 
-      .addTo(_this.CONTROLLER);
-
-      if (args.indicators) {
-        scene.addIndicators();
+      if (this.pinel != "undefined") {
+        scene.setPin(this.pinel);
       }
 
-      if (args.pinel != "undefined") {
-        scene.setPin(pinel);
+      if (this.INDICATORS || args.indicators) {
+        scene.addIndicators();
       }
 
       return scene;
 
     },
+
 
     /**
      * Single Object animation.
@@ -554,66 +558,7 @@ var sal, $$;
 
       return this;
 
-    },
-
-    progress: function(args, callback) {
-
-      // Valores por defecto
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
-      args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
-      args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.delay;
-
-
-      var _this = this;
-      var trigger;
-      var pinel;
-
-      $(this.el).each(function() {
-
-        var el = this;
-
-        // Obtenemos el trigger
-        trigger = $(this).closest(_this.triggerel)[0];
-
-        // Pin element
-        pinel = $(this).closest(_this.pinel)[0];
-
-        var scene = new ScrollMagic.Scene( {
-          triggerElement: trigger,
-          duration: "100%",
-          triggerHook: args.triggerHook,
-        })
-
-        var scene = new ScrollMagic.Scene( {
-          triggerElement: trigger,
-          duration: args.duration,
-          reverse: args.reverse,
-          offset: args.offset,
-          triggerHook: args.triggerHook
-        })
-
-        .on("progress", function(e){
-          // Añado el elemento a this.el
-          this.el = el;
-          callback.call(this, e)
-        })
-
-        .addTo(_this.CONTROLLER).addIndicators()
-
-        if (this.pinel != "undefined") {
-          scene.setPin(pinel);
-        }
-
-      });
-
-      return this;
-    },
+    }
 
   };
 
