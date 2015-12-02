@@ -43,13 +43,12 @@
       pinel = $(this).closest(_this.pinel)[0];
 
       // New Scene
-      $$(trigger, trigger, args.pinel).scene({
+      $$(trigger, trigger, pinel).scene({
         "duration": args.duration,
         "offset": args.offset,
         "triggerHook": args.triggerHook,
         "direction": args.direction,
         "reverse": args.reverse,
-        "pinel": pinel,
         "indicators": args.indicators
       })
       .on("progress", function(e){
