@@ -10,11 +10,11 @@
 $(function () {
 
   // Globals
-  $$CONSOLE_LOG = false;
-  $$INDICATORS = false;
+  CONSOLE = true;
+  INDICATORS = true;
 
   // Valores por defecto
-  $$SETUP = {
+  SETUP = {
     "ease":"Power0.easeNone"
   };
 
@@ -28,6 +28,8 @@ $(function () {
     "frameDir": "x"
   });
 
-  $$(".texto", ".texto", ".texto").fadeOut()
+  $$(".texto", ".texto")
+  .fadeOut({"triggerHook":"onEnter", "duration":"40%"})
+  .fadeIn ({"triggerHook":0.4, "duration":"40%"});
 
 });
