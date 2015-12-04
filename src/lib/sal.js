@@ -148,9 +148,11 @@ var sal, $$;
      * Devuelve bla bla bla
      * $$(".myClass").soa({"x":"-200px"});
      * @return {sal-object}
+     *
+     * TODO: Implementar la dirección "from" y "to"
      */
 
-    soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse, indicators) {
+    soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse, indicators, from, to ) {
 
       // Console
       if (this.CONSOLE)

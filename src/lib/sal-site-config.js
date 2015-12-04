@@ -29,7 +29,5 @@ $(function () {
   });
 
   $$(".texto", ".texto")
-  .fadeOut({"triggerHook":"onEnter", "duration":"40%"})
-  .fadeIn ({"triggerHook":0.4, "duration":"40%"});
-
+  .fade({"triggerHook":"onEnter", "duration":"100%", "from":1.0, "to":0.25})
 });
