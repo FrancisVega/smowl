@@ -35,33 +35,33 @@ var sal, $$;
   var SAL = function(el, triggerel, pinel) {
 
     // DEBUGGIN
-    $$SETUP.INDICATORS = typeof $$SETUP.INDICATORS !== 'undefined' ? $$SETUP.INDICATORS: false;
-    $$SETUP.CONSOLE_LOG = typeof $$SETUP.CONSOLE_LOG !== 'undefined' ? $$SETUP.CONSOLE_LOG: false;
-
-    this.INDICATORS = $$SETUP.INDICATORS;
-    this.CONSOLE_LOG = $$SETUP.CONSOLE_LOG;
+    INDICATORS = typeof INDICATORS !== 'undefined' ? INDICATORS: false;
+    CONSOLE = typeof CONSOLE !== 'undefined' ? CONSOLE: false;
 
     // Valores por defecto globales
-    $$SETUP.duration = typeof $$SETUP.duration !== 'undefined' ? $$SETUP.duration: "100%";
-    $$SETUP.offset = typeof $$SETUP.offset !== 'undefined' ? $$SETUP.offset: "0";
-    $$SETUP.triggerHook = typeof $$SETUP.triggerHook !== 'undefined' ? $$SETUP.triggerHook: "onEnter";
-    $$SETUP.direction = typeof $$SETUP.direction !== 'undefined' ? $$SETUP.direction: "from";
-    $$SETUP.time = typeof $$SETUP.time !== 'undefined' ? $$SETUP.time: "1";
-    $$SETUP.reverse = typeof $$SETUP.reverse !== 'undefined' ? $$SETUP.reverse: true;
-    $$SETUP.ease = typeof $$SETUP.ease !== 'undefined' ? $$SETUP.ease: "Power0.easeNone";
-    $$SETUP.delay = typeof $$SETUP.delay !== 'undefined' ? $$SETUP.delay: "0";
-    $$SETUP.frameDir = typeof $$SETUP.frameDir !== 'undefined' ? $$SETUP.frameDir: "x";
+    SETUP.duration = typeof SETUP.duration !== 'undefined' ? SETUP.duration: "100%";
+    SETUP.offset = typeof SETUP.offset !== 'undefined' ? SETUP.offset: "0";
+    SETUP.triggerHook = typeof SETUP.triggerHook !== 'undefined' ? SETUP.triggerHook: "onEnter";
+    SETUP.direction = typeof SETUP.direction !== 'undefined' ? SETUP.direction: "from";
+    SETUP.time = typeof SETUP.time !== 'undefined' ? SETUP.time: "1";
+    SETUP.reverse = typeof SETUP.reverse !== 'undefined' ? SETUP.reverse: true;
+    SETUP.ease = typeof SETUP.ease !== 'undefined' ? SETUP.ease: "Power0.easeNone";
+    SETUP.delay = typeof SETUP.delay !== 'undefined' ? SETUP.delay: "0";
+    SETUP.frameDir = typeof SETUP.frameDir !== 'undefined' ? SETUP.frameDir: "x";
 
+
+    this.INDICATORS = INDICATORS;
+    this.CONSOLE_LOG = CONSOLE;
     this.SETUP = {
-      "duration": $$SETUP.duration,
-      "offset": $$SETUP.offset,
-      "triggerHook": $$SETUP.triggerHook,
-      "direction": $$SETUP.direction,
-      "time": $$SETUP.time,
-      "reverse": $$SETUP.reverse,
-      "ease": $$SETUP.ease,
-      "delay": $$SETUP.delay,
-      "frameDir": $$SETUP.frameDir,
+      "duration": SETUP.duration,
+      "offset": SETUP.offset,
+      "triggerHook": SETUP.triggerHook,
+      "direction": SETUP.direction,
+      "time": SETUP.time,
+      "reverse": SETUP.reverse,
+      "ease": SETUP.ease,
+      "delay": SETUP.delay,
+      "frameDir": SETUP.frameDir,
     };
 
     // Elemento y trigger, aun en formato String
@@ -117,6 +117,8 @@ var sal, $$;
       if (this.pinel != "undefined") {
         scene.setPin(this.pinel);
       }
+
+      console.log(this.INDICATORS);
 
       if (this.INDICATORS || args.indicators) {
         scene.addIndicators();

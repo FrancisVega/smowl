@@ -11,12 +11,11 @@ $(function () {
 
 
   // Globals
-  //$$INDICATORS = false;
-  $$CONSOLE_LOG = false;
-  $$INDICATORS = false;
+  CONSOLE = false;
+  INDICATORS = false;
 
   // Valores por defecto
-  $$SETUP = {
+  SETUP = {
     "ease":"Power0.easeNone"
   }
 
@@ -25,7 +24,6 @@ $(function () {
     "frameWidth": "384",
     "frameCount": "43",
     "triggerHook": "onCenter",
-    "indicators": true,
     "frameDir": "x"
   });
 
