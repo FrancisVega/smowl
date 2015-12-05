@@ -9,7 +9,6 @@
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 var sal, $$;
 
 (function () {
@@ -18,12 +17,12 @@ var sal, $$;
 
   /*
    * Constructor
+   * Si no se especifica trigger se asigna el propio elemento
+   * Si no se especifica elemento para pin, se deja undefined
    */
 
   sal = $$ = function(el, triggerel, pinel) {
     triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
-    pinel = typeof pinel !== 'undefined' ? pinel: "undefined";
-    console.log("el= " + el);
     return new SAL(el, triggerel, pinel);
   };
 
@@ -74,6 +73,12 @@ var sal, $$;
     this.BROWSER_HEIGHT = $(window).height();
     this.BROWSER_WIDTH = $(window).width();
 
+    // About
+    this.about = {
+      "autor":"francis",
+      "company":"Secuoyas"
+    }
+
     /**
      * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
      * @param {string} el Elemento (query) del que vamos a obtener los data
@@ -122,7 +127,7 @@ var sal, $$;
 
       .addTo(this.CONTROLLER);
 
-      if (this.pinel != "undefined") {
+      if (this.pinel != undefined) {
         scene.setPin(this.pinel);
       }
 
@@ -165,7 +170,7 @@ var sal, $$;
       );
 
       // Creamos la escena
-      $$(this.el, this.triggerel, this.pinel).scene({
+      $$(this.el, this.triggerel).scene({
         "duration": duration,
         "offset": offset,
         "triggerHook": triggerHook,
@@ -401,6 +406,8 @@ var sal, $$;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
       args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+
+      console.log("el = " + this.el);
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
