@@ -9,14 +9,10 @@
 
 $(function () {
 
-  // Globals
-  CONSOLE = false;
-  INDICATORS = true;
+  window.ssetup = {
+    "triggerHook": 0.432
+  }
 
-  // Valores por defecto
-  SETUP = {
-    "ease":"Power0.easeNone"
-  };
 
   // Animación
   //$$(".box", ".box", ".box").spriteAnim({
