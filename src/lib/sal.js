@@ -23,6 +23,7 @@ var sal, $$;
   sal = $$ = function(el, triggerel, pinel) {
     triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
     pinel = typeof pinel !== 'undefined' ? pinel: "undefined";
+    console.log("el= " + el);
     return new SAL(el, triggerel, pinel);
   };
 
@@ -44,7 +45,6 @@ var sal, $$;
     SETUP.duration = typeof SETUP.duration !== 'undefined' ? SETUP.duration: "100%";
     SETUP.offset = typeof SETUP.offset !== 'undefined' ? SETUP.offset: "0";
     SETUP.triggerHook = typeof SETUP.triggerHook !== 'undefined' ? SETUP.triggerHook: "onEnter";
-    SETUP.direction = typeof SETUP.direction !== 'undefined' ? SETUP.direction: "from";
     SETUP.time = typeof SETUP.time !== 'undefined' ? SETUP.time: "1";
     SETUP.reverse = typeof SETUP.reverse !== 'undefined' ? SETUP.reverse: true;
     SETUP.ease = typeof SETUP.ease !== 'undefined' ? SETUP.ease: "Power0.easeNone";
@@ -57,7 +57,6 @@ var sal, $$;
       "duration": SETUP.duration,
       "offset": SETUP.offset,
       "triggerHook": SETUP.triggerHook,
-      "direction": SETUP.direction,
       "time": SETUP.time,
       "reverse": SETUP.reverse,
       "ease": SETUP.ease,
@@ -152,33 +151,18 @@ var sal, $$;
      * TODO: Implementar la dirección "from" y "to"
      */
 
-    soa: function( gsobject, duration, offset, triggerHook, direction, time, reverse, indicators, from, to ) {
+    soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 
       // Console
       if (this.CONSOLE)
         console.log("-> soa()");
 
-      var greenSockCompound = {
-        "el": this.el,
-        "time": time,
-        "gsobject": gsobject,
-      };
-
       // Greensock animation
-      var tween;
-      if (direction == "from") {
-        tween = TweenLite.from(
-          greenSockCompound.el,
-          greenSockCompound.time,
-          greenSockCompound.gsobject
-        );
-      } else {
-        tween = TweenLite.to(
-          greenSockCompound.el,
-          greenSockCompound.time,
-          greenSockCompound.gsobject
-        );
-      }
+      var tween = TweenLite.fromTo(
+          this.el,
+          time,
+          gsobject.from, gsobject.to
+      );
 
       // Creamos la escena
       $$(this.el, this.triggerel, this.pinel).scene({
@@ -202,7 +186,6 @@ var sal, $$;
      * @param {string} args.duration Descripción
      * @param {string} args.offset Descripción
      * @param {string} args.triggerHook Descripción
-     * @param {string} args.direction Descripción
      * @param {string} args.time Descripción
      * @param {string} args.reverse Descripción
      * @param {string} args.ease Descripción
@@ -224,7 +207,6 @@ var sal, $$;
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
       args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
@@ -250,7 +232,6 @@ var sal, $$;
           args.duration,
           args.offset,
           args.triggerHook,
-          args.direction,
           args.time,
           args.reverse,
           args.indicators
@@ -277,11 +258,11 @@ var sal, $$;
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
+      args.from        = typeof args.from        !== 'undefined' ? args.from: 0;
+      args.to          = typeof args.to          !== 'undefined' ? args.to: 0;
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: "from";
       args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
@@ -307,11 +288,13 @@ var sal, $$;
 
         // Llamamos a soa
         $$(this, trigger, pinel).soa(
-          {"opacity": args.value},
+          {
+            "from": { "opacity": args.from },
+            "to": { "opacity": args.to }
+          },
           args.duration,
           args.offset,
           args.triggerHook,
-          args.direction,
           args.time,
           args.reverse,
           args.indicators
@@ -332,7 +315,6 @@ var sal, $$;
      * @param {string} [args.duration="100%"] Duración de la animación en %/px
      * @param {string} [args.offset="0"] Valor en px para el "retardo" de la animación
      * @param {string} [args.triggerHook="onEnter"] Posición del trigger de ScrollMagic
-     * @param {string} [args.direction="from"] Dirección de la animación, from o to
      * @param {string} [args.time="1"] Timepo de animación cuando duration = 0
      * @param {bool} [args.reverse=true] True si la animación sucede con el scroll inverso
      * @param {string} [args.ease="Power0.easeNone"] Curva de la animación
@@ -350,7 +332,6 @@ var sal, $$;
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
       args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
@@ -381,7 +362,6 @@ var sal, $$;
           args.duration,
           args.offset,
           args.triggerHook,
-          args.direction,
           args.time,
           args.reverse
         );
@@ -399,7 +379,6 @@ var sal, $$;
      * @param {string} args.axy Coordebada de escala, x, y, z o all.
      * @param {string} args.duration Valor de scroll en % o en px de la duración de la animación.
      * @param {number} args.offset Valor en px para el "retardo" de la animación.
-     * @param {string} args.direction Dirección de la animación, from o to.
      * @param {string} args.time Tiempo de animación en caso de que duration sea 0.
      * @param {string} args.reverse Determina si existe animación con el scroll inverso.
      * @param {string} args.ease Curva de animación.
@@ -418,7 +397,6 @@ var sal, $$;
       args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
       args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
       args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-      args.direction   = typeof args.direction   !== 'undefined' ? args.direction: this.SETUP.direction;
       args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
       args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
       args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
@@ -427,23 +405,44 @@ var sal, $$;
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
       var gsobject = {
-        "x":   { "scaleX": args.value, ease: args.ease, delay: args.delay },
-        "y":   { "scaleY": args.value, ease: args.ease, delay: args.delay },
-        "z":   { "scaleZ": args.value, ease: args.ease, delay: args.delay },
-        "all": { "scale":  args.value, ease: args.ease, delay: args.delay }
+        "x": {
+          "from":{ "scaleX": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scaleX": args.to, ease: args.ease, delay: args.delay }
+        },
+        "y": {
+          "from":{ "scaleY": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scaleY": args.to, ease: args.ease, delay: args.delay }
+        },
+        "z": {
+          "from":{ "scaleZ": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scaleZ": args.to, ease: args.ease, delay: args.delay }
+        },
+        "all": {
+          "from":{ "scale": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scale": args.to, ease: args.ease, delay: args.delay }
+        }
       };
 
       var _this = this;
       var trigger;
+      var pinel;
 
       // Loop entre elementos jQuery
       $(this.el).each(function() {
 
-        // Obtenemos el trigger
-        trigger = $(this).closest(_this.triggerel)[0];
+        // TODO: Establecer correctamente el tema de los triggers y los pin elements
+
+        if (_this.el === _this.trigger) {
+          console.log("No hay selección de trigger");
+          trigger = this;
+        } else {
+          // Obtenemos el trigger
+          trigger = $(this).prev(_this.triggerel)[0];
+        }
 
         // Obtenemos el pinel
-        pinel = $(this).closest(_this.pinel)[0];
+        pinel = $(this).prev(_this.pinel)[0];
+
 
         // Llamamos a soa
         $$(this, trigger, pinel).soa(
@@ -451,7 +450,6 @@ var sal, $$;
           args.duration,
           args.offset,
           args.triggerHook,
-          args.direction,
           args.time,
           args.reverse
         );
@@ -482,16 +480,15 @@ var sal, $$;
 
       // Valores por defecto
       args = typeof args !== 'undefined' ? args: {};
-      args.value  = typeof args.value !== 'undefined' ? args.value: 0;
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
         .fade({
-            "value": args.value,
+            "from": 1,
+            "to": 0,
             "duration": args.duration,
             "offset": args.offset,
             "triggerHook": args.triggerHook,
-            "direction": "to",
             "time": args.time,
             "reverse": args.reverse,
             "indicators": args.indicators
@@ -521,16 +518,15 @@ var sal, $$;
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.value       = typeof args.value       !== 'undefined' ? args.value: "0";
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
         .fade({
-            "value": args.value,
+            "from": 0,
+            "to": 1,
             "duration": args.duration,
             "offset": args.offset,
             "triggerHook": args.triggerHook,
-            "direction": "from",
             "time": args.time,
             "reverse": args.reverse,
             "indicators": args.indicators
