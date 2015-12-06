@@ -9,8 +9,10 @@
 
 $(function () {
 
-  window.ssetup = {
-    "triggerHook": 0.432
+  window.sal_setup = {
+    "triggerHook": 1,
+    "console": true,
+    "indicators": true
   }
 
 
@@ -26,7 +28,7 @@ $(function () {
 
 
   // fadein()
-  //$$(".box__shape--one").fadeIn();
+  $$(".box__shape--one").fadeIn();
 
   // fadeOut()
   //$$(".box__shape--two").fadeOut();
@@ -35,9 +37,7 @@ $(function () {
   //$$(".box__shape--three").fade({ "from":0, "to":0.2 })
 
   // scale()
-  //$$(".box__shape--four", ".box__trigger")
-
-    $$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
+  $$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
 
   // soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 });

@@ -11,7 +11,7 @@
 
 var sal, $$;
 
-(function (window, document) {
+(function (window) {
 
   'use strict';
 
@@ -36,44 +36,30 @@ var sal, $$;
 
   var SAL = function(el, triggerel, pinel) {
 
-
-    /**
-     * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
-     * @param {string} el Elemento (query) del que vamos a obtener los data
-     * @return {json}
-     */
-
-    this.getData = function(el) {
-      return $(el).data();
-    };
-
     // Valores por defecto globales
-    window.ssetup.duration = typeof window.ssetup.duration !== 'undefined' ? window.ssetup.duration: "100%";
-    window.ssetup.offset = typeof window.ssetup.offset !== 'undefined' ? window.ssetup.offset: 0;
-    window.ssetup.triggerHook = typeof window.ssetup.triggerHook !== 'undefined' ? window.ssetup.triggerHook: "onEnter";
-    window.ssetup.time = typeof window.ssetup.time !== 'undefined' ? window.ssetup.time: 1;
-    window.ssetup.reverse = typeof window.ssetup.reverse !== 'undefined' ? window.ssetup.reverse: true;
-    window.ssetup.ease = typeof window.ssetup.ease !== 'undefined' ? window.ssetup.ease: "Power0.easeNone";
-    window.ssetup.delay = typeof window.ssetup.delay !== 'undefined' ? window.ssetup.delay: 0;
-    window.ssetup.frameDir = typeof window.ssetup.frameDir !== 'undefined' ? window.ssetup.frameDir: "x";
-    window.ssetup.indicators = typeof window.ssetup.indicators !== 'undefined' ? window.ssetup.indicators: false;
-    window.ssetup.console = typeof window.ssetup.console !== 'undefined' ? window.ssetup.console: false;
+    window.sal_setup.duration = typeof window.sal_setup.duration !== 'undefined' ? window.sal_setup.duration: "100%";
+    window.sal_setup.offset = typeof window.sal_setup.offset !== 'undefined' ? window.sal_setup.offset: 0;
+    window.sal_setup.triggerHook = typeof window.sal_setup.triggerHook !== 'undefined' ? window.sal_setup.triggerHook: "onEnter";
+    window.sal_setup.time = typeof window.sal_setup.time !== 'undefined' ? window.sal_setup.time: 1;
+    window.sal_setup.reverse = typeof window.sal_setup.reverse !== 'undefined' ? window.sal_setup.reverse: true;
+    window.sal_setup.ease = typeof window.sal_setup.ease !== 'undefined' ? window.sal_setup.ease: "Power0.easeNone";
+    window.sal_setup.delay = typeof window.sal_setup.delay !== 'undefined' ? window.sal_setup.delay: 0;
+    window.sal_setup.frameDir = typeof window.sal_setup.frameDir !== 'undefined' ? window.sal_setup.frameDir: "x";
+    window.sal_setup.indicators = typeof window.sal_setup.indicators !== 'undefined' ? window.sal_setup.indicators: false;
+    window.sal_setup.console = typeof window.sal_setup.console !== 'undefined' ? window.sal_setup.console: false;
 
-    window.ssetup = {
-      "duration": window.ssetup.duration,
-      "offset": window.ssetup.offset,
-      "triggerHook": window.ssetup.triggerHook,
-      "time": window.ssetup.time,
-      "reverse": window.ssetup.reverse,
-      "ease": window.ssetup.ease,
-      "delay": window.ssetup.delay,
-      "frameDir": window.ssetup.frameDir,
-      "indicators": window.ssetup.indicators,
-      "console": window.ssetup.console
+    window.sal_setup = {
+      "duration": window.sal_setup.duration,
+      "offset": window.sal_setup.offset,
+      "triggerHook": window.sal_setup.triggerHook,
+      "time": window.sal_setup.time,
+      "reverse": window.sal_setup.reverse,
+      "ease": window.sal_setup.ease,
+      "delay": window.sal_setup.delay,
+      "frameDir": window.sal_setup.frameDir,
+      "indicators": window.sal_setup.indicators,
+      "console": window.sal_setup.console
     }
-
-    console.log(window.ssetup);
-
 
     // Asignamos al objeto this el element, trigger y el pinelement
     this.el = el;
@@ -90,6 +76,27 @@ var sal, $$;
       "autor":"francis",
       "company":"Secuoyas"
     }
+
+    /**
+     * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
+     * @param {string} el Elemento (query) del que vamos a obtener los data
+     * @return {json}
+     */
+
+    this.getData = function(el) {
+      return $(el).data();
+    };
+
+
+    /**
+     * Obtiene un objeto JSON con las etiquetas data y los valores del elemento
+     * @param {string} el Elemento (query) del que vamos a obtener los data
+     * @return {json}
+     */
+
+    this.getData = function(el) {
+      return $(el).data();
+    };
 
 
     return this;
@@ -119,7 +126,7 @@ var sal, $$;
     scene: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> scene()");
 
       var scene = new ScrollMagic.Scene({
@@ -134,7 +141,7 @@ var sal, $$;
         scene.setPin(this.pinel);
       }
 
-      if (this.INDICATORS || args.indicators) {
+      if (window.sal_setup.indicators || args.indicators) {
         scene.addIndicators();
       }
 
@@ -162,7 +169,7 @@ var sal, $$;
     soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> soa()");
 
       // Greensock animation
@@ -207,18 +214,18 @@ var sal, $$;
     rotate: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> rotate()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.ssetup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.ssetup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.ssetup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.ssetup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.ssetup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.ssetup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.ssetup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
       args.origin      = typeof args.origin      !== 'undefined' ? args.origin: "center center";
 
       var _this = this;
@@ -261,20 +268,20 @@ var sal, $$;
     fade: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> fade()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
       args.from        = typeof args.from        !== 'undefined' ? args.from: 0;
       args.to          = typeof args.to          !== 'undefined' ? args.to: 0;
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.ssetup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.ssetup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.ssetup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.ssetup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.ssetup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.ssetup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.ssetup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
 
       if (args.duration === 0) {
         args.reverse = false;
@@ -333,17 +340,17 @@ var sal, $$;
     move: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> move()");
 
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.ssetup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.ssetup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.ssetup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.ssetup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.ssetup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.ssetup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.ssetup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -397,20 +404,18 @@ var sal, $$;
     scale: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> scale()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.ssetup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.ssetup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.ssetup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.ssetup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.ssetup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.ssetup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.ssetup.delay;
-
-      console.log("el = " + this.el);
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -443,7 +448,6 @@ var sal, $$;
         // TODO: Establecer correctamente el tema de los triggers y los pin elements
 
         if (_this.el === _this.trigger) {
-          console.log("No hay selección de trigger");
           trigger = this;
         } else {
           // Obtenemos el trigger
@@ -485,7 +489,7 @@ var sal, $$;
     fadeOut: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> fadeOut()");
 
       // Valores por defecto
@@ -523,11 +527,11 @@ var sal, $$;
     fadeIn: function(args) {
 
       // Console
-      if (this.CONSOLE)
+      if (window.sal_setup.console)
         console.log("-> fadeIn()");
 
       // Valores por defecto
-      args             = typeof args             !== 'undefined' ? args: {};
+      args = typeof args !== 'undefined' ? args: {};
 
       // Llamamos a fade
       $$(this.el, this.triggerel, this.pinel)
@@ -552,4 +556,4 @@ var sal, $$;
     window.SAL = SAL;
   }
 
-})(window, document);
+})(window);
