@@ -4,12 +4,6 @@
 ##### Se puede añadir en el sal-site-config.js estas variables que actuan de forma genérica.
 #
 ```js
-// Activa salida de métodos por la consola
-$$CONSOLE = (true|false);
-
-// Activa los indicadores para todos los elementos animados
-$$INDICATORS = (true|false);
-
 // Establece los valores por defecto a nivel general del site.
 $$SETUP = {
   "duration": {string|number}, // "20%", 200
@@ -19,7 +13,8 @@ $$SETUP = {
   "reverse": {bool}, // Determina si el scroll funciona en ambos sentidos o solo en uno
   "ease": {string}, // "Power0.easeNone", "Power3.easeIn", ...
   "delay": {number}, // 0, 42, 13.6
-  "console": {bool} // muestra salida con console.log() de los eventos
+  "console": {bool}, // muestra salida con console.log() de los eventos
+  "indicators": {bool}, // enseña o oculta los indicadores de scrollmagic
 };
 ```
 
