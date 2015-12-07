@@ -16,7 +16,7 @@
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
-var sal, $$;
+var smowl, $$;
 
 (function (window) {
 
@@ -28,44 +28,44 @@ var sal, $$;
    * Si no se especifica elemento para pin, se deja undefined
    */
 
-  sal = $$ = function(el, triggerel, pinel) {
+  smowl = $$ = function(el, triggerel, pinel) {
     triggerel = typeof triggerel !== 'undefined' ? triggerel: el;
-    return new SAL(el, triggerel, pinel);
+    return new SMOWL(el, triggerel, pinel);
   };
 
 
   /**
-   * Sal
+   * Smowl
    * @param {string} el Elemento (query) que vamos a animar
    * @param {string} triggerel Elemento (query) que vamos a usar como trigger
    * @return {sal}
    */
 
-  var SAL = function(el, triggerel, pinel) {
+  var SMOWL = function(el, triggerel, pinel) {
 
     // Valores por defecto globales
-    window.sal_setup.duration = typeof window.sal_setup.duration !== 'undefined' ? window.sal_setup.duration: "100%";
-    window.sal_setup.offset = typeof window.sal_setup.offset !== 'undefined' ? window.sal_setup.offset: 0;
-    window.sal_setup.triggerHook = typeof window.sal_setup.triggerHook !== 'undefined' ? window.sal_setup.triggerHook: "onEnter";
-    window.sal_setup.time = typeof window.sal_setup.time !== 'undefined' ? window.sal_setup.time: 1;
-    window.sal_setup.reverse = typeof window.sal_setup.reverse !== 'undefined' ? window.sal_setup.reverse: true;
-    window.sal_setup.ease = typeof window.sal_setup.ease !== 'undefined' ? window.sal_setup.ease: "Power0.easeNone";
-    window.sal_setup.delay = typeof window.sal_setup.delay !== 'undefined' ? window.sal_setup.delay: 0;
-    window.sal_setup.frameDir = typeof window.sal_setup.frameDir !== 'undefined' ? window.sal_setup.frameDir: "x";
-    window.sal_setup.indicators = typeof window.sal_setup.indicators !== 'undefined' ? window.sal_setup.indicators: false;
-    window.sal_setup.console = typeof window.sal_setup.console !== 'undefined' ? window.sal_setup.console: false;
+    window.smlow_setup.duration = typeof window.smlow_setup.duration !== 'undefined' ? window.smlow_setup.duration: "100%";
+    window.smlow_setup.offset = typeof window.smlow_setup.offset !== 'undefined' ? window.smlow_setup.offset: 0;
+    window.smlow_setup.triggerHook = typeof window.smlow_setup.triggerHook !== 'undefined' ? window.smlow_setup.triggerHook: "onEnter";
+    window.smlow_setup.time = typeof window.smlow_setup.time !== 'undefined' ? window.smlow_setup.time: 1;
+    window.smlow_setup.reverse = typeof window.smlow_setup.reverse !== 'undefined' ? window.smlow_setup.reverse: true;
+    window.smlow_setup.ease = typeof window.smlow_setup.ease !== 'undefined' ? window.smlow_setup.ease: "Power0.easeNone";
+    window.smlow_setup.delay = typeof window.smlow_setup.delay !== 'undefined' ? window.smlow_setup.delay: 0;
+    window.smlow_setup.frameDir = typeof window.smlow_setup.frameDir !== 'undefined' ? window.smlow_setup.frameDir: "x";
+    window.smlow_setup.indicators = typeof window.smlow_setup.indicators !== 'undefined' ? window.smlow_setup.indicators: false;
+    window.smlow_setup.console = typeof window.smlow_setup.console !== 'undefined' ? window.smlow_setup.console: false;
 
-    window.sal_setup = {
-      "duration": window.sal_setup.duration,
-      "offset": window.sal_setup.offset,
-      "triggerHook": window.sal_setup.triggerHook,
-      "time": window.sal_setup.time,
-      "reverse": window.sal_setup.reverse,
-      "ease": window.sal_setup.ease,
-      "delay": window.sal_setup.delay,
-      "frameDir": window.sal_setup.frameDir,
-      "indicators": window.sal_setup.indicators,
-      "console": window.sal_setup.console
+    window.smowl_setup = {
+      "duration": window.smlow_setup.duration,
+      "offset": window.smlow_setup.offset,
+      "triggerHook": window.smlow_setup.triggerHook,
+      "time": window.smlow_setup.time,
+      "reverse": window.smlow_setup.reverse,
+      "ease": window.smlow_setup.ease,
+      "delay": window.smlow_setup.delay,
+      "frameDir": window.smlow_setup.frameDir,
+      "indicators": window.smlow_setup.indicators,
+      "console": window.smlow_setup.console
     };
 
     // Asignamos al objeto this el element, trigger y el pinelement
@@ -116,7 +116,7 @@ var sal, $$;
   //
   // TODO: Unificar el ratio de modParallax y HeroParallax
 
-  sal.fn = SAL.prototype = {
+  smowl.fn = SMOWL.prototype = {
 
     /**
      * Scene
@@ -133,7 +133,7 @@ var sal, $$;
     scene: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> scene()");
 
       var scene = new ScrollMagic.Scene({
@@ -148,7 +148,7 @@ var sal, $$;
         scene.setPin(this.pinel);
       }
 
-      if (window.sal_setup.indicators || args.indicators) {
+      if (window.smlow_setup.indicators || args.indicators) {
         scene.addIndicators();
       }
 
@@ -176,7 +176,7 @@ var sal, $$;
     soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> soa()");
 
       // Greensock animation
@@ -221,18 +221,18 @@ var sal, $$;
     rotate: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> rotate()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
       args.origin      = typeof args.origin      !== 'undefined' ? args.origin: "center center";
 
       var _this = this;
@@ -275,20 +275,20 @@ var sal, $$;
     fade: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> fade()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
       args.from        = typeof args.from        !== 'undefined' ? args.from: 0;
       args.to          = typeof args.to          !== 'undefined' ? args.to: 0;
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
 
       if (args.duration === 0) {
         args.reverse = false;
@@ -347,17 +347,17 @@ var sal, $$;
     move: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> move()");
 
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -411,18 +411,18 @@ var sal, $$;
     scale: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> scale()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.sal_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.sal_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.sal_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.sal_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.sal_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.sal_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.sal_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -496,7 +496,7 @@ var sal, $$;
     fadeOut: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> fadeOut()");
 
       // Valores por defecto
@@ -534,7 +534,7 @@ var sal, $$;
     fadeIn: function(args) {
 
       // Console
-      if (window.sal_setup.console)
+      if (window.smlow_setup.console)
         console.log("-> fadeIn()");
 
       // Valores por defecto
@@ -559,8 +559,8 @@ var sal, $$;
 
   };
 
-  if(!window.SAL) {
-    window.SAL = SAL;
+  if(!window.SMOWL) {
+    window.SMOWL = SMOWL;
   }
 
 })(window);
