@@ -1,7 +1,7 @@
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                                                            //
-  //  Secuoyas Gulp File - Secuoyas (c) 2015                                                    //
+  //  Secuoyas MOtion Wrapper Library - Secuoyas (c) 2015                                       //
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -137,16 +137,17 @@
   gulp.task('minimize', function() {
       console.log("MINIMIZE");
       return gulp.src([
-        dirs.src + 'lib/sal.js',
+        dirs.src + 'lib/smowl.js',
         //dirs.src + 'lib/plugins/appearIn.js',
         dirs.src + 'lib/plugins/landIn.js',
         dirs.src + 'lib/plugins/heroParallax.js',
         dirs.src + 'lib/plugins/modParallax.js',
+        dirs.src + 'lib/plugins/spriteAnim.js',
         ])
         .pipe(plumber())
-        .pipe(concat('sal-'+version+'.js'))
+        .pipe(concat('smowl-'+version+'.js'))
         .pipe(gulp.dest(dirs.min))
-        .pipe(rename('sal-'+version+'.min.js'))
+        .pipe(rename('smowl-'+version+'.min.js'))
         //.pipe(uglify())
         .pipe(gulp.dest(dirs.min))
         });
@@ -163,15 +164,15 @@
           dirs.src + 'lib/vendor/TweenMax.js',
           dirs.src + 'lib/vendor/animation.gsp.js',
           dirs.src + 'lib/vendor/debug.addIndicators.js',
-          dirs.src + 'lib/sal.js',
-          dirs.src + 'lib/plugins/appearIn.js',
+          dirs.src + 'lib/smowl.js',
+          dirs.src + 'lib/plugins/spriteAnim.js',
           dirs.src + 'lib/plugins/landIn.js',
           dirs.src + 'lib/plugins/heroParallax.js',
           dirs.src + 'lib/plugins/modParallax.js'])
       .pipe(plumber())
-      .pipe(concat('sal-'+version+'-bundle.js'))
+      .pipe(concat('smowl-'+version+'-bundle.js'))
       .pipe(gulp.dest(dirs.min))
-      .pipe(rename('sal-'+version+'-bundle.min.js'))
+      .pipe(rename('smowl-'+version+'-bundle.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(dirs.min))
   });
@@ -183,7 +184,7 @@
 
   gulp.task('doc', function() {
       //return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/plugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' , dirs.src + 'lib/plugins/appearIn.js'])
-      return gulp.src([ dirs.src + 'lib/sal.js'])
+      return gulp.src([ dirs.src + 'lib/smowl.js'])
       .pipe(doc({ format: 'html' }))
       .pipe(gulp.dest( dirs.doc ));
   });
@@ -194,7 +195,7 @@
   //
   gulp.task('cleanSalJs', function () {
       console.log("DELETE");
-      return del([ dirs.min + 'sal-'+version+'-bundle.js', dirs.min + 'sal-'+version+'.js' ]);
+      return del([ dirs.min + 'smowl-'+version+'-bundle.js', dirs.min + 'smowl-'+version+'.js' ]);
   });
 
   //
