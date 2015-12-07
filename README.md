@@ -1,11 +1,11 @@
-# **Sal.js** #
+# **Smowljs** #
 
 ### **Setting Globales**
-##### Se puede añadir en el sal-site-config.js estas variables que actuan de forma genérica.
+##### Se puede añadir en el smowl-site-config.js estas variables que actuan de forma genérica.
 #
 ```js
 // Valores iniciales por defecto.
-window.sal_setup = {
+window.smowl_setup = {
   "duration": {string|number}, // "20%", 200
   "offset": {number}, // 0, 20
   "triggerHook": {string}, // ".foo", "#bar", ...
@@ -18,19 +18,7 @@ window.sal_setup = {
 };
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-#Sal
+#Smowl.js
 
 Main function
 
@@ -39,7 +27,7 @@ Main function
 -   `el` **string** Elemento (query) que vamos a animar
 -   `triggerel` **string** Elemento que vamos a usar como trigger
 
-Returns **sal** 
+Returns **smowl**
 
 ## fadeIn
 
@@ -49,8 +37,8 @@ Fade In con SimpleObjectAnimation
 
 -   `fromValue` **float** El valor desde el que se va a animar
 -   `duration` **float** La duración en % de scroll o px
--   `offset`  
--   `triggerHook`  
+-   `offset`
+-   `triggerHook`
 
 Returns **salObject** Devuelve un objeto SAL.
 
@@ -72,7 +60,7 @@ Mueve un elemento en la coordenada dada
 
 **Parameters**
 
--   `coord`  
+-   `coord`
 -   `value` **float** Valor desde el que hacemos la escala
 -   `duration` **integer-string** Duración de la animación en %/px
 -   `offset` **integer** Valor en px para el "retardo" de la animación
