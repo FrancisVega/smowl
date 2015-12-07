@@ -12,12 +12,22 @@
   /**
    * spriteAnim.js
    * @param {type} name Description
+   * @param {string} args.duration Description
+   * @param {string} args.offset Description
+   * @param {string} args.triggerHook Description
+   * @param {string} args.frameDir Description
+   * @param {string} args.ram Description
+   * @param {bool} args.reverse Description
+   * @param {string} args.ease Description
+   * @param {string} args.delay Description
+   * @param {bool} args.indicators Description
    * @return {sal}
    */
 
   $$.fn.spriteAnim = function(args) {
 
     // Valores por defecto
+    args             = typeof args             !== 'undefined' ? args: {};
     args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
     args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
     args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
@@ -25,8 +35,8 @@
     args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
     args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
     args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
-    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay
-    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators
+    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
+    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators;
 
     var _this = this;
     var trigger;
@@ -43,13 +53,12 @@
       pinel = $(this).closest(_this.pinel)[0];
 
       // New Scene
-      $$(trigger, trigger, args.pinel).scene({
+      $$(trigger, trigger, pinel).scene({
         "duration": args.duration,
         "offset": args.offset,
         "triggerHook": args.triggerHook,
         "direction": args.direction,
         "reverse": args.reverse,
-        "pinel": pinel,
         "indicators": args.indicators
       })
       .on("progress", function(e){
@@ -60,12 +69,12 @@
         } else if(args.frameDir == "y") {
           $(el).css({"backgroundPositionY": bgPos+"px"});
         }
-      })
+      });
 
     });
 
     return this;
 
-  }
+  };
 
 }(sal));

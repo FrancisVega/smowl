@@ -6,49 +6,25 @@
    */
 
 body {
-    font-family: "Vidaloka";
+    font-size: 16px;
     background-color: #232323;
-    color: #232323;
+    color: white;
 }
 
 .space {
-    min-height: 100px;
+    min-height: 100vh;
 }
 
-.fadeout {
-    position: relative;
+.box__shape {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: gray;
 }
 
-.ratm__title {
-    font-weight: 100;
-    font-size: 24px;
-    padding-left: 120px;
-    color: yellow;
+.box__shape p {
+    font-size: 2em;
+    padding-top: 40%;
+    text-align: center;
 }
-
-.hero {
-    margin-left: 120px;
-}
-
-.hero__title {
-    font-size: 64px;
-    margin: 0;
-}
-
-.a, .b {
-    top: 0;
-    position: absolute;
-}
-
-.box {
-    width: 384px;
-    height: 192px;
-    background: url("../fight.png") left top no-repeat;
-    background-position: "0 0";
-}
-
-.mod-parallax {
-    height: 500px;
-    border: 1px solid red;
-}
-
