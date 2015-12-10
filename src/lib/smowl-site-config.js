@@ -9,10 +9,10 @@
 
 $(function () {
 
-  window.sal_setup = {
+  window.smowl_setup = {
     "triggerHook": 1,
-    "console": true,
-    "indicators": true
+    "console": false,
+    "indicators": true,
   };
 
   // Animación
@@ -37,6 +37,8 @@ $(function () {
 
   // scale()
   $$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
+
+  $$(".box__shape--four").heroParallax();
 
   // soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 });

@@ -22,8 +22,8 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
-    args.duration = typeof args.duration !== 'undefined' ? args.duration:
-      ($(this.el).innerHeight()) + "px";
+    args = typeof args !== 'undefined' ? args: {}
+    args.duration = typeof args.duration !== 'undefined' ? args.duration: ($(this.el).innerHeight()) + "px";
 
     var _this = this;
     var Trigger;
