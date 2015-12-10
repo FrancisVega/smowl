@@ -44,28 +44,28 @@ var smowl, $$;
   var SMOWL = function(el, triggerel, pinel) {
 
     // Valores por defecto globales
-    window.smlow_setup.duration = typeof window.smlow_setup.duration !== 'undefined' ? window.smlow_setup.duration: "100%";
-    window.smlow_setup.offset = typeof window.smlow_setup.offset !== 'undefined' ? window.smlow_setup.offset: 0;
-    window.smlow_setup.triggerHook = typeof window.smlow_setup.triggerHook !== 'undefined' ? window.smlow_setup.triggerHook: "onEnter";
-    window.smlow_setup.time = typeof window.smlow_setup.time !== 'undefined' ? window.smlow_setup.time: 1;
-    window.smlow_setup.reverse = typeof window.smlow_setup.reverse !== 'undefined' ? window.smlow_setup.reverse: true;
-    window.smlow_setup.ease = typeof window.smlow_setup.ease !== 'undefined' ? window.smlow_setup.ease: "Power0.easeNone";
-    window.smlow_setup.delay = typeof window.smlow_setup.delay !== 'undefined' ? window.smlow_setup.delay: 0;
-    window.smlow_setup.frameDir = typeof window.smlow_setup.frameDir !== 'undefined' ? window.smlow_setup.frameDir: "x";
-    window.smlow_setup.indicators = typeof window.smlow_setup.indicators !== 'undefined' ? window.smlow_setup.indicators: false;
-    window.smlow_setup.console = typeof window.smlow_setup.console !== 'undefined' ? window.smlow_setup.console: false;
+    window.smowl_setup.duration = typeof window.smowl_setup.duration !== 'undefined' ? window.smowl_setup.duration: "100%";
+    window.smowl_setup.offset = typeof window.smowl_setup.offset !== 'undefined' ? window.smowl_setup.offset: 0;
+    window.smowl_setup.triggerHook = typeof window.smowl_setup.triggerHook !== 'undefined' ? window.smowl_setup.triggerHook: "onEnter";
+    window.smowl_setup.time = typeof window.smowl_setup.time !== 'undefined' ? window.smowl_setup.time: 1;
+    window.smowl_setup.reverse = typeof window.smowl_setup.reverse !== 'undefined' ? window.smowl_setup.reverse: true;
+    window.smowl_setup.ease = typeof window.smowl_setup.ease !== 'undefined' ? window.smowl_setup.ease: "Power0.easeNone";
+    window.smowl_setup.delay = typeof window.smowl_setup.delay !== 'undefined' ? window.smowl_setup.delay: 0;
+    window.smowl_setup.frameDir = typeof window.smowl_setup.frameDir !== 'undefined' ? window.smowl_setup.frameDir: "x";
+    window.smowl_setup.indicators = typeof window.smowl_setup.indicators !== 'undefined' ? window.smowl_setup.indicators: false;
+    window.smowl_setup.console = typeof window.smowl_setup.console !== 'undefined' ? window.smowl_setup.console: false;
 
     window.smowl_setup = {
-      "duration": window.smlow_setup.duration,
-      "offset": window.smlow_setup.offset,
-      "triggerHook": window.smlow_setup.triggerHook,
-      "time": window.smlow_setup.time,
-      "reverse": window.smlow_setup.reverse,
-      "ease": window.smlow_setup.ease,
-      "delay": window.smlow_setup.delay,
-      "frameDir": window.smlow_setup.frameDir,
-      "indicators": window.smlow_setup.indicators,
-      "console": window.smlow_setup.console
+      "duration": window.smowl_setup.duration,
+      "offset": window.smowl_setup.offset,
+      "triggerHook": window.smowl_setup.triggerHook,
+      "time": window.smowl_setup.time,
+      "reverse": window.smowl_setup.reverse,
+      "ease": window.smowl_setup.ease,
+      "delay": window.smowl_setup.delay,
+      "frameDir": window.smowl_setup.frameDir,
+      "indicators": window.smowl_setup.indicators,
+      "console": window.smowl_setup.console
     };
 
     // Asignamos al objeto this el element, trigger y el pinelement
@@ -133,7 +133,7 @@ var smowl, $$;
     scene: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> scene()");
 
       var scene = new ScrollMagic.Scene({
@@ -148,7 +148,7 @@ var smowl, $$;
         scene.setPin(this.pinel);
       }
 
-      if (window.smlow_setup.indicators || args.indicators) {
+      if (window.smowl_setup.indicators || args.indicators) {
         scene.addIndicators();
       }
 
@@ -176,7 +176,7 @@ var smowl, $$;
     soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> soa()");
 
       // Greensock animation
@@ -221,18 +221,18 @@ var smowl, $$;
     rotate: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> rotate()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smowl_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smowl_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smowl_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smowl_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smowl_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smowl_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smowl_setup.delay;
       args.origin      = typeof args.origin      !== 'undefined' ? args.origin: "center center";
 
       var _this = this;
@@ -275,20 +275,20 @@ var smowl, $$;
     fade: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> fade()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
       args.from        = typeof args.from        !== 'undefined' ? args.from: 0;
       args.to          = typeof args.to          !== 'undefined' ? args.to: 0;
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smowl_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smowl_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smowl_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smowl_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smowl_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smowl_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smowl_setup.delay;
 
       if (args.duration === 0) {
         args.reverse = false;
@@ -347,17 +347,17 @@ var smowl, $$;
     move: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> move()");
 
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smowl_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smowl_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smowl_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smowl_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smowl_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smowl_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smowl_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -411,18 +411,18 @@ var smowl, $$;
     scale: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> scale()");
 
       // Valores por defecto
       args             = typeof args             !== 'undefined' ? args: {};
-      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smlow_setup.duration;
-      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smlow_setup.offset;
-      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smlow_setup.triggerHook;
-      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smlow_setup.time;
-      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smlow_setup.reverse;
-      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smlow_setup.ease;
-      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smlow_setup.delay;
+      args.duration    = typeof args.duration    !== 'undefined' ? args.duration: window.smowl_setup.duration;
+      args.offset      = typeof args.offset      !== 'undefined' ? args.offset: window.smowl_setup.offset;
+      args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: window.smowl_setup.triggerHook;
+      args.time        = typeof args.time        !== 'undefined' ? args.time: window.smowl_setup.time;
+      args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: window.smowl_setup.reverse;
+      args.ease        = typeof args.ease        !== 'undefined' ? args.ease: window.smowl_setup.ease;
+      args.delay       = typeof args.delay       !== 'undefined' ? args.delay: window.smowl_setup.delay;
 
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
@@ -496,7 +496,7 @@ var smowl, $$;
     fadeOut: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> fadeOut()");
 
       // Valores por defecto
@@ -534,7 +534,7 @@ var smowl, $$;
     fadeIn: function(args) {
 
       // Console
-      if (window.smlow_setup.console)
+      if (window.smowl_setup.console)
         console.log("-> fadeIn()");
 
       // Valores por defecto

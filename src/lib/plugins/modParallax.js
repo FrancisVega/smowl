@@ -22,6 +22,7 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
+    args = typeof args !== 'undefined' ? args: {}
     args.duration = typeof args.duration !== 'undefined' ? args.duration:
       this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
 
@@ -80,4 +81,4 @@
 
   };
 
-}(sal));
+}(smowl));

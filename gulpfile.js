@@ -165,8 +165,7 @@
           dirs.src + 'lib/vendor/animation.gsp.js',
           dirs.src + 'lib/vendor/debug.addIndicators.js',
           dirs.src + 'lib/smowl.js',
-          dirs.src + 'lib/plugins/spriteAnim.js',
-          dirs.src + 'lib/plugins/landIn.js',
+          //dirs.src + 'lib/plugins/spriteAnim.js',
           dirs.src + 'lib/plugins/heroParallax.js',
           dirs.src + 'lib/plugins/modParallax.js'])
       .pipe(plumber())
