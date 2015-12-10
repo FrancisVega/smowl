@@ -62,7 +62,10 @@
 
       // Llamamos a soa
       $$($(extra), _this.triggerel).soa(
-        { "transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+        {
+          "from": {"transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+          "to":{}
+        },
         args.duration,
         0,
         "onLeave",
