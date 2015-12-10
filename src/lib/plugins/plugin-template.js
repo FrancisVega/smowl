@@ -1,7 +1,7 @@
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   //                                                                                            //
-  //  Secuoyas Animation Library - Secuoyas (c) 2015                                            //
+  //  Secuoyas Motion Wrapper Library - Secuoyas (c) 2015                                       //
   //  Plugin - pluginName.js                                                                    //
   //                                                                                            //
   ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,11 +11,14 @@
 
   /**
    * pluginName.js
-   * @param {type} name Description
+   * @param {type} args Argumentos
    * @return {sal}
    */
 
   $$.fn.pluginName = function(args) {
+
+    // Valores por defecto
+    args = typeof args !== 'undefined' ? args: {};
 
     $$(this.el, this.triggerel, this.pinel)
       .move("x", value, duration, offset, triggerHook)

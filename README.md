@@ -1,41 +1,24 @@
-# **Sal.js** #
+# **Smowljs** #
 
 ### **Setting Globales**
-##### Se puede añadir en el sal-site-config.js estas variables que actuan de forma genérica.
+##### Se puede añadir en el smowl-site-config.js estas variables que actuan de forma genérica.
 #
 ```js
-// Activa salida de métodos por la consola
-$$CONSOLE = (true|false);
-
-// Activa los indicadores para todos los elementos animados
-$$INDICATORS = (true|false);
-
-// Establece los valores por defecto a nivel general del site.
-$$SETUP = {
-  "duration": "", // "20%", "50%", ...
-  "offset": "", // "0", "20", ...
-  "triggerHook": "", // ".foo", "#bar", ...
-  "direction": "", // ("from"|"to")
-  "time": "", // "1", "1.6", ... segs
-  "reverse": "", // (true|false)
-  "ease": "", // "Power0.easeNone", "Power3.easeIn", ...
-  "delay": "", // "0", "42", ...
+// Valores iniciales por defecto.
+window.smowl_setup = {
+  "duration": {string|number}, // "20%", 200
+  "offset": {number}, // 0, 20
+  "triggerHook": {string}, // ".foo", "#bar", ...
+  "time": {number}, // 1, 1.6, ... segs
+  "reverse": {bool}, // Determina si el scroll funciona en ambos sentidos o solo en uno
+  "ease": {string}, // "Power0.easeNone", "Power3.easeIn", ...
+  "delay": {number}, // 0, 42, 13.6
+  "console": {bool}, // muestra salida con console.log() de los eventos
+  "indicators": {bool}, // enseña o oculta los indicadores de scrollmagic
 };
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-#Sal
+#Smowl.js
 
 Main function
 
@@ -44,7 +27,7 @@ Main function
 -   `el` **string** Elemento (query) que vamos a animar
 -   `triggerel` **string** Elemento que vamos a usar como trigger
 
-Returns **sal** 
+Returns **smowl**
 
 ## fadeIn
 
@@ -54,8 +37,8 @@ Fade In con SimpleObjectAnimation
 
 -   `fromValue` **float** El valor desde el que se va a animar
 -   `duration` **float** La duración en % de scroll o px
--   `offset`  
--   `triggerHook`  
+-   `offset`
+-   `triggerHook`
 
 Returns **salObject** Devuelve un objeto SAL.
 
@@ -77,7 +60,7 @@ Mueve un elemento en la coordenada dada
 
 **Parameters**
 
--   `coord`  
+-   `coord`
 -   `value` **float** Valor desde el que hacemos la escala
 -   `duration` **integer-string** Duración de la animación en %/px
 -   `offset` **integer** Valor en px para el "retardo" de la animación
