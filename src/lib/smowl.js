@@ -186,9 +186,6 @@ var smowl, $$;
           gsobject.from, gsobject.to
       );
 
-      console.log(this.el, time, gsobject.from, gsobject.to);
-
-
       // Creamos la escena
       $$(this.el, this.triggerel).scene({
         "duration": duration,

@@ -24,7 +24,7 @@
 
     args = typeof args !== 'undefined' ? args: {}
     args.duration = typeof args.duration !== 'undefined' ? args.duration: ($(this.el).innerHeight()) + "px";
-    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: "150%";
+    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: 0.2;
 
     var _this = this;
     var Trigger;
@@ -56,18 +56,14 @@
       $(extra).css({ "right": "0" });
       $(extra).css({ "top": "0" });
       $(extra).css({ "bottom": "0" });
-      $(extra).css( {
-        "transform":
-          "translate3d( 0, " + args.ratio + ", 0.001px"
-      });
 
-      console.log(args.ratio);
+      var ratio = $(extra).height()*args.ratio;
 
       // Llamamos a soa
       $$($(extra), _this.triggerel).soa(
         {
-          "from": {"transform": "translate3d(0, 0.1px, 0.001px)", ease: Power0.easeNone },
-          "to": {"transform": "translate3d(0, 100%, 0.001px)", ease: Power0.easeNone },
+          "from": {"transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+          "to": {"transform": "translate3d(0, "+ ratio +"px, 0.001px)", ease: Power0.easeNone },
         },
         args.duration,
         0,
