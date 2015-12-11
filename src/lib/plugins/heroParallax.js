@@ -24,6 +24,7 @@
 
     args = typeof args !== 'undefined' ? args: {}
     args.duration = typeof args.duration !== 'undefined' ? args.duration: ($(this.el).innerHeight()) + "px";
+    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: "150%";
 
     var _this = this;
     var Trigger;
@@ -60,18 +61,19 @@
           "translate3d( 0, " + args.ratio + ", 0.001px"
       });
 
+      console.log(args.ratio);
+
       // Llamamos a soa
       $$($(extra), _this.triggerel).soa(
         {
-          "from": {"transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
-          "to":{}
+          "from": {"transform": "translate3d(0, 0.1px, 0.001px)", ease: Power0.easeNone },
+          "to": {"transform": "translate3d(0, 100%, 0.001px)", ease: Power0.easeNone },
         },
         args.duration,
         0,
         "onLeave",
-        "from",
         "1",
-        "true",
+        true,
         false
       );
 

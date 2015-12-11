@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
   <meta charset='utf-8' />
@@ -76,41 +77,41 @@
     <ul class='suppress-p-margin'>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
           :
-          <span class='force-inline'>
+          <div class='force-inline'>
             <p>Elemento (query) que vamos a animar</p>
 
-          </span>
+          </div>
         </li>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>triggerel</strong>
           :
-          <span class='force-inline'>
+          <div class='force-inline'>
             <p>Elemento (query) que vamos a usar como trigger</p>
 
-          </span>
+          </div>
         </li>
         <li> <strong>pinel</strong>
           :
-          <span class='force-inline'>
+          <div class='force-inline'>
             
-          </span>
+          </div>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code>sal</code></code>
       
-      <span class='force-inline'>
+      <div class='force-inline'>
         
-      </span>
+      </div>
       <h4>Instance members</h4>
         <div class='collapsible' id='SMOWL.fade'>
           <a href='#SMOWL.fade'>
             <code>
               #fade<span class='gray'>(duration, duration, args)</span>
             </code>
-            <span class='force-inline'>
+            <div class='force-inline'>
               <p>Fade con SimpleObjectAnimation</p>
 
-            </span>
+            </div>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
@@ -123,32 +124,32 @@
                 <ul class='suppress-p-margin'>
                     <li><code>float</code> <strong>duration</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         <p>El valor desde el que se va a animar</p>
             
-                      </span>
+                      </div>
                     </li>
                     <li><code>float</code> <strong>duration</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         <p>La duraci&oacute;n en % de scroll o px</p>
             
-                      </span>
+                      </div>
                     </li>
                     <li> <strong>args</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         
-                      </span>
+                      </div>
                     </li>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>salObject</code></code>
                   :
-                  <span class='force-inline'>
+                  <div class='force-inline'>
                     <p>Devuelve un objeto SAL.</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
@@ -157,10 +158,10 @@
             <code>
               #fadeIn<span class='gray'>(args)</span>
             </code>
-            <span class='force-inline'>
+            <div class='force-inline'>
               <p>Anima un elemento hacia opacidad uno</p>
 
-            </span>
+            </div>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
@@ -173,39 +174,39 @@
                 <ul class='suppress-p-margin'>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         <p>Objeto animaci&oacute;n</p>
             
-                      </span>
+                      </div>
+                        <ul>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.value
+                              <p>Valor inicial para el fadeIn</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
+                              <p>La duraci&oacute;n en % de scroll o px</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.offset
+                              <p>Retardo de la animaci&oacute;n con respecto al trigger</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
+                              <p>Posici&oacute;n del trigger de scrollmagic</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.time
+                              <p>Tiempo de la animaci&oacute;nen caso de tener duraci&oacute;n 0</p>
+            </li>
+                            <li><code>bool</code> args.reverse
+                              <p>Determina si la animaci&oacute;n sucede tambi&eacute;n con el scroll reverso</p>
+            </li>
+                        </ul>
                     </li>
-                      <ul>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.value
-                            <p>Valor inicial para el fadeIn</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
-                            <p>La duraci&oacute;n en % de scroll o px</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.offset
-                            <p>Retardo de la animaci&oacute;n con respecto al trigger</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
-                            <p>Posici&oacute;n del trigger de scrollmagic</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.time
-                            <p>Tiempo de la animaci&oacute;nen caso de tener duraci&oacute;n 0</p>
-            </li>
-                          <li><code>bool</code> args.reverse
-                            <p>Determina si la animaci&oacute;n sucede tambi&eacute;n con el scroll reverso</p>
-            </li>
-                      </ul>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>bool</code></code>
                   :
-                  <span class='force-inline'>
+                  <div class='force-inline'>
                     <p>Devuelve un objeto SAL.</p>
             
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
@@ -214,10 +215,10 @@
             <code>
               #move<span class='gray'>(args)</span>
             </code>
-            <span class='force-inline'>
+            <div class='force-inline'>
               <p>Mueve un elemento en la coordenada dada</p>
 
-            </span>
+            </div>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
@@ -230,54 +231,54 @@
                 <ul class='suppress-p-margin'>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         <p>Argumentos en formato &apos;object notation&apos;</p>
             
-                      </span>
+                      </div>
+                        <ul>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.coord
+                              <p>Coordenada que se va a animar &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;all&quot;</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.value
+                              <p>Valor la coordenada</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.duration
+                                (default <code>&quot;100%&quot;</code>)
+                              <p>Duraci&oacute;n de la animaci&oacute;n en %/px</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.offset
+                                (default <code>&quot;0&quot;</code>)
+                              <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.triggerHook
+                                (default <code>&quot;onEnter&quot;</code>)
+                              <p>Posici&oacute;n del trigger de ScrollMagic</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.time
+                                (default <code>&quot;1&quot;</code>)
+                              <p>Timepo de animaci&oacute;n cuando duration = 0</p>
+            </li>
+                            <li><code>[<code>bool</code>]</code> args.reverse
+                                (default <code>true</code>)
+                              <p>True si la animaci&oacute;n sucede con el scroll inverso</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.ease
+                                (default <code>&quot;Power0.easeNone&quot;</code>)
+                              <p>Curva de la animaci&oacute;n</p>
+            </li>
+                            <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.delay
+                                (default <code>&quot;0&quot;</code>)
+                              <p>Retardo de la animaci&oacute;n cuando duration = 0</p>
+            </li>
+                        </ul>
                     </li>
-                      <ul>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.coord
-                            <p>Coordenada que se va a animar &quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;all&quot;</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.value
-                            <p>Valor la coordenada</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.duration
-                              (default <code>&quot;100%&quot;</code>)
-                            <p>Duraci&oacute;n de la animaci&oacute;n en %/px</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.offset
-                              (default <code>&quot;0&quot;</code>)
-                            <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.triggerHook
-                              (default <code>&quot;onEnter&quot;</code>)
-                            <p>Posici&oacute;n del trigger de ScrollMagic</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.time
-                              (default <code>&quot;1&quot;</code>)
-                            <p>Timepo de animaci&oacute;n cuando duration = 0</p>
-            </li>
-                          <li><code>[<code>bool</code>]</code> args.reverse
-                              (default <code>true</code>)
-                            <p>True si la animaci&oacute;n sucede con el scroll inverso</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.ease
-                              (default <code>&quot;Power0.easeNone&quot;</code>)
-                            <p>Curva de la animaci&oacute;n</p>
-            </li>
-                          <li><code>[<code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>]</code> args.delay
-                              (default <code>&quot;0&quot;</code>)
-                            <p>Retardo de la animaci&oacute;n cuando duration = 0</p>
-            </li>
-                      </ul>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>sal-object</code></code>
                   
-                  <span class='force-inline'>
+                  <div class='force-inline'>
                     
-                  </span>
+                  </div>
             </section>
           </div>
         </div>
@@ -286,10 +287,10 @@
             <code>
               #rotate<span class='gray'>(args)</span>
             </code>
-            <span class='force-inline'>
+            <div class='force-inline'>
               <p>Rotate</p>
 
-            </span>
+            </div>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
@@ -302,45 +303,45 @@
                 <ul class='suppress-p-margin'>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         <p>Argumentos en formato &apos;object notation&apos;</p>
             
-                      </span>
+                      </div>
+                        <ul>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.offset
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.time
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.reverse
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.ease
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.delay
+                              <p>Descripci&oacute;n</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.origin
+                              <p>Descripci&oacute;n</p>
+            </li>
+                        </ul>
                     </li>
-                      <ul>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.offset
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.time
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.reverse
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.ease
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.delay
-                            <p>Descripci&oacute;n</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.origin
-                            <p>Descripci&oacute;n</p>
-            </li>
-                      </ul>
                 </ul>
                   <h4>Returns</h4>
                   <code><code>salObject</code></code>
                   :
-                  <span class='force-inline'>
+                  <div class='force-inline'>
                     <p>Devuelve un objeto SAL.</p>
             
-                  </span>
+                  </div>
                 <h4>Examples</h4>
             <pre class='overflow-auto'>$$(<span class="hljs-string">".myClass"</span>).rotate({<span class="hljs-string">"value"</span>: <span class="hljs-string">"180"</span>, <span class="hljs-string">"origin"</span>: <span class="hljs-string">"center bottom"</span>});</pre>
             </section>
@@ -351,10 +352,10 @@
             <code>
               #scale<span class='gray'>(args)</span>
             </code>
-            <span class='force-inline'>
+            <div class='force-inline'>
               <p>Scale</p>
 
-            </span>
+            </div>
           </a>
           <div class='collapser border px2'>
             <section class='py2 clearfix'>
@@ -367,36 +368,36 @@
                 <ul class='suppress-p-margin'>
                     <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
                       :
-                      <span class='force-inline'>
+                      <div class='force-inline'>
                         
-                      </span>
+                      </div>
+                        <ul>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.value
+                              <p>Valor desde el que hacemos la escala.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.axy
+                              <p>Coordebada de escala, x, y, z o all.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
+                              <p>Valor de scroll en % o en px de la duraci&oacute;n de la animaci&oacute;n.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.offset
+                              <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.time
+                              <p>Tiempo de animaci&oacute;n en caso de que duration sea 0.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.reverse
+                              <p>Determina si existe animaci&oacute;n con el scroll inverso.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.ease
+                              <p>Curva de animaci&oacute;n.</p>
+            </li>
+                            <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.delay
+                              <p>Delay de la animaci&oacute;n si duraci&oacute;n es 0.</p>
+            </li>
+                        </ul>
                     </li>
-                      <ul>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.value
-                            <p>Valor desde el que hacemos la escala.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.axy
-                            <p>Coordebada de escala, x, y, z o all.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
-                            <p>Valor de scroll en % o en px de la duraci&oacute;n de la animaci&oacute;n.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.offset
-                            <p>Valor en px para el &quot;retardo&quot; de la animaci&oacute;n.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.time
-                            <p>Tiempo de animaci&oacute;n en caso de que duration sea 0.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.reverse
-                            <p>Determina si existe animaci&oacute;n con el scroll inverso.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.ease
-                            <p>Curva de animaci&oacute;n.</p>
-            </li>
-                          <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.delay
-                            <p>Delay de la animaci&oacute;n si duraci&oacute;n es 0.</p>
-            </li>
-                      </ul>
                 </ul>
             </section>
           </div>
@@ -412,18 +413,18 @@
     <ul class='suppress-p-margin'>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
           :
-          <span class='force-inline'>
+          <div class='force-inline'>
             <p>Elemento (query) del que vamos a obtener los data</p>
 
-          </span>
+          </div>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">json</a></code></code>
       
-      <span class='force-inline'>
+      <div class='force-inline'>
         
-      </span>
+      </div>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='getData' class='mt0'>
@@ -435,18 +436,18 @@
     <ul class='suppress-p-margin'>
         <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> <strong>el</strong>
           :
-          <span class='force-inline'>
+          <div class='force-inline'>
             <p>Elemento (query) del que vamos a obtener los data</p>
 
-          </span>
+          </div>
         </li>
     </ul>
       <h4>Returns</h4>
       <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">json</a></code></code>
       
-      <span class='force-inline'>
+      <div class='force-inline'>
         
-      </span>
+      </div>
 </section>
 </div>
         </div>

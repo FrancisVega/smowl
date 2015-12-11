@@ -27,18 +27,17 @@ $(function () {
 
 
   // fadein()
-  $$(".box__shape--one").fadeIn();
+  //$$(".box__shape--one").fadeIn();
 
   // fadeOut()
-  $$(".box__shape--two").fadeOut();
+  //$$(".box__shape--two").fadeOut();
 
   // fade()
-  $$(".box__shape--three").fade({ "from":0, "to":0.2 });
+  //$$(".box__shape--three").fade({ "from":0.1, "to":0.2 });
 
   // scale()
-  $$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
+  //$$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
 
-  $$(".box__shape--four").heroParallax({});
-
+  $$(".hero").heroParallax();
   // soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 });
