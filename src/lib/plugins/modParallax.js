@@ -23,8 +23,8 @@
       console.log("-> heroParallax()");
 
     args = typeof args !== 'undefined' ? args: {}
-    args.duration = typeof args.duration !== 'undefined' ? args.duration:
-      this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+    args.duration = typeof args.duration !== 'undefined' ? args.duration: this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: 1.5;
 
 
     var _this = this;
@@ -52,6 +52,7 @@
       $(extra).css({ "background-image": image });
       $(extra).css({ "background-size": "cover" });
       $(extra).css({ "background-repeat": "no-repeat" });
+      $(extra).css({ "background-position-y": "bottom" });
       $(extra).css({ "position": "absolute" });
       $(extra).css({ "z-index": "-1" });
       $(extra).css({ "left": "0" });
@@ -65,14 +66,15 @@
       });
 
       $$($(extra), _this.triggerel, _this.pinel).soa(
-        { "transform": "translate3d(0, 0%, 0.001px)" , ease: Power0.easeNone },
+        { "from": {},
+          "to": {"transform": "translate3d(0, 0, 0.001px)", ease: Power0.easeNone },
+        },
         args.duration,
         0,
-        "onEnter",
-        "from",
-        "1",
+        0.65,
+        1,
         true,
-        args.indicators
+        false
       );
 
     });

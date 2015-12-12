@@ -27,10 +27,10 @@ $(function () {
 
 
   // fadein()
-  //$$(".box__shape--one").fadeIn();
+  $$(".box__shape--one").fadeIn();
 
   // fadeOut()
-  //$$(".box__shape--two").fadeOut();
+  $$(".box__shape--two").fadeOut();
 
   // fade()
   //$$(".box__shape--three").fade({ "from":0.1, "to":0.2 });
@@ -39,5 +39,6 @@ $(function () {
   //$$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
 
   $$(".hero").heroParallax();
+  $$(".mod").modParallax({"ratio":3});
   // soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 });
