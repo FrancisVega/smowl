@@ -27,16 +27,16 @@
   $$.fn.spriteAnim = function(args) {
 
     // Valores por defecto
-    args             = typeof args             !== 'undefined' ? args: {};
-    args.duration    = typeof args.duration    !== 'undefined' ? args.duration: this.SETUP.duration;
-    args.offset      = typeof args.offset      !== 'undefined' ? args.offset: this.SETUP.offset;
-    args.triggerHook = typeof args.triggerHook !== 'undefined' ? args.triggerHook: this.SETUP.triggerHook;
-    args.frameDir    = typeof args.frameDir    !== 'undefined' ? args.frameDir: this.SETUP.frameDir;
-    args.time        = typeof args.time        !== 'undefined' ? args.time: this.SETUP.time;
-    args.reverse     = typeof args.reverse     !== 'undefined' ? args.reverse: this.SETUP.reverse;
-    args.ease        = typeof args.ease        !== 'undefined' ? args.ease: this.SETUP.ease;
-    args.delay       = typeof args.delay       !== 'undefined' ? args.delay: this.SETUP.delay;
-    args.indicators  = typeof args.indicators  !== 'undefined' ? args.indicators: this.SETUP.indicators;
+    args = args || {};
+    args.duration = args.duration || this.SETUP.duration;
+    args.offset = args.offset || this.SETUP.offset;
+    args.triggerHook = args.triggerHook || this.SETUP.triggerHook;
+    args.frameDir = args.frameDir || this.SETUP.frameDir;
+    args.time = args.time || this.SETUP.time;
+    args.reverse = args.reverse || this.SETUP.reverse;
+    args.ease = args.ease || this.SETUP.ease;
+    args.delay = args.delay || this.SETUP.delay;
+    args.indicators  = args.indicators  || this.SETUP.indicators;
 
     var _this = this;
     var trigger;

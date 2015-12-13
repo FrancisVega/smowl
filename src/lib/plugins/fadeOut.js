@@ -28,7 +28,7 @@
       console.log("-> fadeIn()");
 
     // Valores por defecto
-    args = typeof args !== 'undefined' ? args: {};
+    args = args || {};
 
     // Llamamos a fade
     $$(this.el, this.triggerel, this.pinel)

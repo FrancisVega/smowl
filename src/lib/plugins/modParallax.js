@@ -22,10 +22,9 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
-    args = typeof args !== 'undefined' ? args: {}
-    args.duration = typeof args.duration !== 'undefined' ? args.duration: this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
-    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: 1.5;
-
+    args = args || {}
+    args.ratio = args.ratio || 1.5;
+    args.duration = args.duration || this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
 
     var _this = this;
     var Trigger;
@@ -71,7 +70,7 @@
         },
         args.duration,
         0,
-        0.65,
+        "onEnter",
         1,
         true,
         false
