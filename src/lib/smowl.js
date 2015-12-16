@@ -367,8 +367,8 @@ var smowl, $$;
           "to":  { "x": args.to, ease: args.ease, delay: args.delay }
         },
         "y": {
-          "from":{},
-          "to":{ "y": args.to, ease: args.ease, delay: args.delay }
+          "from":{ "y": args.from, ease: args.ease, delay: args.delay },
+          "to":  { "y": args.to, ease: args.ease, delay: args.delay }
         },
         "z": {
           "from":{},
@@ -389,7 +389,7 @@ var smowl, $$;
         pinel = $(this).closest(_this.pinel)[0];
 
         // Llamamos a soa
-        $$(this, trigger, pinel).soa(
+        $$(this, _this.triggerel, pinel).soa(
           gsobject[args.axy],
           args.duration,
           args.offset,

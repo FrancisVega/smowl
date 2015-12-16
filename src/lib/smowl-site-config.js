@@ -11,7 +11,7 @@ $(function () {
 
   window.smowl_setup = {
     "triggerHook": 1,
-    "console": true,
+    "console": false,
     "indicators": true,
   };
 
@@ -28,7 +28,7 @@ $(function () {
 
   // fadein()
   //$$(".box__shape--one").fadeIn();
-  $$(".box__shape--one").move({"axy":"x", "to":300})
+  $$(".box__shape--one", ".box__trigger").move({"axy":"y", "to":300})
 
   // fadeOut()
   $$(".box__shape--two").fadeOut();
@@ -39,7 +39,7 @@ $(function () {
   // scale()
   $$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
 
-  $$(".hero").heroParallax({ "ratio":0.1 });
-  $$(".mod").modParallax({"ratio":3});
+  //$$(".hero").heroParallax({ "ratio":0.1 });
+  //$$(".mod").modParallax({"ratio":3});
   // soa: function( gsobject, duration, offset, triggerHook, time, reverse, indicators, from, to ) {
 });
