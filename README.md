@@ -18,6 +18,41 @@ window.smowl_setup = {
 };
 ```
 
+
+# Ejemplo de site-config.js
+
+´´´javascript
+window.smowl_setup = {
+  "triggerHook": "onEnter",
+  "console": true,
+  "indicators": true,
+};
+
+// fadein()
+$$(".class").fadeIn();
+
+// fadeOut()
+$$(".class").fadeOut();
+
+// Custom fade() 
+$$(".class").fade({ "from":0.2, "to":0.8 });
+
+// Custom Scale()
+$$(".box__shape--four", ".box__trigger").scale({"axy":"all", "from":1, "to":2});
+
+// Hero Parallax
+$$(".hero").heroParallax({ "ratio":0.8 }); // ratio < 1
+
+// Module Parallax
+$$(".mod").modParallax({ "ratio":3 }); // ratio > 1
+```
+
+
+
+
+
+
+
 #Smowl.js
 
 Main function
