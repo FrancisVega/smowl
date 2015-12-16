@@ -46,6 +46,7 @@
       $(this).css({ "background-color": "transparent"});
       $(this).css({ "position": "relative"});
       $(this).css({ "overflow": "hidden"});
+      $(this).css({ "z-index": 0});
 
       // Aplicamos los estilos necesarios al nuevo contenedor
       $(extra).css({ "background-image": image });
