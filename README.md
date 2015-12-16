@@ -21,7 +21,7 @@ window.smowl_setup = {
 
 # Ejemplo de site-config.js
 
-´´´javascript
+```js
 window.smowl_setup = {
   "triggerHook": "onEnter",
   "console": true,
