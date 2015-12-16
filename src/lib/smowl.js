@@ -362,13 +362,23 @@ var smowl, $$;
       // TODO:
       // Por favor encontrar una solución a esta cha-pu-za
       var gsobject = {
-        "x":{ "x": args.value, ease: args.ease, delay: args.delay },
-        "y":{ "y": args.value, ease: args.ease, delay: args.delay },
-        "z":{ "z": args.value, ease: args.ease, delay: args.delay }
-      };
+        "x": {
+          "from":{ "x": args.from, ease: args.ease, delay: args.delay },
+          "to":  { "x": args.to, ease: args.ease, delay: args.delay }
+        },
+        "y": {
+          "from":{},
+          "to":{ "y": args.to, ease: args.ease, delay: args.delay }
+        },
+        "z": {
+          "from":{},
+          "to":{ "z": args.to, ease: args.ease, delay: args.delay }
+        }
+      }
 
       var _this = this;
       var trigger;
+      var pinel;
 
       $(this.el).each(function() {
 
@@ -428,16 +438,16 @@ var smowl, $$;
       // Por favor encontrar una solución a esta cha-pu-za
       var gsobject = {
         "x": {
-          "from":{ "scaleX": args.from, ease: args.ease, delay: args.delay },
-          "to":{ "scaleX": args.to, ease: args.ease, delay: args.delay }
+          "from":{ "scalex": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scalex": args.to, ease: args.ease, delay: args.delay }
         },
         "y": {
-          "from":{ "scaleY": args.from, ease: args.ease, delay: args.delay },
-          "to":{ "scaleY": args.to, ease: args.ease, delay: args.delay }
+          "from":{ "scaley": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scaley": args.to, ease: args.ease, delay: args.delay }
         },
         "z": {
-          "from":{ "scaleZ": args.from, ease: args.ease, delay: args.delay },
-          "to":{ "scaleZ": args.to, ease: args.ease, delay: args.delay }
+          "from":{ "scalez": args.from, ease: args.ease, delay: args.delay },
+          "to":{ "scalez": args.to, ease: args.ease, delay: args.delay }
         },
         "all": {
           "from":{ "scale": args.from, ease: args.ease, delay: args.delay },
