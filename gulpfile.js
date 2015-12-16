@@ -167,7 +167,9 @@
           dirs.src + 'lib/smowl.js',
           //dirs.src + 'lib/plugins/spriteAnim.js',
           dirs.src + 'lib/plugins/heroParallax.js',
-          dirs.src + 'lib/plugins/modParallax.js'])
+          dirs.src + 'lib/plugins/modParallax.js',
+          dirs.src + 'lib/plugins/fadeIn.js',
+          dirs.src + 'lib/plugins/fadeOut.js'])
       .pipe(plumber())
       .pipe(concat('smowl-'+version+'-bundle.js'))
       .pipe(gulp.dest(dirs.min))
