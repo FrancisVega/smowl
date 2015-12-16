@@ -34,6 +34,9 @@ $$(".class").fadeIn();
 // fadeOut()
 $$(".class").fadeOut();
 
+// Custom move()
+$$(".class").move({"axy":"x", "to":300});
+
 // Custom fade() 
 $$(".class").fade({ "from":0.2, "to":0.8 });
 
