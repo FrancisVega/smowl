@@ -5,28 +5,24 @@
 #
 ```js
 // Valores iniciales por defecto.
-window.smowl_setup = {
-  "duration": {string|number}, // "20%", 200
-  "offset": {number}, // 0, 20
-  "triggerHook": {string}, // ".foo", "#bar", ...
-  "time": {number}, // 1, 1.6, ... segs
-  "reverse": {bool}, // Determina si el scroll funciona en ambos sentidos o solo en uno
-  "ease": {string}, // "Power0.easeNone", "Power3.easeIn", ...
-  "delay": {number}, // 0, 42, 13.6
-  "console": {bool}, // muestra salida con console.log() de los eventos
-  "indicators": {bool}, // enseña o oculta los indicadores de scrollmagic
-};
+smowlDuration = {string|number}; // "20%", 200
+smowlOffset = {number}; // 0, 20
+smowlTriggerHook = {string}; // ".foo", "#bar", ...
+smowlTime = {number}; // 1, 1.6, ... segs
+smowlReverse = {bool}; // Determina si el scroll funciona en ambos sentidos o solo en uno
+smowlEase = {string}; // "Power0.easeNone", "Power3.easeIn", ...
+smowlDelay = {number}; // 0, 42, 13.6
+smowlConsole = {bool}; // muestra salida con console.log() de los eventos
+smowlIndicators = {bool}; // enseña o oculta los indicadores de scrollmagic
 ```
 
 
 # Ejemplo de site-config.js
 
 ```js
-window.smowl_setup = {
-  "triggerHook": "onEnter",
-  "console": true,
-  "indicators": true,
-};
+smowlTriggerHook = "onEnter";
+smowlConsole = true;
+smowlIndicators = true;
 
 // fadein()
 $$(".class").fadeIn();
@@ -49,11 +45,6 @@ $$(".hero").heroParallax({ "ratio":0.8 }); // ratio < 1
 // Module Parallax
 $$(".mod").modParallax({ "ratio":3 }); // ratio > 1
 ```
-
-
-
-
-
 
 
 #Smowl.js
