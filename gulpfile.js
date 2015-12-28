@@ -39,10 +39,11 @@
   //
 
   var dirs = {
-    src: 'src/',
+    src: 'smowl/uncompressed/',
+    min: 'smowl/minified/',
+    demo: 'examples/',
     dst: 'dist/',
-    doc: 'doc/',
-    min: 'min/',
+    doc: 'docs/'
   };
 
   var version = argv.version;
@@ -62,14 +63,14 @@
       //csswring
     ];
 
-    return gulp.src(dirs.src + 'scss/*.scss')
+    return gulp.src(dirs.demo + 'scss/*.scss')
       .pipe(plumber())
       .pipe(sourcemaps.init())
       .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
       .pipe(postcss(processors))
       //.pipe(autoprefixer())
       .pipe(sourcemaps.write())
-      .pipe(gulp.dest(dirs.src + 'css'))
+      .pipe(gulp.dest(dirs.demo + 'css'))
       // Reloading the stream
       .pipe(browserSync.reload({
           stream: true
@@ -86,7 +87,7 @@
     browserSync({
       files: "*.php, *.html, *.js, *.css",
       server: {
-        baseDir: dirs.src
+        baseDir: dirs.demo
       },
       // browser: 'safari'
       browser: 'google chrome',
@@ -102,9 +103,9 @@
   //
 
   gulp.task('watch', ['browserSync'], function(){
-    gulp.watch(dirs.src + 'scss/*.scss', ['sass']);
-    gulp.watch(dirs.src + '*.html', browserSync.reload);
-    gulp.watch(dirs.src + 'lib/**/*.js', browserSync.reload);
+    gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
+    gulp.watch(dirs.demo + '*.html', browserSync.reload);
+    gulp.watch(dirs.src + '**/*.js', browserSync.reload);
   });
 
 
@@ -137,45 +138,46 @@
   gulp.task('minimize', function() {
       console.log("MINIMIZE");
       return gulp.src([
-        dirs.src + 'lib/smowl.js',
-        //dirs.src + 'lib/plugins/appearIn.js',
-        dirs.src + 'lib/plugins/landIn.js',
-        dirs.src + 'lib/plugins/heroParallax.js',
-        dirs.src + 'lib/plugins/modParallax.js',
-        dirs.src + 'lib/plugins/spriteAnim.js',
+        dirs.src + 'smowl.js',
+        dirs.src + 'plugins/appearIn.js',
+        dirs.src + 'plugins/landIn.js',
+        dirs.src + 'plugins/heroParallax.js',
+        dirs.src + 'plugins/modParallax.js',
+        dirs.src + 'plugins/spriteAnim.js',
         ])
         .pipe(plumber())
         .pipe(concat('smowl-'+version+'.js'))
         .pipe(gulp.dest(dirs.min))
         .pipe(rename('smowl-'+version+'.min.js'))
-        //.pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest(dirs.min))
         });
 
 
   //
-  // CONCATENATE sal, greensock & scrollmagic
+  // CONCATENATE smowl, greensock & scrollmagic
   //
 
   gulp.task('minimize-bundle', function() {
       console.log("MINIMIZE-BUNDLE");
       return gulp.src([
-          dirs.src + 'lib/vendor/ScrollMagic.js',
-          dirs.src + 'lib/vendor/TweenMax.js',
-          dirs.src + 'lib/vendor/animation.gsp.js',
-          dirs.src + 'lib/vendor/debug.addIndicators.js',
-          dirs.src + 'lib/smowl.js',
-          //dirs.src + 'lib/plugins/spriteAnim.js',
-          dirs.src + 'lib/plugins/heroParallax.js',
-          dirs.src + 'lib/plugins/modParallax.js',
-          dirs.src + 'lib/plugins/fadeIn.js',
-          dirs.src + 'lib/plugins/fadeOut.js'])
+          dirs.src + 'vendor/ScrollMagic.js',
+          dirs.src + 'vendor/TweenMax.js',
+          dirs.src + 'vendor/animation.gsp.js',
+          dirs.src + 'vendor/debug.addIndicators.js',
+          dirs.src + 'smowl.js',
+          dirs.src + 'plugins/spriteAnim.js',
+          dirs.src + 'plugins/heroParallax.js',
+          dirs.src + 'plugins/modParallax.js',
+          dirs.src + 'plugins/fadeIn.js',
+          dirs.src + 'plugins/fadeOut.js'])
       .pipe(plumber())
       .pipe(concat('smowl-'+version+'-bundle.js'))
       .pipe(gulp.dest(dirs.min))
       .pipe(rename('smowl-'+version+'-bundle.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(dirs.min))
+      console.log(dirs.min);
   });
 
 
@@ -185,7 +187,7 @@
 
   gulp.task('doc', function() {
       //return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/plugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' , dirs.src + 'lib/plugins/appearIn.js'])
-      return gulp.src([ dirs.src + 'lib/smowl.js'])
+      return gulp.src([ dirs.src + 'smowl.js'])
       .pipe(doc({ format: 'html' }))
       .pipe(gulp.dest( dirs.doc ));
   });
@@ -206,7 +208,7 @@
   gulp.task('default', ['sass', 'watch', 'doc']);
   gulp.task('min', function(callback) {
     runSequence(
-        ['minimize', 'minimize-bundle' ],
+        ['minimize', 'minimize-bundle'],
         'cleanSalJs',
         callback);
   });
