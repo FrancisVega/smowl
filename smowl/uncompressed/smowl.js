@@ -18,7 +18,7 @@
 
 var smowl, $$;
 
-(function (window) {
+(function (window, document) {
 
   'use strict';
 
@@ -44,29 +44,21 @@ var smowl, $$;
   var SMOWL = function(el, triggerel, pinel) {
 
     // Valores por defecto globales
-    window.smowl_setup.duration = window.smowl_setup.duration || "100%";
-    window.smowl_setup.offset = window.smowl_setup.offset || 0;
-    window.smowl_setup.triggerHook = window.smowl_setup.triggerHook || "onEnter";
-    window.smowl_setup.time = window.smowl_setup.time || 1;
-    window.smowl_setup.reverse = window.smowl_setup.reverse || true;
-    window.smowl_setup.ease = window.smowl_setup.ease || "Power0.easeNone";
-    window.smowl_setup.delay = window.smowl_setup.delay || 0;
-    window.smowl_setup.frameDir = window.smowl_setup.frameDir || "x";
-    window.smowl_setup.indicators = window.smowl_setup.indicators || false;
-    window.smowl_setup.console = window.smowl_setup.console || false;
 
-    window.smowl_setup = {
-      "duration": window.smowl_setup.duration,
-      "offset": window.smowl_setup.offset,
-      "triggerHook": window.smowl_setup.triggerHook,
-      "time": window.smowl_setup.time,
-      "reverse": window.smowl_setup.reverse,
-      "ease": window.smowl_setup.ease,
-      "delay": window.smowl_setup.delay,
-      "frameDir": window.smowl_setup.frameDir,
-      "indicators": window.smowl_setup.indicators,
-      "console": window.smowl_setup.console
-    };
+     window.smowl_setup = {
+       "duration": window.smowlDuration = window.smowlDuration || "100%",
+       "offset": window.smowlOffset = window.smowlOffset || 0,
+       "triggerHook": window.smowlTriggerHook = window.smowlTriggerHook || "onEnter",
+       "time": window.smowlTime = window.smowlTime || 1,
+       "reverse": window.smowlReverse = window.smowlReverse || true,
+       "ease": window.smowlEase = window.smowlEase || "Power0.easeNone",
+       "delay": window.smowlDelay = window.smowlDelay || 0,
+       "frameDir": window.smowlFrameDir = window.smowlFrameDir || "x",
+       "indicators": window.smowlIndicators = window.smowlIndicators || false,
+       "console": window.smowlConsol = window.smowlConsol || false
+     };
+
+    console.log(window.smowl_setup.duration);
 
     // Asignamos al objeto this el element, trigger y el pinelement
     this.el = el;
@@ -497,4 +489,4 @@ var smowl, $$;
     window.SMOWL = SMOWL;
   }
 
-})(window);
+})(window, document);
