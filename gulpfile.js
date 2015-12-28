@@ -43,6 +43,7 @@
     min: 'smowl/minified/',
     demo: 'examples/',
     dst: 'dist/',
+    tests: 'tests/',
     doc: 'docs/'
   };
 
@@ -87,7 +88,8 @@
     browserSync({
       files: "*.php, *.html, *.js, *.css",
       server: {
-        baseDir: dirs.demo
+        baseDir: "",
+        //baseDir: dirs.tests
       },
       // browser: 'safari'
       browser: 'google chrome',
@@ -105,6 +107,8 @@
   gulp.task('watch', ['browserSync'], function(){
     gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
     gulp.watch(dirs.demo + '*.html', browserSync.reload);
+    gulp.watch(dirs.tests + '**/*.js', browserSync.reload);
+    gulp.watch(dirs.tests + '**/*.html', browserSync.reload);
     gulp.watch(dirs.src + '**/*.js', browserSync.reload);
   });
 

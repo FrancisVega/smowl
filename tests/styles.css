@@ -1,0 +1,36 @@
+
+{
+    font-size: 16px;
+    background-color: #232323;
+    color: white;
+}
+
+.space {
+    min-height: 50vh;
+}
+
+.box__shape {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: gray;
+}
+
+.box__shape p {
+    font-size: 2em;
+    padding-top: 40%;
+    text-align: center;
+}
+
+.hero {
+    height: 620px;
+    background-image: url("../background.png");
+    background-size: cover;
+}
+
+.mod {
+    height: 320px;
+    background-image: url("../background.png");
+    background-size: cover;
+}
