@@ -47,6 +47,11 @@
                   #scale
                 </a>
               <a
+                href='#fadeIn'
+                class='block bold'>
+                fadeIn
+              </a>
+              <a
                 href='#getData'
                 class='block bold'>
                 getData
@@ -339,6 +344,59 @@
             </section>
           </div>
         </div>
+</section>
+</div><div class='py1'><section class='py2 clearfix'>
+  <h2 id='fadeIn' class='mt0'>
+    fadeIn<span class='gray'>(args)</span>
+  </h2>
+  <p>Anima un elemento desde 0 a 1.0</p>
+
+    <h4>Parameters</h4>
+    <ul class='suppress-p-margin'>
+        <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code> <strong>args</strong>
+          :
+          <span class='force-inline'>
+            <p>Objeto animaci&oacute;n</p>
+
+          </span>
+        </li>
+          <ul>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.value
+                <p>Valor inicial para el fadeIn</p>
+</li>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.duration
+                <p>La duraci&oacute;n en % de scroll o px</p>
+</li>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.offset
+                <p>Retardo de la animaci&oacute;n con respecto al trigger</p>
+</li>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code> args.triggerHook
+                <p>Posici&oacute;n del trigger de scrollmagic</p>
+</li>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code> args.time
+                <p>Tiempo de la animaci&oacute;nen caso de tener duraci&oacute;n 0</p>
+</li>
+              <li><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code> args.reverse
+                <p>Determina si la animaci&oacute;n sucede tambi&eacute;n con el scroll reverso</p>
+</li>
+          </ul>
+    </ul>
+      <h4>Returns</h4>
+      <code><code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code></code>
+      :
+      <span class='force-inline'>
+        <p>Devuelve un objeto smowl.</p>
+
+      </span>
+    <h4>Examples</h4>
+<pre class='overflow-auto'><span class="hljs-comment">// fade in an element with default values</span>
+$$(<span class="hljs-string">".myClass"</span>).fadeIn();
+
+<span class="hljs-comment">// fade in an element with duration at 50$ and the trigger hook at center</span>
+$$(<span class="hljs-string">".myClass"</span>).fadeIn({<span class="hljs-string">"duration"</span>: <span class="hljs-string">"50%"</span>, triggerHook: <span class="hljs-string">"onCenter"</span>});
+
+<span class="hljs-comment">// fade in an element specifying the trigger element</span>
+$$(<span class="hljs-string">".myClass"</span>, <span class="hljs-string">".trigger"</span>).fadeIn();</pre>
 </section>
 </div><div class='py1'><section class='py2 clearfix'>
   <h2 id='getData' class='mt0'>

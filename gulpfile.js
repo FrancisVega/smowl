@@ -106,6 +106,7 @@
 
   gulp.task('watch', ['browserSync'], function(){
     gulp.watch(dirs.demo + 'scss/*.scss', ['sass']);
+    gulp.watch(dirs.src + '**/*.js', ['doc']);
     gulp.watch(dirs.demo + '*.html', browserSync.reload);
     gulp.watch(dirs.tests + '**/*.js', browserSync.reload);
     gulp.watch(dirs.tests + '**/*.html', browserSync.reload);
@@ -191,9 +192,11 @@
 
   gulp.task('doc', function() {
       //return gulp.src([ dirs.src + 'lib/sal.js', dirs.src + 'lib/plugins/heroParallax.js', dirs.src + 'lib/plugins/modParallax.js', dirs.src + 'lib/plugins/landIn.js' , dirs.src + 'lib/plugins/appearIn.js'])
-      return gulp.src([ dirs.src + 'smowl.js'])
-      .pipe(doc({ format: 'html' }))
-      .pipe(gulp.dest( dirs.doc ));
+      /*
+       *return gulp.src([ dirs.src + 'smowl.js', dirs.src+'plugins/fadeIn.js'])
+       *.pipe(doc({ format: 'html' }))
+       *.pipe(gulp.dest( dirs.doc ));
+       */
   });
 
 

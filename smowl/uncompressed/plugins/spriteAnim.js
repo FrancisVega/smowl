@@ -26,17 +26,17 @@
 
   $$.fn.spriteAnim = function(args) {
 
-    // Valores por defecto
+    // Default values
     args = args || {};
-    args.duration = args.duration || this.SETUP.duration;
-    args.offset = args.offset || this.SETUP.offset;
-    args.triggerHook = args.triggerHook || this.SETUP.triggerHook;
-    args.frameDir = args.frameDir || this.SETUP.frameDir;
-    args.time = args.time || this.SETUP.time;
-    args.reverse = args.reverse || this.SETUP.reverse;
-    args.ease = args.ease || this.SETUP.ease;
-    args.delay = args.delay || this.SETUP.delay;
-    args.indicators  = args.indicators  || this.SETUP.indicators;
+    args.duration = args.duration || window.smowl_setup.duration;
+    args.offset = args.offset || window.smowl_setup.offset;
+    args.triggerHook = args.triggerHook || window.smowl_setup.triggerHook;
+    args.frameDir = args.frameDir || window.smowl_setup.frameDir;
+    args.time = args.time || window.smowl_setup.time;
+    args.reverse = args.reverse || window.smowl_setup.reverse;
+    args.ease = args.ease || window.smowl_setup.ease;
+    args.delay = args.delay || window.smowl_setup.delay;
+    args.indicators  = args.indicators  || window.smowl_setup.indicators;
 
     var _this = this;
     var trigger;

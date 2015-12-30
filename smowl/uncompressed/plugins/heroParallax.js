@@ -22,9 +22,10 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
-    args = typeof args !== 'undefined' ? args: {}
-    args.duration = typeof args.duration !== 'undefined' ? args.duration: ($(this.el).innerHeight()) + "px";
-    args.ratio = typeof args.ratio !== 'undefined' ? args.ratio: 0.2;
+    // Default values
+    args = args || {};
+    args.duration = args.duration || ($(this.el).innerHeight()) + "px";
+    args.ratio = args.ratio || 0.2;
 
     var _this = this;
     var Trigger;

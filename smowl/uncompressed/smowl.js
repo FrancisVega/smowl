@@ -58,12 +58,11 @@ var smowl, $$;
        "console": window.smowlConsol = window.smowlConsol || false
      };
 
-    console.log(window.smowl_setup.duration);
-
     // Asignamos al objeto this el element, trigger y el pinelement
     this.el = el;
     this.triggerel = triggerel;
     this.pinel = pinel;
+    this.typename = "smowl";
 
     // Globals
     this.CONTROLLER = new ScrollMagic.Controller();
@@ -304,7 +303,8 @@ var smowl, $$;
         $$(this, trigger, pinel).soa(
           {
             "from": { "opacity": args.from },
-            "to": { "opacity": args.to }
+            "to": { "opacity": args.to },
+
           },
           args.duration,
           args.offset,

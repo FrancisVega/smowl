@@ -3,15 +3,18 @@
     <head>
         <meta charset="utf-8">
         <title>Smowl Test</title>
-        <link rel="stylesheet" href="../../node_modules/qunitjs/qunit/qunit.css">
+        <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id="qunit"></div>
-        <div id="qunit-fixture"></div>
-        <script src="../../node_modules/qunitjs/qunit/qunit.js"></script>
+        <div id="mocha"></div>
 
-        <script src="../../smowl/uncompressed/vendor/jquery-2.1.4.min.js"></script>
+        <script src="https://cdn.rawgit.com/jquery/jquery/2.1.4/dist/jquery.min.js"></script>
+        <script src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+        <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+        <script src="chai.js"></script>
+
+        <!--<script src="../../smowl/uncompressed/vendor/jquery-2.1.4.min.js"></script>-->
         <script src="../../smowl/uncompressed/vendor/ScrollMagic.js"></script>
         <script src="../../smowl/uncompressed/vendor/TweenMax.js"></script>
         <script src="../../smowl/uncompressed/vendor/animation.gsp.js"></script>
@@ -22,8 +25,14 @@
         <script src="../../smowl/uncompressed/plugins/modParallax.js"></script>
         <script src="../../smowl/uncompressed/plugins/fadeIn.js"></script>
         <script src="../../smowl/uncompressed/plugins/fadeOut.js"></script>
-
+        <script src="../../smowl/uncompressed/plugins/spriteAnim.js"></script>
+        <script>mocha.setup('bdd')</script>
         <script src="tests.js"></script>
+
+
+        <!--<script src="tests.js"></script>-->
+
+        <script>mocha.run();</script>
 
         <!-- BOX -->
         <div class="space"></div>
@@ -31,6 +40,8 @@
         <div class="box__shape box__shape--one">
             <p>fadeIn()</p>
         </div>
+        <div class="space"></div>
+        <div class="space"></div>
         <div class="space"></div>
 
     </body>

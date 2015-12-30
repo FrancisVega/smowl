@@ -22,9 +22,10 @@
     if (this.CONSOLE)
       console.log("-> heroParallax()");
 
-    args = args || {}
-    args.ratio = args.ratio || 1.5;
+    // Default values
+    args = args || {};
     args.duration = args.duration || this.BROWSER_HEIGHT + ($(this.el).innerHeight()) + "px";
+    args.ratio = args.ratio || 1.5;
 
     var _this = this;
     var Trigger;
