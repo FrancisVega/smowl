@@ -43,7 +43,7 @@
     min: 'smowl/minified/',
     demo: 'examples/',
     dst: 'dist/',
-    tests: 'tests/',
+    tests: 'test/',
     doc: 'docs/'
   };
 
