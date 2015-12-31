@@ -302,8 +302,8 @@ var smowl, $$;
         // Llamamos a soa
         $$(this, trigger, pinel).soa(
           {
-            "from": { "opacity": args.from },
-            "to": { "opacity": args.to },
+            "from": { "opacity": args.from, "ease": args.ease },
+            "to": { "opacity": args.to, "ease": args.ease },
 
           },
           args.duration,
