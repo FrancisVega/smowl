@@ -11,8 +11,23 @@ body {
     color: white;
 }
 
+
+
+
+
+
+@mixin foo($size, $mul:0) {
+  border: $size solid red;
+  @debug $mul;
+}
+
+
+
+
+
 .space {
     min-height: 100vh;
+    @include foo(2px, 10px)
 }
 
 .box__shape {
@@ -34,3 +49,5 @@ body {
     background-image: url("../background.png");
     background-size: cover;
 }
+
+
