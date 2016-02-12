@@ -11,6 +11,20 @@ body {
     color: white;
 }
 
+
+
+
+
+
+@mixin foo($size, $mul:0) {
+  border: $size solid red;
+  @debug $mul;
+}
+
+
+
+
+
 .space {
     min-height: 50vh;
 }

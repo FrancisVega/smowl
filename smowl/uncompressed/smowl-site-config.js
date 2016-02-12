@@ -16,19 +16,21 @@ $(function () {
   };
 
   // Animación
-  //$$(".box", ".box", ".box").spriteAnim({
-    //"duration": "100%",
-    //"frameWidth": "384",
-    //"frameCount": "43",
-    //"triggerHook": "onCenter",
-    //"indicators": false,
-    //"frameDir": "x"
-  //});
-
+  /*
+   *$$(".box", ".box", ".box").spriteAnim({
+   *  "duration": "100%",
+   *  "frameWidth": "384",
+   *  "frameCount": "43",
+   *  "triggerHook": "onCenter",
+   *  "indicators": false,
+   *  "frameDir": "x"
+   *});
+   */
 
   // fadein()
   //$$(".box__shape--one").fadeIn();
   $$(".box__shape--one", ".box__trigger").move({"axy":"y", "to":300})
+  $$(".box__shape--one").fadeIn();
 
   // fadeOut()
   $$(".box__shape--two").fadeOut();
